@@ -29,6 +29,7 @@ $badgeClass = $isDocente ? 'pill--purple' : 'pill--green';
   <link rel="stylesheet" href="../07_diseno_y_graficos/dashboard.css?v=<?= time() ?>">
   <link rel="stylesheet" href="juego.css?v=<?= time() ?>">
   <link rel="icon" type="image/png" href="../02_tekobot/TekoBot/Hackaton/assets/images/tejuxi-face.png?v=20260926">
+<link rel="stylesheet" href="../07_diseno_y_graficos/teko-ui.css?v=20261028">
 </head>
 <body class="arcade-page-body">
 
@@ -74,7 +75,7 @@ $badgeClass = $isDocente ? 'pill--purple' : 'pill--green';
               🤖 TekoBot
             </a>
             <a href="../04_diagnostico_y_rutas_de_aprendizaje/tekobeta.php" class="topnav__user-dropdown-link">
-              🧪 TekoBeta
+              🧪 Teko Desafíos
             </a>
             <a href="../01_sistema_principal_y_registro_offline/logout.php" class="topnav__user-dropdown-link topnav__user-dropdown-link--logout">
               🚪 Cerrar sesión

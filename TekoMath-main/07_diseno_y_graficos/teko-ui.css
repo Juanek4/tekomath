@@ -1,0 +1,78 @@
+/* Shared accessible controls for the platform. */
+:root{--teko-focus:#7651b5;--teko-touch:44px}
+*,*::before,*::after{box-sizing:border-box}
+button,input,select,textarea{font:inherit;touch-action:manipulation}
+:where(button,a,input,select,textarea,summary):focus-visible{outline:3px solid var(--teko-focus);outline-offset:3px}
+:where(button,.btn,[role=button]){min-height:44px}
+:where(input:not([type=checkbox]):not([type=radio]):not([type=range]),select,textarea){max-width:100%;min-height:44px}
+:where(img,video,canvas){max-width:100%}
+:where(.card,.dashboard,.modal,.modal-content){min-width:0}
+:where(.alert,.error-message,.success-message,.message-content){overflow-wrap:anywhere}
+@media(max-width:768px){
+ :where(input,select,textarea){font-size:16px}
+ :where(.dashboard){padding-inline:12px}
+ :where(.modal,.modal-content){max-width:calc(100vw - 24px);max-height:calc(100dvh - 24px);overflow-y:auto}
+ :where(.topnav__inner){gap:8px;min-width:0}
+ :where(.table-container,.table-responsive){max-width:100%;overflow-x:auto}
+ :where(.btn){white-space:normal;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Language selector: shared segmented control, also used inside the tutor. */
+#jopamath-lang-switcher{display:inline-flex;flex:0 0 auto;max-width:100%;margin:0;vertical-align:middle}
+#jopamath-lang-switcher .jopamath-pill-toggle{display:inline-flex;align-items:center;gap:4px;padding:4px;background:#edf5f1;border:1px solid #c1d8cc;border-radius:16px;box-shadow:0 2px 5px #123d2510}
+#jopamath-lang-switcher .jopamath-lang-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 14px;border:0;border-radius:11px;background:transparent;color:#416152;font:600 13px/1.2 system-ui,sans-serif;white-space:nowrap;cursor:pointer;box-shadow:none;transform:none;transition:background .15s,color .15s,box-shadow .15s}
+#jopamath-lang-switcher .jopamath-lang-btn:hover{background:#dcebe3;color:#164b35}
+#jopamath-lang-switcher .jopamath-lang-btn--active{background:#176b4b;color:#fff;box-shadow:0 2px 4px #0c452329}
+#jopamath-lang-switcher .jopamath-lang-btn--active:hover{background:#12563c;color:white}
+#jopamath-lang-switcher .jopamath-lang-btn:focus-visible{outline:3px solid #8c65bc;outline-offset:2px}
+.nav-actions-sidebar #jopamath-lang-switcher{width:100%;margin:4px 0}
+.nav-actions-sidebar .jopamath-pill-toggle{width:100%}
+.nav-actions-sidebar .jopamath-lang-btn{flex:1}
+@media(max-width:640px){#jopamath-lang-switcher .jopamath-lang-btn{min-height:44px;padding:8px 10px;font-size:12px}}
+
+.assignment-entry{display:flex;align-items:center;gap:14px;width:fit-content;max-width:100%;margin:0 0 20px;padding:14px 18px;background:#fff;border:2px solid #195c43;border-radius:16px;color:#164d39;text-decoration:none;box-shadow:3px 3px 0 #195c43;transition:background .15s,transform .15s}
+.assignment-entry:hover{background:#edf7f1;transform:translateY(-2px)}
+.assignment-entry__icon{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#e3f3e9;flex-shrink:0}
+.assignment-entry strong,.assignment-entry small{display:block}.assignment-entry small{margin-top:4px;color:#496457;font-size:.82rem}.assignment-entry>span:last-child{margin-left:auto}
+.desafios-preview{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;margin:28px 0;padding:28px;border:2px solid #24202c;border-radius:24px;background:linear-gradient(125deg,#f5edff,#fff8e7);box-shadow:5px 5px 0 #24202c}
+.desafios-preview h2{font-size:1.8rem;margin:14px 0 10px;color:#46246c}.desafios-preview__intro>p{line-height:1.65;margin-bottom:20px}
+.desafios-preview__activities{display:grid;gap:14px;align-content:center}.desafios-preview__activities>a{display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border:2px solid #ddd0eb;border-radius:16px;text-decoration:none;color:#30263c}
+.desafios-preview__activities>a:hover{border-color:#7651b5;background:#fcf9ff}.desafios-preview__activities>a>span:first-child{font-size:1.7rem}.desafios-preview h3{font-size:1rem;margin:0 0 6px}.desafios-preview__activities p{font-size:.9rem;line-height:1.5;margin:0}.desafios-preview__activities>a>span:last-child{margin-left:auto}
+@media(max-width:768px){.assignment-entry{width:100%;padding:12px}.desafios-preview{grid-template-columns:1fr;padding:20px;gap:20px}.desafios-preview__intro .btn{width:100%}.desafios-preview__activities>a{padding:16px}}
+.admin-console{width:min(100% - 24px,580px);margin:40px auto;padding:28px;border:2px solid #254b3c;border-radius:20px;background:#fff;box-shadow:5px 5px 0 #254b3c}.admin-console h1{font-size:1.7rem;margin:18px 0}.admin-console form{display:grid;gap:12px;margin:22px 0}.admin-console input{width:100%;padding:12px;border:1px solid #aac6b7;border-radius:10px;font-size:16px}.admin-console label{font-weight:600}.admin-invitation{padding:16px;background:#edf7f1;border-radius:12px}.admin-console p{line-height:1.6}
+.mission-history{width:min(100% - 24px,920px);margin:30px auto;padding:24px;background:white;border:2px solid #254b3c;border-radius:20px}.mission-history>p{line-height:1.6}.history-result{padding:20px 0;border-bottom:1px solid #d2dfd7}.history-result h2{font-size:1.15rem;margin-bottom:8px}.history-result p{line-height:1.6;margin:8px 0}.mission-history nav{display:flex;gap:14px;margin-top:24px}
+
+/* Management screens use the platform's existing design tokens and solid shadows. */
+body.teko-management-page{display:block;min-height:100dvh;padding:32px 16px;background-color:var(--white);background-image:linear-gradient(#1e8e3e0a 1px,transparent 1px),linear-gradient(90deg,#1e8e3e0a 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font-family:var(--font-body)}
+.teko-management-page .teko-management-card{width:min(100%,850px);margin:16px auto;padding:32px;border:var(--border);border-radius:var(--radius-xl);background:var(--white-pure);box-shadow:var(--shadow-solid-lg)}
+.teko-management-page .admin-console{max-width:580px}
+.teko-management-card h1{font-family:var(--font-display);font-size:clamp(1.65rem,4vw,2.3rem);line-height:1.15;margin:8px 0 18px;overflow-wrap:anywhere}
+.management-eyebrow{font-family:var(--font-mono);font-size:.73rem;font-weight:700;letter-spacing:.05em;color:var(--green-700);margin:24px 0 6px}
+.teko-management-card>p{line-height:1.65;margin-bottom:16px;color:var(--text-secondary)}
+.teko-management-card>a:first-child{display:inline-flex;align-items:center;min-height:44px;color:var(--green-700);font-weight:600;text-underline-offset:4px}
+.teko-management-card form{display:grid;gap:12px;margin:24px 0}
+.teko-management-card label{font:600 .9rem var(--font-display)}
+.teko-management-card input:not([type=hidden]){width:100%;min-width:0;min-height:48px;padding:12px 14px;font:inherit;font-size:16px;border:var(--border-thin);border-radius:var(--radius-md);background:var(--white);color:var(--ink);box-shadow:var(--shadow-solid-sm)}
+.teko-management-card input:focus{background:white;outline:3px solid var(--purple-200);outline-offset:3px}
+.teacher-class-form{display:grid;gap:12px;margin:20px 0;padding:20px;border:var(--border-thin);border-radius:var(--radius-md);background:var(--white)}
+.teacher-class-form select{width:100%;min-width:0;min-height:48px;padding:12px 14px;font:inherit;font-size:16px;border:var(--border-thin);border-radius:var(--radius-md);color:var(--ink);background:var(--white);box-shadow:var(--shadow-solid-sm)}
+.teacher-class-form select:focus{outline:3px solid var(--purple-200);outline-offset:3px}
+.teacher-class-form small{line-height:1.5}
+.teko-management-card .btn{font-family:var(--font-display);min-height:48px;border:var(--border-thin);border-radius:var(--radius-md);box-shadow:var(--shadow-solid-sm);white-space:normal;justify-content:center;text-align:center}
+.teko-management-card .btn:not(.btn--primary){background:var(--white-pure);color:var(--ink)}
+.teko-management-card .btn:hover{transform:translate(-1px,-1px);box-shadow:var(--shadow-solid)}
+.teko-management-card .teacher-invite-code{display:inline-block;max-width:100%;padding:16px 24px;background:var(--green-100);border:var(--border-thin);border-radius:var(--radius-md);box-shadow:var(--shadow-solid-sm);font:700 clamp(1.5rem,6vw,2.2rem)/1.3 var(--font-mono);letter-spacing:.12em;color:var(--green-800)}
+.teko-management-card .assignment-student-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding:16px;border:var(--border-thin);border-radius:var(--radius-md);background:var(--gray-50)}
+.assignment-student-row>span{font-family:var(--font-display);font-weight:600;overflow-wrap:anywhere;min-width:0;flex:1}
+.teko-management-card .management-remove{font-size:.82rem;min-height:44px}
+.management-notice{padding:14px 16px;border:var(--border-thin);border-radius:var(--radius-md);background:var(--green-50)}
+.management-notice--error{background:#fff1ed}
+.teko-management-card .admin-invitation{padding:20px;border:var(--border-thin);border-radius:var(--radius-md);background:var(--green-50)}
+.teko-management-card .history-result{padding:20px;margin:20px 0;border:var(--border-thin);border-radius:var(--radius-lg);box-shadow:var(--shadow-solid-sm);background:var(--purple-50)}
+.history-result h2{font-family:var(--font-display);color:var(--purple-800);line-height:1.4;overflow-wrap:anywhere}
+.history-result strong{font:700 1.6rem var(--font-display);color:var(--green-700)}
+@media(max-width:600px){body.teko-management-page{padding:12px 10px}.teko-management-page .teko-management-card{padding:20px 16px;margin:8px auto;border-radius:var(--radius-lg);box-shadow:var(--shadow-solid-sm)}.teko-management-card .assignment-student-row{align-items:stretch}.assignment-student-row>.btn{width:100%}.teko-management-card .history-result{padding:16px}.teko-management-card nav{flex-wrap:wrap}}
+.teko-management-card{min-width:0;overflow-wrap:anywhere}.teko-management-card p,.teko-management-card small,.teko-management-card form{min-width:0;max-width:100%}.teko-management-card .history-result{min-width:0;max-width:100%}
+.teko-management-card .recovery-identity-check { display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+.teko-management-card .recovery-identity-check input { width: 20px; min-width: 20px; height: 20px; margin-top: 2px; }

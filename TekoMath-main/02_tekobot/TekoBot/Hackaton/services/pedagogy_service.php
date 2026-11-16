@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__.'/assessment_service.php';
 require_once __DIR__.'/language_service.php';
 require_once __DIR__ . '/curriculum_service.php';
 require_once __DIR__ . '/problem_guide.php';
@@ -51,6 +52,16 @@ class PedagogyService {
     }
 
     public static function transition(array $state, string $message, string $action = ''): array {
+        if($action==='image_problem'){
+            $statement=trim($message);
+            if($statement===''||mb_strlen($statement)>12000)throw new InvalidArgumentException('Revisá el enunciado de la imagen antes de continuar.');
+            // Confirmed OCR text is a new problem, never an answer to the old workshop.
+            unset($state['own_problem'],$state['numeric_query'],$state['scope_query'],$state['question_context'],$state['assessment']);
+            $state['workshop']=['stage'=>'statement','topic'=>'unsure'];
+            return ProblemWorkshop::transition($state,$statement,'');
+        }
+        $assessment=AssessmentService::transition($state,$message,$action);
+        if($assessment!==null)return $assessment;
         $lesson = CurriculumService::lesson($state['topic'], $state['subtopic']);
         if (!$lesson) throw new InvalidArgumentException('Elegí una unidad y un subtema válidos.');
         $action=$action?:self::conversationalAction($message,$state);
@@ -147,12 +158,15 @@ class PedagogyService {
     }
 
     public static function response(array $state): array {
+        if(isset($state['assessment']))return AssessmentService::response($state);
         if(isset($state['scope_query']))return QuestionResolver::scopeResponse($state);
         if(isset($state['workshop']))return ProblemWorkshop::response($state);
         if(isset($state['numeric_query']))return TrigQuestions::response($state);
         if(isset($state['own_problem']))return ProblemGuide::response($state);
         if($state['mode']==='QUESTION_MODE' && !($state['question_pending']??false))return QuestionResolver::response($state);
-        return TutorLanguage::response(self::rawResponse($state),$state);
+        $output=TutorLanguage::response(self::rawResponse($state),$state);
+        if(AssessmentService::bank($state['topic']))$output['quick_options'][]=['id'=>'assessment','label'=>'Comprobar comprensión con ejercicios'];
+        return $output;
     }
     private static function rawResponse(array $state): array {
         $lesson = CurriculumService::lesson($state['topic'], $state['subtopic']);

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { Home, Map, Trophy, TrendingUp, UserRound, Volume2, VolumeX, Zap } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
+import { dailySineQuest } from '../../services/dailyQuest'
 import { progressService } from '../../services/progressService'
 import { TekoAssistantBubble } from '../mascot/TekoAssistantBubble'
 import { LanguageSelector } from '../../i18n/LanguageSelector'
@@ -17,7 +18,19 @@ export function AppShell({ children }: AppShellProps) {
   const { enabled: soundsEnabled, setEnabled: setSoundsEnabled, playSound } = useSound()
   const [isSoundMenuOpen, setIsSoundMenuOpen] = useState(false)
   const soundMenuRef = useRef<HTMLDivElement>(null)
-  const progress = progressService.getUserProgress()
+  const [progress,setProgress] = useState(() => progressService.getUserProgress())
+  const [today,setToday] = useState(() => new Date())
+  useEffect(() => {
+    const refresh=()=>{setProgress(progressService.getUserProgress());setToday(new Date())}
+    window.addEventListener('teko:progresschange',refresh)
+    const timer=window.setInterval(refresh,60000)
+    return ()=>{window.removeEventListener('teko:progresschange',refresh);window.clearInterval(timer)}
+  },[])
+  const daily=dailySineQuest(progress,today)
+  const claimDaily=()=>{
+    const latest=dailySineQuest(progressService.getUserProgress())
+    if(latest.completed&&!latest.claimed)progressService.claimMissionReward(latest.id,latest.reward)
+  }
   const { xp, streak } = progress
 
   const menuItems = [
@@ -163,12 +176,15 @@ export function AppShell({ children }: AppShellProps) {
           <span className="panel-label">{t('shell.dailyQuest')}</span>
           <h3>{t('shell.dailyQuestDescription')}</h3>
           <div className="quest-progress">
-            <span className="quest-progress__bar" style={{ width: '30%' }} />
+            <span className="quest-progress__bar" style={{ width: `${daily.current / daily.target * 100}%` }} />
           </div>
           <div className="quest-footer">
-            <strong>1 / 3</strong>
-            <span>{t('common.xpReward', { xp: 30 })}</span>
+            <strong>{daily.current} / {daily.target}</strong>
+            <span>{t('common.xpReward', { xp: daily.reward })}</span>
           </div>
+          <button type="button" className="secondary-button" disabled={!daily.completed || daily.claimed} onClick={claimDaily}>
+            {t(daily.claimed ? 'status.claimed' : 'home.claimXp')}
+          </button>
         </div>
 
       </aside>

@@ -10,12 +10,13 @@ require_once __DIR__ . '/config/database.php';
 requireDocente();
 
 $db = getDB();
+$assignedScope = TeacherAssignments::scope((int)getUser()['id']);
 
 try {
     $stmt = $db->query("
-        SELECT id, nombre, email, created_at
-        FROM usuarios
-        WHERE rol = 'estudiante'
+        SELECT u.id, u.nombre, u.email, u.created_at
+        FROM usuarios u
+        WHERE rol = 'estudiante' AND {$assignedScope}
         ORDER BY nombre ASC
     ");
     $estudiantes = $stmt->fetchAll();

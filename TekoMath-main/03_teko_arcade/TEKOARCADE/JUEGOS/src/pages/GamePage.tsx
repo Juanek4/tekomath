@@ -15,7 +15,7 @@ export function GamePage() {
 
   const game = getGameById(gameId ?? '')
 
-  if (!session || !game || session.gameId !== gameId) {
+  if (!session || !game || session.gameId !== gameId || !game.supportedTopics.includes(session.topicId)) {
     return <Navigate to="/mapa" replace />
   }
 

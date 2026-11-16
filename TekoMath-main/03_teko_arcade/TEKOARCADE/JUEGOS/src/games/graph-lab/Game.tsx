@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { usePersistentGameState } from '../core/usePersistentGameState'
+
 import { GameTemplateFrame } from '../core/GameTemplateFrame'
 import { finishAndRecordGame } from '../core/finishAndRecordGame'
 import { registerAttempt, resumeGame, startGame, useHint as applyGameHint } from '../core/gameEngine'
@@ -34,14 +35,14 @@ export function GraphLabGame(props: GraphLabProps) {
   const initialFunction: GraphFunctionName = graphFunctions.includes(props.session.topicId as GraphFunctionName)
     ? props.session.topicId as GraphFunctionName
     : 'sin'
-  const [round, setRound] = useState(1)
-  const [local, setLocal] = useState<GraphLabLocalState>({
+  const [round, setRound] = usePersistentGameState(props.session.sessionId, 'round', 1)
+  const [local, setLocal] = usePersistentGameState<GraphLabLocalState>(props.session.sessionId, 'local', {
     functionName: initialFunction,
     selectedAnswer: null,
     combo: 0,
     bestCombo: 0,
   })
-  const [session, setSession] = useState<GameSession>(() => {
+  const [session, setSession] = usePersistentGameState<GameSession>(props.session.sessionId, 'session', () => {
     const challenge = createGraphChallenge(initialFunction, 1)
     return {
       ...props.session,
@@ -49,7 +50,7 @@ export function GraphLabGame(props: GraphLabProps) {
       exercise: asGameExercise(challenge, props.session.exercise),
     }
   })
-  const [isPaused, setIsPaused] = useState(false)
+  const [isPaused, setIsPaused] = usePersistentGameState(props.session.sessionId, 'isPaused', false)
   const challenge = createGraphChallenge(local.functionName, round)
   const localizedPrompt = challenge.kind === 'value'
     ? t('game.graph.promptValue', { x: formatGraphAngle(challenge.queryX ?? 0) })

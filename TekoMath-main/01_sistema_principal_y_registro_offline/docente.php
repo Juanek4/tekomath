@@ -16,6 +16,9 @@ $inicialNombre = mb_strtoupper(mb_substr($user['nombre'], 0, 1));
 $rol = $user['rol'];
 
 $db = getDB();
+require_once __DIR__.'/config/resource_access.php';
+$taskScope=teachingResourceScope($user,'t'); $materialScope=teachingResourceScope($user,'m');
+$assignedScope = TeacherAssignments::scope((int)$user['id']);
 asegurarMisionesDemo($db, $user['id']);
 
 // Obtener tareas y misiones
@@ -23,6 +26,7 @@ $tareasStmt = $db->query("
     SELECT t.*, u.nombre AS docente_nombre
     FROM tareas t
     LEFT JOIN usuarios u ON t.docente_id = u.id
+    WHERE {$taskScope}
     ORDER BY t.created_at DESC
 ");
 $tareas = $tareasStmt->fetchAll();
@@ -41,7 +45,7 @@ try {
         FROM usuarios u
         LEFT JOIN progreso_quizzes p ON u.id = p.estudiante_id
         LEFT JOIN progreso_misiones pm ON u.id = pm.estudiante_id
-        WHERE u.rol = 'estudiante'
+        WHERE u.rol = 'estudiante' AND {$assignedScope}
         GROUP BY u.id, u.nombre, u.email, u.created_at
         ORDER BY u.nombre ASC
     ");
@@ -58,7 +62,8 @@ try {
                u.nombre AS estudiante_nombre, u.email AS estudiante_email
         FROM progreso_misiones pm
         JOIN tareas t ON pm.tarea_id = t.id
-        JOIN usuarios u ON pm.estudiante_id = u.id
+        JOIN usuarios u ON pm.estudiante_id = u.id AND {$assignedScope}
+        WHERE {$taskScope}
         ORDER BY pm.created_at DESC
         LIMIT 50
     ");
@@ -71,7 +76,7 @@ try {
 $ultimosQuizzesStmt = $db->query("
     SELECT p.*, u.nombre AS estudiante_nombre, u.email AS estudiante_email
     FROM progreso_quizzes p
-    JOIN usuarios u ON p.estudiante_id = u.id
+    JOIN usuarios u ON p.estudiante_id = u.id AND {$assignedScope}
     ORDER BY p.created_at DESC
     LIMIT 20
 ");
@@ -93,6 +98,8 @@ $catalogoMisiones = getMisionesCatalogo();
   <link rel="stylesheet" href="../04_diagnostico_y_rutas_de_aprendizaje/misiones.css?v=<?= time() ?>">
   <link rel="stylesheet" href="../06_teko_live/teko_live.css?v=<?= time() ?>">
   <link rel="icon" type="image/png" href="../02_tekobot/TekoBot/Hackaton/assets/images/tejuxi-face.png?v=20260926">
+<link rel="stylesheet" href="../07_diseno_y_graficos/teko-ui.css?v=20261028">
+<script src="../07_diseno_y_graficos/api-security.js?v=20261028"></script>
 </head>
 <body>
 
@@ -180,7 +187,7 @@ $catalogoMisiones = getMisionesCatalogo();
   </nav>
 
   <!-- ====== MAIN TEACHER CONTAINER ====== -->
-  <main class="dashboard" id="dashboard">
+  <main class="dashboard" id="dashboard"><a class="assignment-entry" href="asignaciones.php"><span class="assignment-entry__icon" aria-hidden="true">👥</span><span><strong>Mis estudiantes</strong><small>Compartí tu código y gestioná las vinculaciones</small></span><span aria-hidden="true">→</span></a>
 
     <!-- ====== EXPERIMENTAL NOTICE BANNER ====== -->
     <div class="anim-fade-up" style="background:#faf5ff;border:2.5px dashed #9333ea;border-radius:var(--radius-xl);padding:12px 18px;margin-bottom:var(--space-lg);display:flex;align-items:center;gap:14px;box-shadow:4px 4px 0 #9333ea;">
@@ -740,6 +747,8 @@ $catalogoMisiones = getMisionesCatalogo();
 
     </section>
 
+  <?php require __DIR__.'/docente_tutor_analysis.php'; ?>
+    <p><a class="assignment-entry" href="historial_misiones.php">📊 Historial de calificaciones de misiones →</a></p>
   </main>
 
   <!-- ====== MODAL: ASIGNAR / CREAR MISIÓN Y EJERCICIOS ====== -->

@@ -21,7 +21,7 @@ foreach(CurriculumService::all()['units'] as $unit) foreach($unit['subtopics'] a
         $s=PedagogyService::transition($s,'No entendí');
         verify(PedagogyService::response($s)['tutor_message_jopara']!==$first,'Alternative explanation');
         $s=PedagogyService::transition($s,'','example');
-        verify(str_contains(PedagogyService::response($s)['tutor_message_jopara'],$section['example']),'Complete teaching example');
+        verify(str_contains(PedagogyService::response($s)['tutor_message_jopara'],TutorLanguage::response(['tutor_message_jopara'=>$section['example']],$s)['tutor_message_jopara']),'Complete teaching example: '.$unit['key'].':'.$lesson['id'].':'.$i.' mode='.$s['mode']);
         $s=PedagogyService::transition($s,'','check');
         $s=PedagogyService::transition($s,'Sí');
     }

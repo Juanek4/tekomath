@@ -1,0 +1,482 @@
+{
+  "pages": 34,
+  "issues": [],
+  "page_info": [
+    {
+      "page": 1,
+      "body_words": 293,
+      "head": [
+        "Informe de cambios de TEKO Math",
+        "Registro del 28 de octubre al 1 de noviembre de 2026",
+        "Actualización consolidada al 01/11/2026 18:22:25 · Hora de Paraguay. El estado vigente y los pendientes se"
+      ],
+      "tail": [
+        "incluyeron contraseñas ni tokens privados en este informe.",
+        "Hora de elaboración: 28/10/2026 10:10:00 (Paraguay).",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 1"
+      ]
+    },
+    {
+      "page": 2,
+      "body_words": 224,
+      "head": [
+        "Estructura y evolución del tutor",
+        "01 Eliminación de la carpeta duplicada",
+        "Fecha y hora de referencia: 28/10/2026 08:09:31 · última modificación del archivo."
+      ],
+      "tail": [
+        "Verificación y estado: 6264 comprobaciones aprobadas. Son variaciones de plantillas; no equivalen a",
+        "estudiantes reales ni entrenamiento de pesos.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 2"
+      ]
+    },
+    {
+      "page": 3,
+      "body_words": 290,
+      "head": [
+        "Pedagogía y evidencia de aprendizaje",
+        "04 Adecuación lingüística del tutor",
+        "Fecha y hora de referencia: 28/10/2026 08:17:27 · última modificación del archivo."
+      ],
+      "tail": [
+        "Verificación y estado: Prueba pedagógica aprobada sobre 62 subtemas. Sigue pendiente paginar el análisis:",
+        "existe un límite global de 500 conversaciones.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 3"
+      ]
+    },
+    {
+      "page": 4,
+      "body_words": 311,
+      "head": [
+        "Interfaz y presentación de los módulos",
+        "08 Base compartida de interfaz",
+        "Fecha y hora de referencia: 28/10/2026 09:07:05 · última modificación del archivo."
+      ],
+      "tail": [
+        "deben integrarse en una compilación reproducible. Teko Desafíos pasó validación PHP, no revisión visual",
+        "completa.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 4"
+      ]
+    },
+    {
+      "page": 5,
+      "body_words": 281,
+      "head": [
+        "Cuentas y asignación de estudiantes",
+        "12 Inicialización de la base principal",
+        "Fecha y hora de referencia: 28/10/2026 08:56:00 · última modificación del archivo."
+      ],
+      "tail": [
+        "Verificación y estado: Pruebas de asignación aprobadas. Caducidad, rotación y límites contra intentos masivos",
+        "siguen pendientes.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 5"
+      ]
+    },
+    {
+      "page": 6,
+      "body_words": 314,
+      "head": [
+        "Consola e identidad del tutor",
+        "16 Consola administrativa",
+        "Fecha y hora de referencia: 28/10/2026 09:06:37 · última modificación del archivo."
+      ],
+      "tail": [
+        "Verificación y estado: Dos alumnos nuevos crearon y recuperaron mensajes. Se rechazó acceso cruzado aun",
+        "manipulando student_id. Los chats antiguos no se reasignaron por coincidencia numérica.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 6"
+      ]
+    },
+    {
+      "page": 7,
+      "body_words": 314,
+      "head": [
+        "Permisos y protección de solicitudes",
+        "20 Permisos de tareas y materiales",
+        "Fecha y hora de referencia: 28/10/2026 09:56:49 · última modificación del archivo."
+      ],
+      "tail": [
+        "Verificación y estado: Documentación disponible. El calendario es una propuesta y no una certificación de",
+        "capacidad o seguridad.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 7"
+      ]
+    },
+    {
+      "page": 8,
+      "body_words": 243,
+      "head": [
+        "Validaciones y trabajo pendiente",
+        "Resultados de pruebas registrados",
+        "• 1000 simulaciones conceptuales locales aprobadas sobre 261 conceptos."
+      ],
+      "tail": [
+        "El primer corte del informe termina aquí. La actualización siguiente registra los trabajos posteriores y",
+        "reemplaza los estados pendientes que hayan cambiado.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 8"
+      ]
+    },
+    {
+      "page": 9,
+      "body_words": 272,
+      "head": [
+        "Actualización posterior al primer informe",
+        "Corte de actualización: 28/10/2026 19:57:35 (America/Asuncion, UTC−03:00). Se conservan las fichas iniciales",
+        "como registro histórico. Los estados vigentes de este anexo prevalecen sobre los pendientes mencionados en"
+      ],
+      "tail": [
+        "Verificación: Pruebas HTTP de guardado autorizado y conservación de permisos aprobadas.",
+        "Límites: Es un hito intermedio. No debe interpretarse como el estado final del sistema de misiones.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 9"
+      ]
+    },
+    {
+      "page": 10,
+      "body_words": 263,
+      "head": [
+        "Registro y recuperación de misiones",
+        "26 Respuestas de misión persistidas por ítem",
+        "Última modificación del archivo de referencia: 28/10/2026 11:10:09 · Paraguay."
+      ],
+      "tail": [
+        "recuperan como mediciones verificadas. Falta probar concurrencia sostenida y teléfonos físicos, estos últimos",
+        "pospuestos por acuerdo.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 10"
+      ]
+    },
+    {
+      "page": 11,
+      "body_words": 325,
+      "head": [
+        "Calificaciones y experiencia de gestión",
+        "28 Historial de oportunidades de misión",
+        "Última modificación del archivo de referencia: 28/10/2026 11:25:39 · Paraguay."
+      ],
+      "tail": [
+        "Límites: La reducción de consultas no es una medición de latencia ni acredita 600 conexiones simultáneas.",
+        "Faltan pruebas de carga y planes SQL en el alojamiento definitivo.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 11"
+      ]
+    },
+    {
+      "page": 12,
+      "body_words": 263,
+      "head": [
+        "Arcade y preparación para publicación",
+        "31 Progreso de Arcade separado por cuenta",
+        "Última modificación del archivo de referencia: 28/10/2026 11:35:15 · Paraguay."
+      ],
+      "tail": [
+        "Límites: No se eligió proveedor, dominio ni plan SQL gratuito. No se validó capacidad de alojamiento. El plazo",
+        "objetivo continúa siendo el 31 de enero de 2027 para el piloto de 600 alumnos y 60 docentes.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 12"
+      ]
+    },
+    {
+      "page": 13,
+      "body_words": 153,
+      "head": [
+        "Estado de prioridades al 28 de octubre",
+        "Registro público docente",
+        "Resuelto en el flujo probado. Solo estudiantes en registro público; docentes por invitación administrativa."
+      ],
+      "tail": [
+        "Compilación reproducible",
+        "Pendiente. Eliminar dependencia de parches manuales en dist.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 13"
+      ]
+    },
+    {
+      "page": 14,
+      "body_words": 185,
+      "head": [
+        "Evidencias y próximos controles",
+        "Calificaciones y recuperación — docs/CALIFICACIONES_SERVIDOR.md",
+        "Progreso de Arcade por cuenta — docs/ARCADE_PROGRESO_CUENTAS.md"
+      ],
+      "tail": [
+        "estado registrado; no convierte verificaciones parciales en garantías de seguridad, rendimiento o preparación",
+        "nacional.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 14"
+      ]
+    },
+    {
+      "page": 15,
+      "body_words": 227,
+      "head": [
+        "Actualización desde el último informe general",
+        "Período agregado: del 29 de octubre al 1 de noviembre de 2026. Esta continuación conserva las fichas 01 a 32",
+        "como historial y documenta el trabajo posterior. El estado vigente de los apartados finales prevalece sobre los"
+      ],
+      "tail": [
+        "accesibilidad, teléfono físico, análisis docente de más de 500 conversaciones, organización institucional, correo",
+        "automático, copia externa y publicación con HTTPS.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 15"
+      ]
+    },
+    {
+      "page": 16,
+      "body_words": 259,
+      "head": [
+        "Compilación e imágenes",
+        "33 Compilación reproducible de Arcade",
+        "Fecha de trabajo: 29/10/2026. Última modificación del archivo de referencia: 29/10/2026 10:17:26 · Paraguay."
+      ],
+      "tail": [
+        "Límites: La confianza técnica no acredita corrección matemática. Faltan corpus de manuscritos, fotografías",
+        "paraguayas y diagramas, y mediciones en teléfonos físicos.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 16"
+      ]
+    },
+    {
+      "page": 17,
+      "body_words": 230,
+      "head": [
+        "Contexto de imágenes y sincronización",
+        "35 Problema nuevo desde el texto de una foto",
+        "Fecha de trabajo: 29/10/2026. Última modificación del archivo de referencia: 29/10/2026 10:04:15 · Paraguay."
+      ],
+      "tail": [
+        "Límites: No certifica las puntuaciones del juego: sus métricas siguen calculándose en el cliente. La",
+        "sincronización no garantiza coordinación instantánea entre dos partidas abiertas.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 17"
+      ]
+    },
+    {
+      "page": 18,
+      "body_words": 228,
+      "head": [
+        "Conflictos y recompensa diaria",
+        "37 Resolución visible de conflictos de Arcade",
+        "Fecha de trabajo: 29/10/2026. Última modificación del archivo de referencia: 29/10/2026 10:14:52 · Paraguay."
+      ],
+      "tail": [
+        "Límites: La prueba verifica la regla del juego y la sincronización. El origen de los aciertos sigue siendo el cliente;",
+        "no constituye una nota académica validada.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 18"
+      ]
+    },
+    {
+      "page": 19,
+      "body_words": 243,
+      "head": [
+        "Juegos y recuperación de partidas",
+        "39 Recorridos completos de los seis juegos",
+        "Fecha de trabajo: 29/10/2026. Última modificación del archivo de referencia: 29/10/2026 10:31:14 · Paraguay."
+      ],
+      "tail": [
+        "Límites: El estado intermedio pertenece a la pestaña; no se guarda en servidor ni se garantiza su recuperación",
+        "después de cerrarla. El progreso final sí conserva su sincronización por cuenta.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 19"
+      ]
+    },
+    {
+      "page": 20,
+      "body_words": 246,
+      "head": [
+        "Ejercicios propios y evaluaciones paralelas",
+        "41 Ejercicios propios sin sustitución por el banco",
+        "Fecha de trabajo: 29/10/2026. Última modificación del archivo de referencia: 29/10/2026 10:47:52 · Paraguay."
+      ],
+      "tail": [
+        "Límites: Los intentos siguen venciendo a las dos horas. No se recalcularon calificaciones históricas sin",
+        "respuestas verificables ni se eligió una política definitiva entre oportunidades de misión.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 20"
+      ]
+    },
+    {
+      "page": 21,
+      "body_words": 238,
+      "head": [
+        "Videos y seguridad de cuentas",
+        "43 Retiro de la búsqueda de videos de TekoBot",
+        "Fecha de trabajo: 29/10/2026. Última modificación del archivo de referencia: 29/10/2026 10:38:39 · Paraguay."
+      ],
+      "tail": [
+        "Límites: El polling cuenta como actividad. Falta revisar retención y limpieza de sesiones y completar los",
+        "controles de acceso de todas las áreas de la plataforma.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 21"
+      ]
+    },
+    {
+      "page": 22,
+      "body_words": 276,
+      "head": [
+        "Consola y archivos internos",
+        "45 Credencial activa de consola y límite de acceso",
+        "Fecha de trabajo: 29/10/2026. Última modificación del archivo de referencia: 01/11/2026 16:12:23 · Paraguay."
+      ],
+      "tail": [
+        "Límites: Requiere Apache con las reglas habilitadas. No sustituye una publicación con lista de archivos",
+        "permitidos ni se aplica automáticamente a Nginx o al servidor de desarrollo de Vite.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 22"
+      ]
+    },
+    {
+      "page": 23,
+      "body_words": 285,
+      "head": [
+        "Diagnóstico y banco por tema",
+        "47 Diagnósticos corregidos en servidor e identidad de progreso",
+        "Fecha de trabajo: 30/10/2026. Última modificación del archivo de referencia: 30/10/2026 21:09:40 · Paraguay."
+      ],
+      "tail": [
+        "independiente y más variedad para no repetir preguntas entre evaluación inicial y final. No es entrenamiento",
+        "de un modelo.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 23"
+      ]
+    },
+    {
+      "page": 24,
+      "body_words": 283,
+      "head": [
+        "Evaluación visible y análisis docente",
+        "49 Evaluación por tema integrada en ambas entradas",
+        "Fecha de trabajo: 30/10/2026. Última modificación del archivo de referencia: 30/10/2026 20:57:39 · Paraguay."
+      ],
+      "tail": [
+        "Límites: Es evidencia limitada por actividad, no diagnóstico psicológico ni garantía de dominio. El análisis",
+        "docente aún consulta las últimas 500 conversaciones; falta paginación y filtros generales.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 24"
+      ]
+    },
+    {
+      "page": 25,
+      "body_words": 301,
+      "head": [
+        "Protección de rutas e historial local",
+        "51 Protección común de rutas de TekoBot",
+        "Fecha de trabajo: 30/10/2026. Última modificación del archivo de referencia: 30/10/2026 21:09:18 · Paraguay."
+      ],
+      "tail": [
+        "servidor se conservaron; la separación local no protege frente al acceso físico o a las herramientas del",
+        "navegador.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 25"
+      ]
+    },
+    {
+      "page": 26,
+      "body_words": 290,
+      "head": [
+        "Recuperación y configuración privada",
+        "53 Recuperación privada de cuentas",
+        "Fecha de trabajo: 30/10/2026. Última modificación del archivo de referencia: 01/11/2026 16:12:22 · Paraguay."
+      ],
+      "tail": [
+        "Límites: Hay que trasladar esa configuración de forma segura al alojamiento definitivo. El dominio, el correo y",
+        "los requisitos TLS de un proveedor SQL remoto aún no se eligieron.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 26"
+      ]
+    },
+    {
+      "page": 27,
+      "body_words": 307,
+      "head": [
+        "Cuentas SQL y modo de producción",
+        "55 Usuarios SQL propios y reparación inicial de permisos",
+        "Fecha de trabajo: 01/11/2026. Última modificación del archivo de referencia: 01/11/2026 16:16:11 · Paraguay."
+      ],
+      "tail": [
+        "alojamiento y configuración confiable del proxy. La comprobación de configuración no certifica carga ni",
+        "seguridad integral.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 27"
+      ]
+    },
+    {
+      "page": 28,
+      "body_words": 292,
+      "head": [
+        "Credencial elegida y respaldos",
+        "57 Contraseña administrativa elegida por el propietario",
+        "Fecha de trabajo: 01/11/2026. Última modificación del archivo de referencia: 01/11/2026 18:10:50 · Paraguay."
+      ],
+      "tail": [
+        "El bloqueo y la comparación en memoria están limitados al mantenimiento local, no dimensionados para",
+        "operación nacional continua.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 28"
+      ]
+    },
+    {
+      "page": 29,
+      "body_words": 307,
+      "head": [
+        "Restauración y salud de MariaDB",
+        "59 Restauración aislada comprobada",
+        "Fecha de trabajo: 01/11/2026. Última modificación del archivo de referencia: 01/11/2026 18:07:22 · Paraguay."
+      ],
+      "tail": [
+        "revisión del disco ni garantía indefinida. Persiste un aviso separado y no corruptivo por la abreviatura",
+        "key_buffer en my.ini.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 29"
+      ]
+    },
+    {
+      "page": 30,
+      "body_words": 134,
+      "head": [
+        "Regresión final y alcance del piloto",
+        "61 Regresión posterior y estado del piloto",
+        "Fecha de trabajo: 01/11/2026. Última modificación del archivo de referencia: 01/11/2026 18:10:50 · Paraguay."
+      ],
+      "tail": [
+        "humana, teléfonos físicos, accesibilidad, privacidad y preparación operativa para 600 estudiantes y 60",
+        "docentes.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 30"
+      ]
+    },
+    {
+      "page": 31,
+      "body_words": 191,
+      "head": [
+        "Estado vigente al 1 de noviembre",
+        "Registro docente y asignaciones",
+        "Implementado en los flujos probados. Registro público de estudiantes, docentes por invitación privada y"
+      ],
+      "tail": [
+        "Tres cortes privados y restauración final comprobada. Veintinueve tablas pasaron revisión extendida tras cierre",
+        "limpio. Falta copia cifrada externa, retención y ensayo de recuperación en otro equipo.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 31"
+      ]
+    },
+    {
+      "page": 32,
+      "body_words": 233,
+      "head": [
+        "Contenido operación y publicación",
+        "Arcade",
+        "Compilación reproducible y seis juegos con recorridos representativos, continuación en pestaña, conflicto"
+      ],
+      "tail": [
+        "Pendientes capacitación docente, soporte, contingencias, autorizaciones institucionales, datos de menores,",
+        "retención y revisión de proveedores. No se declara cumplimiento normativo integral ni auditoría externa.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 32"
+      ]
+    },
+    {
+      "page": 33,
+      "body_words": 75,
+      "head": [
+        "Evidencias de la actualización",
+        "Compilación y juegos",
+        "docs/ARCADE_COMPILACION_2026-10-29.md; docs/ARCADE_SEIS_JUEGOS_2026-10-29.md"
+      ],
+      "tail": [
+        "tests/backup_integrity_test.cjs. Las suites de recursos, Live y Arcade se registran en sus informes técnicos.",
+        "Aquí se consolidan resultados ya registrados; no se presentan como reejecutados durante la redacción.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 33"
+      ]
+    },
+    {
+      "page": 34,
+      "body_words": 179,
+      "head": [
+        "Próximos controles antes del piloto",
+        "• Definir escenarios de concurrencia y ejecutar carga gradual para el piloto; medir errores, tiempos,",
+        "bloqueos SQL y recuperación."
+      ],
+      "tail": [
+        "certifica preparación nacional, estabilidad indefinida ni carga simultánea. Durante esta actualización del Word",
+        "no se modificaron funciones de la plataforma.",
+        "28/10/2026 a 01/11/2026 · America/Asuncion Página 34"
+      ]
+    }
+  ]
+}

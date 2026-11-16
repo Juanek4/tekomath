@@ -1,19 +1,13 @@
 <?php
-/* ============================================
-   TEKO MATH — Página de Registro (registro.php)
-   ============================================ */
 require_once __DIR__ . '/config/session.php';
-
-// Si ya está logueado, redirigir al dashboard
 redirectIfLoggedIn();
-
-// Recuperar flash data si hubo error
-$regError  = $_SESSION['reg_error']  ?? '';
+$regError = $_SESSION['reg_error'] ?? '';
 $regNombre = $_SESSION['reg_nombre'] ?? '';
-$regEmail  = $_SESSION['reg_email']  ?? '';
-$regRol    = $_SESSION['reg_rol']    ?? 'estudiante';
-
-// Limpiar flash data
+$regEmail = $_SESSION['reg_email'] ?? '';
+$regRol = 'estudiante';
+if (empty($_SESSION['registration_token'])) {
+    $_SESSION['registration_token'] = bin2hex(random_bytes(32));
+}
 unset($_SESSION['reg_error'], $_SESSION['reg_nombre'], $_SESSION['reg_email'], $_SESSION['reg_rol']);
 ?>
 <!DOCTYPE html>
@@ -25,6 +19,7 @@ unset($_SESSION['reg_error'], $_SESSION['reg_nombre'], $_SESSION['reg_email'], $
   <title>TEKO Math — Crear cuenta</title>
   <link rel="stylesheet" href="../07_diseno_y_graficos/style.css?v=20260926-logos">
   <link rel="icon" type="image/png" href="../02_tekobot/TekoBot/Hackaton/assets/images/tejuxi-face.png?v=20260926">
+<link rel="stylesheet" href="../07_diseno_y_graficos/teko-ui.css?v=20261028">
 </head>
 <body>
 
@@ -94,38 +89,10 @@ unset($_SESSION['reg_error'], $_SESSION['reg_nombre'], $_SESSION['reg_email'], $
       <?php endif; ?>
 
       <!-- Role Selector -->
-      <div class="role-selector" id="role-selector" data-active="<?= $regRol === 'docente' ? 'teacher' : 'student' ?>" role="radiogroup" aria-label="Tipo de usuario">
-        <div class="role-selector__slider"></div>
-        <button 
-          type="button"
-          class="role-selector__option role-selector__option--student <?= $regRol !== 'docente' ? 'role-selector__option--active' : '' ?>" 
-          id="role-student"
-          role="radio"
-          aria-checked="<?= $regRol !== 'docente' ? 'true' : 'false' ?>"
-          tabindex="<?= $regRol !== 'docente' ? '0' : '-1' ?>"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
-          </svg>
-          Estudiante
-        </button>
-        <button 
-          type="button"
-          class="role-selector__option role-selector__option--teacher <?= $regRol === 'docente' ? 'role-selector__option--active' : '' ?>" 
-          id="role-teacher"
-          role="radio"
-          aria-checked="<?= $regRol === 'docente' ? 'true' : 'false' ?>"
-          tabindex="<?= $regRol === 'docente' ? '0' : '-1' ?>"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
-          </svg>
-          Docente (🧪 Experimental)
-        </button>
-      </div>
-
+      <p class="login-card__subtitle">Creá tu cuenta de estudiante. El acceso docente se habilita mediante la coordinación del piloto.</p>
       <!-- Registration Form -->
       <form id="registro-form" action="registro_process.php" method="POST" autocomplete="off">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['registration_token'], ENT_QUOTES, 'UTF-8') ?>">
         <input type="hidden" name="rol" id="rol-input" value="<?= $regRol === 'docente' ? 'docente' : 'estudiante' ?>">
 
         <div class="form-group anim-fade-up-delay-1">
@@ -159,9 +126,9 @@ unset($_SESSION['reg_error'], $_SESSION['reg_nombre'], $_SESSION['reg_email'], $
           <input 
             class="form-input <?= $regRol === 'docente' ? 'purple-focus' : '' ?>" 
             type="password" 
-            id="password" 
+            id="password" minlength="8" maxlength="72" 
             name="password"
-            placeholder="Mínimo 4 caracteres"
+            placeholder="Mínimo 8 caracteres"
             required
           >
         </div>

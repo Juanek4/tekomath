@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { exercisePool } from '../core/exercisePool'
+import { usePersistentGameState } from '../core/usePersistentGameState'
+import { useEffect, useRef } from 'react'
 import { Timer, Zap } from 'lucide-react'
 import { GameTemplateFrame } from '../core/GameTemplateFrame'
 import { getExercisesForTopic } from '../../exercises/data'
@@ -20,7 +22,7 @@ function timestamp(): string {
 
 export function RatioRushGame(props: RatioRushProps) {
   const { t } = useLanguage()
-  const exercises = getExercisesForTopic(props.session.topicId)
+  const exercises = exercisePool(props.session.exercise, getExercisesForTopic(props.session.topicId))
   const buildRound = (roundNumber: number) => createRatioRushRound(exercises, {
     topicId: props.session.topicId,
     difficulty: props.session.exercise.difficulty,
@@ -31,14 +33,14 @@ export function RatioRushGame(props: RatioRushProps) {
     exercise: props.session.exercise,
     choices: props.session.exercise.expectedAnswer ? [props.session.exercise.expectedAnswer] : [],
   }
-  const [roundNumber, setRoundNumber] = useState(1)
-  const [round, setRound] = useState(() => buildRound(1))
-  const [session, setSession] = useState<GameSession>(() => ({
+  const [roundNumber, setRoundNumber] = usePersistentGameState(props.session.sessionId, 'roundNumber', 1)
+  const [round, setRound] = usePersistentGameState(props.session.sessionId, 'round', () => buildRound(1))
+  const [session, setSession] = usePersistentGameState<GameSession>(props.session.sessionId, 'session', () => ({
     ...props.session,
     exerciseId: round.exercise.id,
     exercise: round.exercise,
   }))
-  const [local, setLocal] = useState<RatioRushLocalState>({
+  const [local, setLocal] = usePersistentGameState<RatioRushLocalState>(props.session.sessionId, 'local', {
     selectedOption: null,
     combo: 0,
     bestCombo: 0,

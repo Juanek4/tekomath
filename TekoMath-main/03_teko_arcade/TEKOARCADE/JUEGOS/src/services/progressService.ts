@@ -1,6 +1,6 @@
 import type { GameHistoryEntry, ProgressSnapshot, TopicProgress, UserProgress } from '../types'
 
-const STORAGE_KEY = 'teko-juegos-progress-v1'
+const storageKey = (): string | null => typeof window === 'undefined' ? null : (window as Window & { __TEKO_ARCADE_STORAGE_KEY__?: string }).__TEKO_ARCADE_STORAGE_KEY__ || null
 
 const buildDefaultTopicProgress = (): Record<string, TopicProgress> => ({
   sin: { mastery: 0, stars: 0, gamesPlayed: 0, accuracy: 0, correctAnswers: 0, answersAttempted: 0, bestScore: 0, lastPlayed: '' },
@@ -30,7 +30,7 @@ const createDefaultSnapshot = (): ProgressSnapshot => ({
   mastery: 0,
   accuracy: 0,
   gamesPlayed: 0,
-  commonErrors: ['signos', 'despeje', 'ángulos complementarios'],
+  commonErrors: [],
 })
 
 const safeStorage = {
@@ -39,21 +39,30 @@ const safeStorage = {
       return null
     }
 
-    return window.localStorage.getItem(STORAGE_KEY)
+    const key = storageKey()
+    return key ? window.localStorage.getItem(key) : null
   },
   set(value: string): void {
     if (typeof window === 'undefined') {
       return
     }
 
-    window.localStorage.setItem(STORAGE_KEY, value)
+    const key = storageKey()
+    if (!key) return
+    window.localStorage.setItem(key, value)
+    window.dispatchEvent?.(new Event('teko:progresschange'))
+    ;(window as Window & { __TEKO_ARCADE_SAVE__?: (value: string) => void }).__TEKO_ARCADE_SAVE__?.(value)
   },
   remove(): void {
     if (typeof window === 'undefined') {
       return
     }
 
-    window.localStorage.removeItem(STORAGE_KEY)
+    const key = storageKey()
+    if (!key) return
+    window.localStorage.removeItem(key)
+    window.dispatchEvent?.(new Event('teko:progresschange'))
+    ;(window as Window & { __TEKO_ARCADE_SAVE__?: (value: string) => void }).__TEKO_ARCADE_SAVE__?.('{}')
   },
 }
 

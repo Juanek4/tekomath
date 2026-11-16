@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { usePersistentGameState } from '../core/usePersistentGameState'
+
 import { GameTemplateFrame } from '../core/GameTemplateFrame'
 import { registerAttempt, resumeGame, startGame, useHint as applyGameHint } from '../core/gameEngine'
 import { finishAndRecordGame } from '../core/finishAndRecordGame'
@@ -18,20 +19,20 @@ function timestamp(): string {
 
 export function TriangleForgeGame(props: TriangleForgeProps) {
   const { t } = useLanguage()
-  const [exercises] = useState(() => createTriangleForgeExerciseSet(
+  const [exercises] = usePersistentGameState(props.session.sessionId, 'exercises', () => createTriangleForgeExerciseSet(
     props.session.exercise,
     getExercisesForTopic(props.session.topicId),
     triangleForgeConfig.rounds,
   ))
-  const [session, setSession] = useState(() => ({
+  const [session, setSession] = usePersistentGameState(props.session.sessionId, 'session', () => ({
     ...props.session,
     exerciseId: exercises[0].id,
     exercise: exercises[0],
   }))
-  const [round, setRound] = useState(1)
-  const [roundHintsUsed, setRoundHintsUsed] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
-  const [local, setLocal] = useState<TriangleForgeLocalState>({ answer: '' })
+  const [round, setRound] = usePersistentGameState(props.session.sessionId, 'round', 1)
+  const [roundHintsUsed, setRoundHintsUsed] = usePersistentGameState(props.session.sessionId, 'roundHintsUsed', 0)
+  const [isPaused, setIsPaused] = usePersistentGameState(props.session.sessionId, 'isPaused', false)
+  const [local, setLocal] = usePersistentGameState<TriangleForgeLocalState>(props.session.sessionId, 'local', { answer: '' })
   const exercise = session.exercise
   const knownValues = Object.entries(exercise.knownValues).slice(0, 3)
   const highlights = getTriangleHighlights(exercise)

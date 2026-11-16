@@ -1,0 +1,23 @@
+const {chromium,request}=require('C:/Users/bogad/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');const {spawnSync}=require('node:child_process');const assert=require('node:assert/strict');
+(async()=>{const base='http://localhost/TekoMath-main/01_sistema_principal_y_registro_offline/';const email='arcadeplay_'+Date.now()+'@test.invalid';const api=await request.newContext({baseURL:base});let browser;
+try{
+ const html=await(await api.get('registro.php')).text();const token=html.match(/name="csrf_token" value="([^"]+)"/)[1];await api.post('registro_process.php',{form:{csrf_token:token,nombre:'Prueba Arcade',email,password:'PlayTest-123!',password_confirm:'PlayTest-123!'},maxRedirects:0});
+ browser=await chromium.launch({executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',headless:true});const ctx=await browser.newContext({storageState:await api.storageState()});const page=await ctx.newPage();await page.route('**/*',r=>new URL(r.request().url()).hostname==='localhost'?r.continue():r.abort());
+ await page.clock.install();
+ await page.goto('http://localhost/TekoMath-main/03_teko_arcade/TEKOARCADE/JUEGOS/dist/#/preparar/sec/ratio-rush',{waitUntil:'networkidle'});
+ await page.getByRole('button',{name:'Comenzar partida',exact:true}).click();await page.getByRole('button',{name:'Empezar partida',exact:true}).click();await page.locator('.ratio-rush__option').filter({hasText:'1.25'}).click();
+ await page.getByRole('button',{name:'Responder',exact:true}).click();
+ await page.clock.fastForward(61000);
+ await page.waitForFunction(()=>document.getElementById('arcade-sync-status')?.textContent==='Progreso guardado');
+ const saved=await(await api.get('api_arcade_progress.php')).json();assert.equal(saved.success,true);assert.equal(saved.snapshot.gameHistory.length,1,'Completed game recorded once');assert.ok(saved.snapshot.answersAttempted>=1,'Answer recorded');assert.ok(saved.snapshot.correctAnswers>=1,'Correct answer recorded');
+ const revision=saved.revision;await page.reload({waitUntil:'networkidle'});
+ const restored=await(await api.get('api_arcade_progress.php')).json();assert.equal(restored.snapshot.gameHistory.length,1,'Reload does not duplicate game');assert.equal(restored.revision,revision,'Reload does not rewrite progress');
+ const newer={...restored.snapshot,xp:restored.snapshot.xp+10};
+ const otherDevice=await api.post('api_arcade_progress.php',{headers:{'X-Teko-CSRF':restored.token},data:{user_id:restored.user_id,revision:restored.revision,snapshot:newer}});assert.equal((await otherDevice.json()).success,true);
+ await page.evaluate(()=>{const key=window.__TEKO_ARCADE_STORAGE_KEY__;const local=JSON.parse(localStorage.getItem(key));local.xp=999;const value=JSON.stringify(local);localStorage.setItem(key,value);window.__TEKO_ARCADE_SAVE__(value);});
+ await page.getByRole('button',{name:'Cargar versión del servidor',exact:true}).waitFor();
+ await Promise.all([page.waitForNavigation({waitUntil:'networkidle'}),page.getByRole('button',{name:'Cargar versión del servidor',exact:true}).click()]);
+ const recovery=await page.evaluate(()=>{const key=window.__TEKO_ARCADE_STORAGE_KEY__;return {snapshot:JSON.parse(localStorage.getItem(key)),backups:Object.keys(localStorage).filter(k=>k.startsWith(key+':backup:')).map(k=>JSON.parse(localStorage.getItem(k)))};});
+ assert.equal(recovery.snapshot.xp,newer.xp,'Remote version restored');assert.ok(recovery.backups.some(x=>x.xp===999),'Local progress backed up before replacement');
+ console.log('PASS: stale-device conflict UI loads the remote version and preserves a local backup.');
+ console.log('PASS: actual Ratio Rush preparation, start, correct answer, timer completion, server persistence and reload without duplication.');}finally{if(browser)await browser.close();await api.dispose();const clean=spawnSync('C:/xampp1/php/php.exe',['-r','require "01_sistema_principal_y_registro_offline/config/database.php";$db=getDB();$db->prepare("DELETE FROM usuarios WHERE email=?")->execute([trim(stream_get_contents(STDIN))]);'],{input:email,encoding:'utf8'});if(clean.status!==0)throw Error(clean.stderr);}})().catch(e=>{console.error(e);process.exitCode=1});

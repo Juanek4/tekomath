@@ -9,16 +9,17 @@
     <!-- Fuentes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;60°0&family=Inter:wght@400;500;60°0;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- KaTeX para Fórmulas Matemáticas -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
 
     <!-- Estilos de la Aplicación -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=20261030-bank">
     <link rel="stylesheet" href="assets/css/components.css?v=20260926-welcome">
     <link rel="icon" type="image/png" href="assets/images/tejuxi-face.png">
+<link rel="stylesheet" href="../../../07_diseno_y_graficos/teko-ui.css?v=20261028"><link rel="stylesheet" href="assets/css/mobile.css?v=20261028">
 </head>
 <body class="show-welcome">
 
@@ -30,9 +31,9 @@
         <div>
             <div class="brand-title">
                 TekoBot
-                <span class="brand-badge">Hackathon GuaranIA</span>
+                <span class="brand-badge">TEKO Math</span>
             </div>
-            <div class="brand-sub">TekoBot · Tu tutor de matemática • Plan MEC 1er Curso Media • Guaraní Jopara</div>
+            <div class="brand-sub">Tu tutor de matemática · Aprendé a tu ritmo</div>
         </div>
     </div>
     <div class="nav-quick-actions">
@@ -52,15 +53,11 @@
     <div class="sidebar-section">
         <h4>Conexión y preferencias</h4>
         <div class="nav-actions-sidebar">
-            <span id="connection-status" class="status-badge online">Conectado</span>
+            <span id="connection-status" class="status-badge online">Con conexión</span>
             
-            <select id="language-mode" class="lang-select" title="Modo de Idioma">
-                <option value="jopara" selected>Guaraní Jopara (Predeterminado)</option>
-                <option value="es_py">Español Paraguayo</option>
-                <option value="es">Español Estándar</option>
-            </select>
 
             <button id="btn-problem-workshop" class="btn-header">Resolver un problema</button>
+            <button id="btn-open-diagnostic" class="btn-header" type="button">Evaluarme por tema</button>
         </div>
     </div>
 
@@ -103,9 +100,9 @@
         </div>
 <section id="tutor-welcome" class="tutor-welcome" aria-labelledby="welcome-title">
     <img src="assets/images/tejuxi-face.png" alt="TekoBot, tu tutor" width="100" height="100">
-    <p class="welcome-eyebrow">UNIDAD 2 · MATEMÁTICA</p>
+    <p class="welcome-eyebrow">TEKO MATH · MATEMÁTICA</p>
     <h1 id="welcome-title">¡Bienvenido a TekoBot!</h1>
-    <p class="welcome-intro">Aprendamos funciones trigonométricas. Elegí un tema para comenzar una nueva conversación con TekoBot.</p>
+    <p class="welcome-intro">Elegí una unidad y un tema. Podés aprender paso a paso, hacer preguntas o comprobar tu comprensión con ejercicios.</p>
     <div id="welcome-topics" class="welcome-topics"></div>
     <p class="welcome-note">Podés retomar una conversación guardada desde «Mis chats».</p>
 </section>
@@ -187,14 +184,14 @@
 
 
         <!-- Contenedor de Mensajes del Chat Actual -->
-        <div id="chat-messages" class="chat-messages">
+        <div id="chat-messages" class="chat-messages" role="log" aria-live="polite" aria-relevant="additions">
             <!-- Mensajes inyectados dinámicamente por chat.js -->
         </div>
 
         <!-- Entrada de texto y foto del ejercicio -->
         <div class="chat-input-area">
             <div class="input-box-wrapper">
-                <label class="problem-toggle"><input type="checkbox" id="own-problem"> Che ejercicio · Mi problema</label>
+                <label class="problem-toggle"><input type="checkbox" id="own-problem"> Resolver mi ejercicio</label>
                 
                 <!-- Botón Subir Foto / OCR -->
                 <label for="camera-upload" class="btn-icon" title="Subir foto del ejercicio" style="cursor: pointer; margin: 0;">
@@ -204,13 +201,13 @@
                 
                 <input 
                     type="text" 
-                    id="chat-input" 
+                    id="chat-input" aria-label="Tu pregunta o respuesta" 
                     class="chat-input" 
                     placeholder="Ehai ko’ápe · Escribí tu pregunta o problema…" 
                     autocomplete="off"
                 />
                 <button id="send-btn" class="btn-send">
-                    <span>Emondo · Enviar</span>
+                    <span>Enviar</span>
                 </button>
             </div>
         </div>
@@ -239,8 +236,9 @@
 <script src="assets/js/offline_core.js?v=20260926-tekobot"></script>
 <script src="assets/js/chat.js?v=20260926-lesson-jopara"></script>
 <script src="assets/js/glossary.js?v=20260926-doubts"></script>
-<script src="../../jopamath_i18n.js?v=20260926-shared-language"></script>
-<script src="assets/js/app.js?v=20260926-welcome"></script>
+<script src="../../../05_jopamath/jopamath_i18n.js?v=20261028"></script>
+<script src="assets/js/api-security.js?v=20261030"></script>
+<script src="assets/js/app.js?v=20261030-security"></script>
 
-</body>
+<script src="assets/js/mobile.js?v=20261028"></script><script src="assets/js/diagnostic.js?v=20261030-bank"></script></body>
 </html>

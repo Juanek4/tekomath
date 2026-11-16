@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { usePersistentGameState } from '../core/usePersistentGameState'
+
 import { Check } from 'lucide-react'
 import { GameTemplateFrame } from '../core/GameTemplateFrame'
 import { getExercisesForTopic } from '../../exercises/data'
@@ -31,7 +32,7 @@ function timestamp(): string {
 
 export function SignalSyncGame(props: SignalSyncProps) {
   const { language, t } = useLanguage()
-  const [deck] = useState(() => {
+  const [deck] = usePersistentGameState(props.session.sessionId, 'deck', () => {
     const topic = getTopicById(props.session.topicId)
     return topic
       ? createSignalSyncDeck(
@@ -46,18 +47,18 @@ export function SignalSyncGame(props: SignalSyncProps) {
         )
       : []
   })
-  const [session, setSession] = useState(() => ({
+  const [session, setSession] = usePersistentGameState(props.session.sessionId, 'session', () => ({
     ...props.session,
     exercise: { ...props.session.exercise, prompt: t('game.signal.prompt') },
   }))
-  const [local, setLocal] = useState<SignalSyncLocalState>({
+  const [local, setLocal] = usePersistentGameState<SignalSyncLocalState>(props.session.sessionId, 'local', {
     selection: { source: null, target: null },
     solvedPairIds: [],
     combo: 0,
     bestCombo: 0,
     status: 'waiting',
   })
-  const [isPaused, setIsPaused] = useState(false)
+  const [isPaused, setIsPaused] = usePersistentGameState(props.session.sessionId, 'isPaused', false)
 
   const updateSelection = (side: 'source' | 'target', pairId: string) => {
     if (session.status !== 'playing' || isPaused || session.currentFeedback) return

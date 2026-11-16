@@ -13,9 +13,13 @@ if (file_exists(__DIR__ . '/config/session.php')) {
 }
 
 requireLogin();
+require_once __DIR__.'/../01_sistema_principal_y_registro_offline/config/api_security.php';
+apiMutationGuard();
 
 $user = getUser();
 $db = getDB();
+require_once __DIR__.'/../01_sistema_principal_y_registro_offline/config/resource_access.php';
+$resourceScope=teachingResourceScope($user,'m');
 $method = $_SERVER['REQUEST_METHOD'];
 
 // Handle action parameter for DELETE via POST if needed
@@ -29,6 +33,7 @@ if ($method === 'GET') {
                    u.nombre AS docente_nombre
             FROM materiales m
             LEFT JOIN usuarios u ON m.docente_id = u.id
+            WHERE {$resourceScope}
             ORDER BY m.created_at DESC
         ");
         $materiales = $stmt->fetchAll();
@@ -61,10 +66,7 @@ if ($method === 'POST') {
             $stmt = $db->prepare("DELETE FROM materiales WHERE id = :id AND docente_id = :docente_id");
             $stmt->execute([':id' => $id, ':docente_id' => $user['id']]);
 
-            if ($stmt->rowCount() === 0) {
-                $stmt2 = $db->prepare("DELETE FROM materiales WHERE id = :id");
-                $stmt2->execute([':id' => $id]);
-            }
+            if ($stmt->rowCount() === 0) { http_response_code(404); echo json_encode(['success'=>false,'error'=>'Recurso no disponible.']); exit; }
 
             echo json_encode(['success' => true, 'message' => 'Material eliminado correctamente']);
         } catch (Exception $e) {

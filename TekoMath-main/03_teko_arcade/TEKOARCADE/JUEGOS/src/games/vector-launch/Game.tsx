@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { exercisePool } from '../core/exercisePool'
+import { usePersistentGameState } from '../core/usePersistentGameState'
+
 import { Check, X } from 'lucide-react'
 import type { CSSProperties } from 'react'
 import { GameTemplateFrame } from '../core/GameTemplateFrame'
@@ -29,8 +31,8 @@ function timestamp(): string {
 
 export function VectorLaunchGame(props: VectorLaunchProps) {
   const { t } = useLanguage()
-  const [challenges] = useState(() => createVectorLaunchChallenges(
-    getExercisesForTopic(props.session.topicId),
+  const [challenges] = usePersistentGameState(props.session.sessionId, 'challenges', () => createVectorLaunchChallenges(
+    exercisePool(props.session.exercise, getExercisesForTopic(props.session.topicId)),
     props.session.topicId,
     props.session.exercise.difficulty,
     props.session.sessionId,
@@ -38,13 +40,13 @@ export function VectorLaunchGame(props: VectorLaunchProps) {
     props.session.exercise.id,
   ))
   const firstChallenge = challenges[0]
-  const [round, setRound] = useState(1)
-  const [session, setSession] = useState<GameSession>(() => ({
+  const [round, setRound] = usePersistentGameState(props.session.sessionId, 'round', 1)
+  const [session, setSession] = usePersistentGameState<GameSession>(props.session.sessionId, 'session', () => ({
     ...props.session,
     exerciseId: firstChallenge.exercise.id,
     exercise: firstChallenge.exercise,
   }))
-  const [local, setLocal] = useState<VectorLaunchLocalState>({
+  const [local, setLocal] = usePersistentGameState<VectorLaunchLocalState>(props.session.sessionId, 'local', {
     answer: '',
     travelRatio: null,
     launchCorrect: null,
@@ -52,7 +54,7 @@ export function VectorLaunchGame(props: VectorLaunchProps) {
     combo: 0,
     bestCombo: 0,
   })
-  const [isPaused, setIsPaused] = useState(false)
+  const [isPaused, setIsPaused] = usePersistentGameState(props.session.sessionId, 'isPaused', false)
   const challenge = challenges[round - 1]
   const scene = createVectorLaunchScene(challenge, local.travelRatio ?? 1)
   const knownComponentLabel = t(componentTranslationKeys[challenge.knownComponent])

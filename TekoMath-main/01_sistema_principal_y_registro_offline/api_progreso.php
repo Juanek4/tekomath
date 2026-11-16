@@ -8,9 +8,14 @@ require_once __DIR__ . '/config/session.php';
 require_once __DIR__ . '/config/database.php';
 
 requireLogin();
+require_once __DIR__.'/../01_sistema_principal_y_registro_offline/config/api_security.php';
+apiMutationGuard();
 
 $user = getUser();
 $db = getDB();
+$assignedScope = TeacherAssignments::scope((int)$user['id']);
+require_once __DIR__.'/config/quiz_grading.php';
+quizAttempt($user);
 $method = $_SERVER['REQUEST_METHOD'];
 
 // GET: Obtener historial o reporte de progreso
@@ -21,7 +26,7 @@ if ($method === 'GET') {
             $stmt = $db->query("
                 SELECT p.*, u.nombre AS estudiante_nombre, u.email AS estudiante_email
                 FROM progreso_quizzes p
-                JOIN usuarios u ON p.estudiante_id = u.id
+                JOIN usuarios u ON p.estudiante_id = u.id AND {$assignedScope}
                 ORDER BY p.created_at DESC
                 LIMIT 50
             ");
@@ -36,7 +41,7 @@ if ($method === 'GET') {
                     MAX(p.created_at) AS ultima_practica
                 FROM usuarios u
                 LEFT JOIN progreso_quizzes p ON u.id = p.estudiante_id
-                WHERE u.rol = 'estudiante'
+                WHERE u.rol = 'estudiante' AND {$assignedScope}
                 GROUP BY u.id, u.nombre, u.email
                 ORDER BY promedio_score DESC, total_quizzes DESC
             ");
@@ -70,11 +75,7 @@ if ($method === 'GET') {
 
 // POST: Registrar quiz completado por un estudiante
 if ($method === 'POST') {
-    $tema = trim($_POST['tema'] ?? 'Trigonometría');
-    $dificultad = trim($_POST['dificultad'] ?? 'facil');
-    $aciertos = (int)($_POST['aciertos'] ?? 0);
-    $total = (int)($_POST['total_preguntas'] ?? 5);
-    $porcentaje = $total > 0 ? (int)round(($aciertos / $total) * 100) : 0;
+    [$tema,$dificultad,$aciertos,$total,$porcentaje]=quizResult($user);
 
     try {
         $stmt = $db->prepare("
@@ -91,6 +92,7 @@ if ($method === 'POST') {
         ]);
 
         $newId = $db->lastInsertId();
+        $_SESSION['graded_quizzes'][(string)$_POST['quiz_id']]['saved']=(int)$newId;
 
         echo json_encode([
             'success' => true,

@@ -51,6 +51,8 @@ try {
         ':nombre' => $email,
     ]);
     $user = $stmt->fetch();
+    $bucket=AccountSecurity::bucket('login',$email);
+    if(AccountSecurity::limited($db,$bucket)){$_SESSION['login_error']='Demasiados intentos. Esperá cinco minutos.';header('Location: index.php');exit;}
 } catch (Exception $e) {
     $_SESSION['login_error'] = 'Error del servidor. Intenta de nuevo.';
     $_SESSION['login_email'] = $email;
@@ -60,7 +62,8 @@ try {
 }
 
 // Verificar que el usuario existe y la contraseña es correcta
-if (!$user || !password_verify($password, $user['password'])) {
+if (!$user || !password_verify($password, $user['password']) || AccountSecurity::state($db,(int)$user['id'])['disabled']) {
+    AccountSecurity::failure($db,$bucket);
     $_SESSION['login_error'] = 'Correo, usuario o contraseña incorrectos.';
     $_SESSION['login_email'] = $email;
     $_SESSION['login_rol']   = $rol;
@@ -69,6 +72,7 @@ if (!$user || !password_verify($password, $user['password'])) {
 }
 
 // ¡Login exitoso! Guardar sesión con su rol real registrado en la BD
+AccountSecurity::clear($db,$bucket);
 loginUser($user);
 
 // Redirigir según el rol guardado en la base de datos

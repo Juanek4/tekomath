@@ -24,7 +24,6 @@ export function createTriangleForgeExerciseSet(
 ): GameExercise[] {
   const available = bank.map(toTriangleForgeExercise)
   const selected = available.find((exercise) => exercise.id === selectedExercise.id)
-    ?? available[0]
     ?? selectedExercise
   const ordered = [selected, ...available.filter((exercise) => exercise.id !== selected.id)]
 

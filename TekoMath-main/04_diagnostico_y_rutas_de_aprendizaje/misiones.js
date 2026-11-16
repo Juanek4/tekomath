@@ -13,6 +13,16 @@
   // ---- Estado de la Misión Activa ----
   let currentMission = null;
   let currentMissionData = null;
+  let gradingAnswers = [];
+  let missionAttemptId = '';
+  let resumeMissionState = null;
+  const pendingMissionRequests = new Map();
+  async function missionAnswer(stage,step,option){
+    const key=[missionAttemptId,stage,step,option].join(':');
+    if(!pendingMissionRequests.has(key))pendingMissionRequests.set(key,crypto.randomUUID());
+    const body=new FormData();Object.entries({action:'responder_mision',tarea_id:currentMission.id,attempt_id:missionAttemptId,stage,step,option,request_id:pendingMissionRequests.get(key)}).forEach(([k,v])=>body.append(k,v));
+    const response=await fetch('api_tareas.php',{method:'POST',body});const data=await response.json();if(!response.ok||!data.success)throw Error(data.error||'No se pudo registrar la respuesta.');pendingMissionRequests.delete(key);return data;
+  }
   let currentStageIndex = 0; // 0 to 4 (Etapas 1 a 5)
   let stageAttemptCount = 0;
   let stageHadError = false;
@@ -166,7 +176,12 @@
       }
 
       currentMission = data.mision;
-      currentMissionData = data.mision_data;
+      const attemptBody=new FormData();attemptBody.append('action','iniciar_intento_mision');attemptBody.append('tarea_id',taskId);
+      const attemptResponse=await fetch('api_tareas.php',{method:'POST',body:attemptBody});const attempt=await attemptResponse.json();
+      if(!attemptResponse.ok||!attempt.success)throw Error(attempt.error||'No se pudo iniciar la misión.');
+      missionAttemptId=attempt.attempt_id;
+      resumeMissionState=attempt;
+      currentMissionData = attempt.mission;
       iniciarMision(currentMissionData);
     } catch (err) {
       console.error('Error al cargar misión:', err);
@@ -178,6 +193,7 @@
    * Reinicia la telemetría y muestra la Etapa 1
    */
   function iniciarMision(misionData) {
+    gradingAnswers = [];
     currentStageIndex = 0;
     stageAttemptCount = 0;
     stageHadError = false;
@@ -221,7 +237,17 @@
     modalBackdrop.classList.add('active');
 
     // Renderizar Etapa 1
-    renderStage(0);
+    const restored=resumeMissionState;
+    if(restored?.resumed){
+      const answers=restored.answers||[];
+      telemetry.intentos=answers.length;telemetry.errores=answers.filter(a=>!a.correct).length;
+      telemetry.aciertos=new Set(answers.filter(a=>a.correct).map(a=>a.stage+':'+a.step)).size;
+      telemetry.desafios_superados=telemetry.aciertos;
+      gradingAnswers=answers.map(({stage,step,option})=>({stage,step,option}));
+      actualizarTelemetriaUI();
+      if(restored.next_item!==null){renderStage(Number(restored.next_item.split(':')[0]));}
+      else {mostrarPantallaResultados();}
+    }else renderStage(0);
   }
 
   function actualizarTimerHeader() {
@@ -563,7 +589,7 @@
     const optionsHTML = stage.opciones.map((opt, i) => {
       const letter = String.fromCharCode(65 + i);
       return `
-        <button class="mission-option-btn" data-opt-id="${opt.id}" data-correct="${opt.es_correcta}">
+        <button class="mission-option-btn" data-opt-id="${opt.id}">
           <span class="mission-option-btn__letter">${letter}</span>
           <span class="mission-option-btn__text">${escapeHTML(opt.texto)}</span>
         </button>
@@ -689,10 +715,13 @@
     });
   }
 
-  function evaluarOpcionMultiple(selectedBtn, stage, allButtons, nextBtn) {
-    const isCorrect = selectedBtn.getAttribute('data-correct') === 'true';
+  async function evaluarOpcionMultiple(selectedBtn, stage, allButtons, nextBtn) {
+    allButtons.forEach(b=>b.disabled=true);
+    let verified;try{verified=await missionAnswer(currentStageIndex,-1,selectedBtn.getAttribute('data-opt-id'));}catch(e){allButtons.forEach(b=>b.disabled=false);alert(e.message);return;}
+    const isCorrect=verified.correct;
     const optId = selectedBtn.getAttribute('data-opt-id');
-    const optionData = stage.opciones.find(o => o.id === optId);
+    gradingAnswers.push({stage:currentStageIndex,step:-1,option:optId});
+    const optionData = {...stage.opciones.find(o => o.id === optId),feedback:verified.feedback,feedback_diagnostico:verified.feedback};
     const feedbackArea = document.getElementById('m-feedback-area');
 
     stageAttemptCount++;
@@ -852,7 +881,8 @@
     }
 
     stepIndexInResolve = 0;
-    renderPasoIndividual(stage, 0, nextBtn);
+    const resumedStep=resumeMissionState?.resumed&&resumeMissionState.next_item?.startsWith(currentStageIndex+':')?Number(resumeMissionState.next_item.split(':')[1]):0;
+    renderPasoIndividual(stage, Math.max(0,resumedStep), nextBtn);
 
     let hintIndex = 0;
     const btnHint = document.getElementById('m-btn-hint-resolve');
@@ -888,7 +918,7 @@
     }
 
     const stepOptionsHTML = paso.opciones.map((opt, i) => `
-      <button class="mission-option-btn step-opt-btn" data-step-opt="${opt.id}" data-correct="${opt.es_correcta}">
+      <button class="mission-option-btn step-opt-btn" data-step-opt="${opt.id}">
         <span class="mission-option-btn__letter">${String.fromCharCode(65 + i)}</span>
         <span class="mission-option-btn__text">${escapeHTML(opt.texto)}</span>
       </button>
@@ -911,10 +941,15 @@
 
     const btns = stepEl.querySelectorAll('.step-opt-btn');
     btns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const isCorrect = btn.getAttribute('data-correct') === 'true';
+      btn.addEventListener('click', async () => {
+        btns.forEach(b => b.disabled = true);
+        let verified;
+        try { verified = await missionAnswer(currentStageIndex, stepIndex, btn.getAttribute('data-step-opt')); }
+        catch(e) { btns.forEach(b => b.disabled = false); alert(e.message); return; }
+        const isCorrect = verified.correct;
         const optId = btn.getAttribute('data-step-opt');
-        const optData = paso.opciones.find(o => o.id === optId);
+        gradingAnswers.push({stage:currentStageIndex,step:stepIndex,option:optId});
+        const optData = {...paso.opciones.find(o => o.id === optId),feedback:verified.feedback,feedback_diagnostico:verified.feedback};
         const fbZone = stepEl.querySelector('.step-feedback-zone');
 
         btns.forEach(b => b.disabled = true);
@@ -1131,6 +1166,8 @@
     try {
       const formData = new FormData();
       formData.append('tarea_id', currentMission.id);
+      formData.append('attempt_id', missionAttemptId);
+      formData.append('respuestas_json', JSON.stringify(gradingAnswers));
       formData.append('dominio_pct', dominioPct);
       formData.append('aciertos', telemetry.aciertos);
       formData.append('errores', telemetry.errores);
@@ -1146,12 +1183,20 @@
         conceptos_stats: telemetry.conceptos_stats
       }));
 
-      await fetch('api_tareas.php?action=guardar_progreso_mision', {
+      const saveResponse = await fetch('api_tareas.php?action=guardar_progreso_mision', {
         method: 'POST',
         body: formData
       });
+      const saved = await saveResponse.json();
+      if (!saveResponse.ok || !saved.success) throw Error(saved.error || 'No se pudo guardar la misión.');
+      const score = document.getElementById('m-results-dominio');
+      if (score) score.textContent = saved.dominio_pct + '%';
+      const bar = document.querySelector('.mastery-progress-bar-fill');
+      if (bar) bar.style.width = saved.dominio_pct + '%';
     } catch (e) {
       console.error('Error guardando progreso:', e);
+      const score=document.getElementById('m-results-dominio');if(score)score.textContent='Sin guardar';
+      alert('No se guardó la calificación: '+e.message);
     }
   }
 

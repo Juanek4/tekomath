@@ -7,6 +7,12 @@ class QuestionResolver {
         $text=preg_replace('/[¿?¡!.,;:()"“”]/u',' ',$text);
         $text=preg_replace('/\b(?:pq|xq)\b/u','por que',$text);
         $text=preg_replace('/\bq\b/u','que',$text);
+        $text=preg_replace('/\b(?:qque|qe|ke)\b/u','que',$text);
+        $text=preg_replace('/\b(?:xk|porq|porque)\b/u','por que',$text);
+        $text=preg_replace('/\b(?:pls|plis|xfa|porfa)\b/u','por favor',$text);
+        $text=preg_replace('/^(?:hola|profe|tekobot|che)(?:\s+|$)/u','',$text);
+        $text=preg_replace('/\b(?:na|piko|pio|niko)\b/u',' ',$text);
+        $text=str_replace(['ndaikumbýi','ndaikumbyi','no pillo','no me sale entender'], 'no entiendo', $text);
         return trim(preg_replace('/\s+/u',' ',$text));
     }
     public static function isFollowup(string $text): bool {
@@ -15,7 +21,15 @@ class QuestionResolver {
         return true;
     }
     public static function intent(string $text,string $action): string {
-        if(preg_match('/diferencia|compar|versus|\bvs\b/u',$text))return 'compare';
+        if(preg_match('/error|equivoc|confund|esta mal|es incorrecto/u',$text))return 'misconception';
+        if(preg_match('/diferencia(?! de cuadrados| de conjuntos)|compar|versus|\bvs\b/u',$text))return 'compare';
+        // A title containing «gráfica» or «aplicaciones» is not itself a request to graph/apply.
+        if(preg_match('/^(que es|que son|defini|definicion)/u',$text))return 'definition';
+        if(preg_match('/no ent|mas simple|mas facil|mas sencillo/u',$text)||in_array($action,['confused','partial'],true))return 'simple';
+        if(preg_match('/dame (?:un |otro )?ejemplo|un ejemplo de/u',$text)||$action==='example')return 'example';
+        if(preg_match('/mas detalle|con detalle/u',$text)||$action==='more')return 'detail';
+        if(preg_match('/^por que\b/u',$text))return 'why';
+        if(preg_match('/^para que\b/u',$text))return 'usage';
         if(preg_match('/dominio/u',$text)&&preg_match('/recorrido|rango/u',$text))return 'domain_range';
         if(preg_match('/recorrido|rango|valores.*salida/u',$text))return 'range';
         if(preg_match('/dominio|definida|definido|existe/u',$text))return 'domain';
@@ -40,6 +54,28 @@ class QuestionResolver {
     }
     public static function cards(): array {return CurriculumService::all()['question_bank'] ?? [];}
     public static function match(string $message): array {
+        return self::exactMatch($message) ?: self::typoMatch($message);
+    }
+    // Correct only a single edit in a long alias word, and only with one concept candidate.
+    // Short symbols (sen, cos, tan) and numbers must never be guessed.
+    private static function typoMatch(string $message): array {
+        $words=explode(' ',self::normalize($message)); $candidates=[];
+        foreach(self::cards() as $card) foreach($card['aliases'] as $alias) {
+            $parts=explode(' ',self::normalize($alias)); $size=count($parts);
+            for($start=0;$start<=count($words)-$size;$start++) {
+                $edits=0;
+                foreach($parts as $i=>$part) {
+                    $word=$words[$start+$i];
+                    if($part===$word)continue;
+                    if(strlen($part)<5 || strlen($word)<5 || !ctype_alpha($part) || !ctype_alpha($word) || levenshtein($part,$word)!==1){$edits=2;break;}
+                    $edits++;
+                }
+                if($edits===1)$candidates[$card['key']]=true;
+            }
+        }
+        return count($candidates)===1?array_keys($candidates):[];
+    }
+    private static function exactMatch(string $message): array {
         $text=' '.self::normalize($message).' ';$hits=[];
         foreach(self::cards() as $card)foreach($card['aliases'] as $raw){
             $alias=' '.self::normalize($raw).' ';$start=mb_strpos($text,$alias);
@@ -52,6 +88,7 @@ class QuestionResolver {
     }
     public static function transition(array $state,string $message,string $action): ?array {
         if($action==='resume')return null;
+        if(trim($message)==='' && $state['mode']!=='QUESTION_MODE')return null;
         if($action!==''&&!in_array($action,['example','more','confused','partial'],true))return null;
         $text=self::normalize($message);$intent=self::intent($text,$action);
         $previous=$state['mode']==='QUESTION_MODE'?($state['question_context']??null):null;
@@ -103,6 +140,7 @@ class QuestionResolver {
             $parts[]="**{$card['title']}**";
             if($q['intent']==='domain_range')array_push($parts,"**Dominio**\n{$card['domain']}","**Recorrido**\n{$card['range']}");
             elseif($focused&&isset($card[$q['intent']]))$parts[]=$card[$q['intent']];
+            elseif($q['intent']==='misconception')array_push($parts,$card['definition'],$card['warning']??$card['detail'],'Si querés revisar un error concreto, escribí tu procedimiento y el paso que te genera dudas.');
             elseif($q['intent']==='simple')$parts[]=$card['simple']??$card['definition'];
             elseif($q['intent']==='example')array_push($parts,'**Ejemplo docente, paso a paso**',$card['definition'],$q['example_index']%2?$card['example_alt']:$card['example'],"**Por qué se usa esta relación**\n".($card['why']??$card['detail']));
             elseif($q['intent']==='detail')array_push($parts,$card['definition'],$card['detail'],$card['why']??$card['example'],$card['usage']??'Volvé a leer la definición e identificá qué datos se relacionan. En el ejemplo, comprobá qué representa cada cantidad antes de operar.');

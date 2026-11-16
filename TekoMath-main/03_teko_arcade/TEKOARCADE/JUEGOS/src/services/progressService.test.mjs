@@ -6,6 +6,7 @@ import { progressService } from './progressService.ts'
 const storage = new Map()
 const previousWindow = globalThis.window
 globalThis.window = {
+  __TEKO_ARCADE_STORAGE_KEY__: 'teko-juegos-progress-v2:user:101',
   localStorage: {
     getItem: (key) => storage.get(key) ?? null,
     setItem: (key, value) => storage.set(key, value),
@@ -18,8 +19,8 @@ after(() => {
   else globalThis.window = previousWindow
 })
 
-test('keeps existing v1 progress and records a finished session once', () => {
-  storage.set('teko-juegos-progress-v1', JSON.stringify({
+test('keeps account progress and records a finished session once', () => {
+  storage.set('teko-juegos-progress-v2:user:101', JSON.stringify({
     xp: 70,
     streak: 2,
     lastActiveDate: '2026-09-25T12:00:00.000Z',
@@ -148,4 +149,11 @@ test('does not increase the streak for another finished game on the same day', (
   assert.equal(second.progress.topicProgress.cos.gamesPlayed, 2)
   assert.equal(second.progress.topicProgress.cos.accuracy, 90)
   assert.equal(second.progress.gameHistory.length, 2)
+})
+test('does not import anonymous legacy progress or another account', () => {
+  storage.set('teko-juegos-progress-v1', JSON.stringify({ xp: 9999 }))
+  window.__TEKO_ARCADE_STORAGE_KEY__ = 'teko-juegos-progress-v2:user:202'
+  assert.equal(progressService.getProgress().xp, 0)
+  window.__TEKO_ARCADE_STORAGE_KEY__ = 'teko-juegos-progress-v2:user:101'
+  assert.notEqual(progressService.getProgress().xp, 9999)
 })

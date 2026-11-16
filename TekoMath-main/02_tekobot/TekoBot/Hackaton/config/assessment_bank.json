@@ -1,0 +1,5585 @@
+{
+  "version": 2,
+  "questions": [
+    {
+      "id": "funciones_introduccion_1",
+      "unit": "funciones",
+      "subtopic": "introduccion",
+      "question": "Cada cuaderno cuesta 4.000 Gs. Sin descuentos, ¿cuánto cuestan 2 cuadernos? Respondé en guaraníes.",
+      "options": [
+        "8000",
+        "8001",
+        "7999",
+        "8002"
+      ],
+      "correct_index": 0,
+      "hint": "El costo total es precio por cantidad.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_introduccion_2",
+      "unit": "funciones",
+      "subtopic": "introduccion",
+      "question": "Cada cuaderno cuesta 4.000 Gs. Sin descuentos, ¿cuánto cuestan 3 cuadernos? Respondé en guaraníes.",
+      "options": [
+        "12001",
+        "11999",
+        "12002",
+        "12000"
+      ],
+      "correct_index": 3,
+      "hint": "El costo total es precio por cantidad.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_introduccion_3",
+      "unit": "funciones",
+      "subtopic": "introduccion",
+      "question": "Cada cuaderno cuesta 4.000 Gs. Sin descuentos, ¿cuánto cuestan 4 cuadernos? Respondé en guaraníes.",
+      "options": [
+        "15999",
+        "16002",
+        "16000",
+        "16001"
+      ],
+      "correct_index": 2,
+      "hint": "El costo total es precio por cantidad.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_introduccion_4",
+      "unit": "funciones",
+      "subtopic": "introduccion",
+      "question": "Cada cuaderno cuesta 4.000 Gs. Sin descuentos, ¿cuánto cuestan 5 cuadernos? Respondé en guaraníes.",
+      "options": [
+        "20002",
+        "20000",
+        "20001",
+        "19999"
+      ],
+      "correct_index": 1,
+      "hint": "El costo total es precio por cantidad.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_introduccion_5",
+      "unit": "funciones",
+      "subtopic": "introduccion",
+      "question": "Cada cuaderno cuesta 4.000 Gs. Sin descuentos, ¿cuánto cuestan 6 cuadernos? Respondé en guaraníes.",
+      "options": [
+        "24000",
+        "24001",
+        "23999",
+        "24002"
+      ],
+      "correct_index": 0,
+      "hint": "El costo total es precio por cantidad.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_introduccion_6",
+      "unit": "funciones",
+      "subtopic": "introduccion",
+      "question": "Cada cuaderno cuesta 4.000 Gs. Sin descuentos, ¿cuánto cuestan 7 cuadernos? Respondé en guaraníes.",
+      "options": [
+        "28001",
+        "27999",
+        "28002",
+        "28000"
+      ],
+      "correct_index": 3,
+      "hint": "El costo total es precio por cantidad.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_concepto_1",
+      "unit": "funciones",
+      "subtopic": "concepto",
+      "question": "¿Qué condición debe cumplir una función?",
+      "options": [
+        "Cada entrada tiene una única salida",
+        "Una entrada tiene dos salidas",
+        "Todas las salidas deben ser distintas",
+        "No puede haber números negativos"
+      ],
+      "correct_index": 0,
+      "hint": "Una misma entrada no puede recibir dos salidas diferentes.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_concepto_2",
+      "unit": "funciones",
+      "subtopic": "concepto",
+      "question": "¿Cuál relación NO es una función de A={1,2} a B={3,4}?",
+      "options": [
+        "{(1,3),(2,4)}",
+        "{(1,4),(2,3)}",
+        "{(1,3),(2,3)}",
+        "{(1,3),(1,4),(2,3)}"
+      ],
+      "correct_index": 3,
+      "hint": "Una misma entrada no puede recibir dos salidas diferentes.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_concepto_3",
+      "unit": "funciones",
+      "subtopic": "concepto",
+      "question": "Si f(2)=4 y f(−2)=4, ¿se incumple la definición de función?",
+      "options": [
+        "Sí: no se permiten negativos",
+        "No: porque toda relación es función",
+        "No: entradas distintas pueden compartir salida",
+        "Sí: cada salida admite una sola entrada"
+      ],
+      "correct_index": 2,
+      "hint": "Una misma entrada no puede recibir dos salidas diferentes.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_concepto_4",
+      "unit": "funciones",
+      "subtopic": "concepto",
+      "question": "En y=f(x), ¿qué representa x?",
+      "options": [
+        "El nombre de la función",
+        "La entrada o variable independiente",
+        "Siempre la salida",
+        "Siempre una constante positiva"
+      ],
+      "correct_index": 1,
+      "hint": "Una misma entrada no puede recibir dos salidas diferentes.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_concepto_5",
+      "unit": "funciones",
+      "subtopic": "concepto",
+      "question": "La regla f(x)=x+3 asigna a la entrada 4 la salida…",
+      "options": [
+        "7",
+        "8",
+        "6",
+        "9"
+      ],
+      "correct_index": 0,
+      "hint": "Una misma entrada no puede recibir dos salidas diferentes.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_concepto_6",
+      "unit": "funciones",
+      "subtopic": "concepto",
+      "question": "Si f(x)=2x, ¿qué entrada produce la salida 10?",
+      "options": [
+        "6",
+        "4",
+        "7",
+        "5"
+      ],
+      "correct_index": 3,
+      "hint": "Una misma entrada no puede recibir dos salidas diferentes.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_clasificacion_1",
+      "unit": "funciones",
+      "subtopic": "clasificacion",
+      "question": "De R a R, f(x)=2x es…",
+      "options": [
+        "Biyectiva",
+        "Solo inyectiva",
+        "Solo sobreyectiva",
+        "Ni inyectiva ni sobreyectiva"
+      ],
+      "correct_index": 0,
+      "hint": "Revisá dominio, codominio, repetición de imágenes y cobertura del codominio.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_clasificacion_2",
+      "unit": "funciones",
+      "subtopic": "clasificacion",
+      "question": "De R a R, f(x)=x² es…",
+      "options": [
+        "Biyectiva",
+        "Solo inyectiva",
+        "Solo sobreyectiva",
+        "Ni inyectiva ni sobreyectiva"
+      ],
+      "correct_index": 3,
+      "hint": "Revisá dominio, codominio, repetición de imágenes y cobertura del codominio.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_clasificacion_3",
+      "unit": "funciones",
+      "subtopic": "clasificacion",
+      "question": "¿Qué significa inyectiva?",
+      "options": [
+        "Alcanza siempre todo R",
+        "Su gráfica siempre es una recta",
+        "Entradas distintas tienen salidas distintas",
+        "Todas las salidas son positivas"
+      ],
+      "correct_index": 2,
+      "hint": "Revisá dominio, codominio, repetición de imágenes y cobertura del codominio.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_clasificacion_4",
+      "unit": "funciones",
+      "subtopic": "clasificacion",
+      "question": "¿Qué significa sobreyectiva?",
+      "options": [
+        "Solo admite enteros",
+        "Cada elemento del codominio tiene alguna preimagen",
+        "Cada entrada tiene dos imágenes",
+        "No tiene ceros"
+      ],
+      "correct_index": 1,
+      "hint": "Revisá dominio, codominio, repetición de imágenes y cobertura del codominio.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_clasificacion_5",
+      "unit": "funciones",
+      "subtopic": "clasificacion",
+      "question": "De [0,∞) a [0,∞), f(x)=x² es…",
+      "options": [
+        "Biyectiva",
+        "No es función",
+        "Solo sobreyectiva",
+        "Ni inyectiva ni sobreyectiva"
+      ],
+      "correct_index": 0,
+      "hint": "Revisá dominio, codominio, repetición de imágenes y cobertura del codominio.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_clasificacion_6",
+      "unit": "funciones",
+      "subtopic": "clasificacion",
+      "question": "De R a R, la función f(x)=3 es…",
+      "options": [
+        "Biyectiva",
+        "Solo inyectiva",
+        "Solo sobreyectiva",
+        "Ni inyectiva ni sobreyectiva"
+      ],
+      "correct_index": 3,
+      "hint": "Revisá dominio, codominio, repetición de imágenes y cobertura del codominio.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_caracteristicas_1",
+      "unit": "funciones",
+      "subtopic": "caracteristicas",
+      "question": "¿Qué valor se excluye del dominio real de f(x)=1/(x−2)?",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "correct_index": 0,
+      "hint": "Buscá restricciones del dominio y distinguí entradas de salidas.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_caracteristicas_2",
+      "unit": "funciones",
+      "subtopic": "caracteristicas",
+      "question": "¿Cuál es el recorrido real de f(x)=x²?",
+      "options": [
+        "R",
+        "(−∞,0]",
+        "Solo {0}",
+        "[0,∞)"
+      ],
+      "correct_index": 3,
+      "hint": "Buscá restricciones del dominio y distinguí entradas de salidas.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_caracteristicas_3",
+      "unit": "funciones",
+      "subtopic": "caracteristicas",
+      "question": "¿Cuál es el dominio real de f(x)=√(x−3)?",
+      "options": [
+        "(−∞,3]",
+        "R excepto 3",
+        "[3,∞)",
+        "R"
+      ],
+      "correct_index": 2,
+      "hint": "Buscá restricciones del dominio y distinguí entradas de salidas.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_caracteristicas_4",
+      "unit": "funciones",
+      "subtopic": "caracteristicas",
+      "question": "La función f(x)=2x+1 es…",
+      "options": [
+        "Discontinua en 0",
+        "Creciente en R",
+        "Decreciente en R",
+        "Constante en R"
+      ],
+      "correct_index": 1,
+      "hint": "Buscá restricciones del dominio y distinguí entradas de salidas.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_caracteristicas_5",
+      "unit": "funciones",
+      "subtopic": "caracteristicas",
+      "question": "¿Cuál es el mínimo de f(x)=(x−2)²+1?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Buscá restricciones del dominio y distinguí entradas de salidas.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_caracteristicas_6",
+      "unit": "funciones",
+      "subtopic": "caracteristicas",
+      "question": "¿Qué propiedad cumple f(x)=x²?",
+      "options": [
+        "Es impar: f(−x)=−f(x)",
+        "No tiene dominio real",
+        "Su recorrido es R",
+        "Es par: f(−x)=f(x)"
+      ],
+      "correct_index": 3,
+      "hint": "Buscá restricciones del dominio y distinguí entradas de salidas.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_tipos_1",
+      "unit": "funciones",
+      "subtopic": "tipos",
+      "question": "¿Qué tipo de función es f(x)=3x+2?",
+      "options": [
+        "Polinómica de primer grado",
+        "Exponencial",
+        "Logarítmica",
+        "Módulo"
+      ],
+      "correct_index": 0,
+      "hint": "Identificá dónde aparece la variable y qué operación define la regla.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_tipos_2",
+      "unit": "funciones",
+      "subtopic": "tipos",
+      "question": "¿Qué tipo de función es f(x)=x²−4?",
+      "options": [
+        "Cúbica",
+        "Constante",
+        "Logarítmica",
+        "Cuadrática"
+      ],
+      "correct_index": 3,
+      "hint": "Identificá dónde aparece la variable y qué operación define la regla.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_tipos_3",
+      "unit": "funciones",
+      "subtopic": "tipos",
+      "question": "¿Qué tipo de función es f(x)=2^x?",
+      "options": [
+        "Lineal",
+        "Parte entera",
+        "Exponencial",
+        "Cuadrática"
+      ],
+      "correct_index": 2,
+      "hint": "Identificá dónde aparece la variable y qué operación define la regla.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_tipos_4",
+      "unit": "funciones",
+      "subtopic": "tipos",
+      "question": "¿Qué tipo de función es f(x)=log₂(x)?",
+      "options": [
+        "Módulo",
+        "Logarítmica",
+        "Exponencial",
+        "Constante"
+      ],
+      "correct_index": 1,
+      "hint": "Identificá dónde aparece la variable y qué operación define la regla.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_tipos_5",
+      "unit": "funciones",
+      "subtopic": "tipos",
+      "question": "¿Qué tipo de función es f(x)=|x|?",
+      "options": [
+        "Módulo o valor absoluto",
+        "Lineal en todo R",
+        "Cúbica",
+        "Parte entera"
+      ],
+      "correct_index": 0,
+      "hint": "Identificá dónde aparece la variable y qué operación define la regla.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_tipos_6",
+      "unit": "funciones",
+      "subtopic": "tipos",
+      "question": "¿Qué tipo de función es f(x)=sen(x)?",
+      "options": [
+        "Logarítmica",
+        "Constante",
+        "Cuadrática",
+        "Trigonométrica"
+      ],
+      "correct_index": 3,
+      "hint": "Identificá dónde aparece la variable y qué operación define la regla.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_lineal_1",
+      "unit": "funciones",
+      "subtopic": "lineal",
+      "question": "Si f(x)=2x+3, ¿cuánto vale f(-1)?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Sustituí x y multiplicá antes de sumar.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_lineal_2",
+      "unit": "funciones",
+      "subtopic": "lineal",
+      "question": "Si f(x)=2x+3, ¿cuánto vale f(0)?",
+      "options": [
+        "4",
+        "2",
+        "5",
+        "3"
+      ],
+      "correct_index": 3,
+      "hint": "Sustituí x y multiplicá antes de sumar.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_lineal_3",
+      "unit": "funciones",
+      "subtopic": "lineal",
+      "question": "Si f(x)=2x+3, ¿cuánto vale f(1)?",
+      "options": [
+        "4",
+        "7",
+        "5",
+        "6"
+      ],
+      "correct_index": 2,
+      "hint": "Sustituí x y multiplicá antes de sumar.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_lineal_4",
+      "unit": "funciones",
+      "subtopic": "lineal",
+      "question": "Si f(x)=2x+3, ¿cuánto vale f(2)?",
+      "options": [
+        "9",
+        "7",
+        "8",
+        "6"
+      ],
+      "correct_index": 1,
+      "hint": "Sustituí x y multiplicá antes de sumar.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_lineal_5",
+      "unit": "funciones",
+      "subtopic": "lineal",
+      "question": "Si f(x)=2x+3, ¿cuánto vale f(3)?",
+      "options": [
+        "9",
+        "10",
+        "8",
+        "11"
+      ],
+      "correct_index": 0,
+      "hint": "Sustituí x y multiplicá antes de sumar.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_lineal_6",
+      "unit": "funciones",
+      "subtopic": "lineal",
+      "question": "Si f(x)=2x+3, ¿cuánto vale f(4)?",
+      "options": [
+        "12",
+        "10",
+        "13",
+        "11"
+      ],
+      "correct_index": 3,
+      "hint": "Sustituí x y multiplicá antes de sumar.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_constante_1",
+      "unit": "funciones",
+      "subtopic": "constante",
+      "question": "Para todo x real, f(x)=3. ¿Cuánto vale f(3)?",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "5"
+      ],
+      "correct_index": 0,
+      "hint": "Una función constante conserva su valor para cualquier entrada.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_constante_2",
+      "unit": "funciones",
+      "subtopic": "constante",
+      "question": "Para todo x real, f(x)=4. ¿Cuánto vale f(6)?",
+      "options": [
+        "5",
+        "3",
+        "6",
+        "4"
+      ],
+      "correct_index": 3,
+      "hint": "Una función constante conserva su valor para cualquier entrada.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_constante_3",
+      "unit": "funciones",
+      "subtopic": "constante",
+      "question": "Para todo x real, f(x)=5. ¿Cuánto vale f(9)?",
+      "options": [
+        "4",
+        "7",
+        "5",
+        "6"
+      ],
+      "correct_index": 2,
+      "hint": "Una función constante conserva su valor para cualquier entrada.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_constante_4",
+      "unit": "funciones",
+      "subtopic": "constante",
+      "question": "Para todo x real, f(x)=6. ¿Cuánto vale f(12)?",
+      "options": [
+        "8",
+        "6",
+        "7",
+        "5"
+      ],
+      "correct_index": 1,
+      "hint": "Una función constante conserva su valor para cualquier entrada.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_constante_5",
+      "unit": "funciones",
+      "subtopic": "constante",
+      "question": "Para todo x real, f(x)=7. ¿Cuánto vale f(15)?",
+      "options": [
+        "7",
+        "8",
+        "6",
+        "9"
+      ],
+      "correct_index": 0,
+      "hint": "Una función constante conserva su valor para cualquier entrada.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_constante_6",
+      "unit": "funciones",
+      "subtopic": "constante",
+      "question": "Para todo x real, f(x)=8. ¿Cuánto vale f(18)?",
+      "options": [
+        "9",
+        "7",
+        "10",
+        "8"
+      ],
+      "correct_index": 3,
+      "hint": "Una función constante conserva su valor para cualquier entrada.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_exponencial_1",
+      "unit": "funciones",
+      "subtopic": "exponencial",
+      "question": "Una población se duplica cada hora desde 1 unidad: f(t)=2^t. ¿Cuánto vale f(1)?",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "correct_index": 0,
+      "hint": "La variable está en el exponente: multiplicá la base por sí misma.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_exponencial_2",
+      "unit": "funciones",
+      "subtopic": "exponencial",
+      "question": "Una población se duplica cada hora desde 1 unidad: f(t)=2^t. ¿Cuánto vale f(2)?",
+      "options": [
+        "5",
+        "3",
+        "6",
+        "4"
+      ],
+      "correct_index": 3,
+      "hint": "La variable está en el exponente: multiplicá la base por sí misma.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_exponencial_3",
+      "unit": "funciones",
+      "subtopic": "exponencial",
+      "question": "Una población se duplica cada hora desde 1 unidad: f(t)=2^t. ¿Cuánto vale f(3)?",
+      "options": [
+        "7",
+        "10",
+        "8",
+        "9"
+      ],
+      "correct_index": 2,
+      "hint": "La variable está en el exponente: multiplicá la base por sí misma.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_exponencial_4",
+      "unit": "funciones",
+      "subtopic": "exponencial",
+      "question": "Una población se duplica cada hora desde 1 unidad: f(t)=2^t. ¿Cuánto vale f(4)?",
+      "options": [
+        "18",
+        "16",
+        "17",
+        "15"
+      ],
+      "correct_index": 1,
+      "hint": "La variable está en el exponente: multiplicá la base por sí misma.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_exponencial_5",
+      "unit": "funciones",
+      "subtopic": "exponencial",
+      "question": "Una población se duplica cada hora desde 1 unidad: f(t)=2^t. ¿Cuánto vale f(5)?",
+      "options": [
+        "32",
+        "33",
+        "31",
+        "34"
+      ],
+      "correct_index": 0,
+      "hint": "La variable está en el exponente: multiplicá la base por sí misma.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_exponencial_6",
+      "unit": "funciones",
+      "subtopic": "exponencial",
+      "question": "Una población se duplica cada hora desde 1 unidad: f(t)=2^t. ¿Cuánto vale f(6)?",
+      "options": [
+        "65",
+        "63",
+        "66",
+        "64"
+      ],
+      "correct_index": 3,
+      "hint": "La variable está en el exponente: multiplicá la base por sí misma.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_logaritmica_1",
+      "unit": "funciones",
+      "subtopic": "logaritmica",
+      "question": "¿Cuánto vale log₂(2)?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "El logaritmo pregunta a qué exponente elevar la base.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_logaritmica_2",
+      "unit": "funciones",
+      "subtopic": "logaritmica",
+      "question": "¿Cuánto vale log₂(4)?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "El logaritmo pregunta a qué exponente elevar la base.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_logaritmica_3",
+      "unit": "funciones",
+      "subtopic": "logaritmica",
+      "question": "¿Cuánto vale log₂(8)?",
+      "options": [
+        "2",
+        "5",
+        "3",
+        "4"
+      ],
+      "correct_index": 2,
+      "hint": "El logaritmo pregunta a qué exponente elevar la base.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_logaritmica_4",
+      "unit": "funciones",
+      "subtopic": "logaritmica",
+      "question": "¿Cuánto vale log₂(16)?",
+      "options": [
+        "6",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct_index": 1,
+      "hint": "El logaritmo pregunta a qué exponente elevar la base.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_logaritmica_5",
+      "unit": "funciones",
+      "subtopic": "logaritmica",
+      "question": "¿Cuánto vale log₂(32)?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "El logaritmo pregunta a qué exponente elevar la base.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_logaritmica_6",
+      "unit": "funciones",
+      "subtopic": "logaritmica",
+      "question": "¿Cuánto vale log₂(64)?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "El logaritmo pregunta a qué exponente elevar la base.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_trigonometricas_intro_1",
+      "unit": "funciones",
+      "subtopic": "trigonometricas_intro",
+      "question": "¿Cuánto vale sen(0°)?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "2"
+      ],
+      "correct_index": 0,
+      "hint": "En la circunferencia unitaria, coseno es x y seno es y.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_trigonometricas_intro_2",
+      "unit": "funciones",
+      "subtopic": "trigonometricas_intro",
+      "question": "¿Cuánto vale cos(0°)?",
+      "options": [
+        "0",
+        "-1",
+        "2",
+        "1"
+      ],
+      "correct_index": 3,
+      "hint": "En la circunferencia unitaria, coseno es x y seno es y.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_trigonometricas_intro_3",
+      "unit": "funciones",
+      "subtopic": "trigonometricas_intro",
+      "question": "¿Cuánto vale sen(90°)?",
+      "options": [
+        "-1",
+        "2",
+        "1",
+        "0"
+      ],
+      "correct_index": 2,
+      "hint": "En la circunferencia unitaria, coseno es x y seno es y.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_trigonometricas_intro_4",
+      "unit": "funciones",
+      "subtopic": "trigonometricas_intro",
+      "question": "¿Cuánto vale cos(180°)?",
+      "options": [
+        "2",
+        "-1",
+        "0",
+        "1"
+      ],
+      "correct_index": 1,
+      "hint": "En la circunferencia unitaria, coseno es x y seno es y.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_trigonometricas_intro_5",
+      "unit": "funciones",
+      "subtopic": "trigonometricas_intro",
+      "question": "¿Cuánto vale sen(270°)?",
+      "options": [
+        "-1",
+        "0",
+        "1",
+        "2"
+      ],
+      "correct_index": 0,
+      "hint": "En la circunferencia unitaria, coseno es x y seno es y.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_trigonometricas_intro_6",
+      "unit": "funciones",
+      "subtopic": "trigonometricas_intro",
+      "question": "¿Cuánto vale cos(360°)?",
+      "options": [
+        "0",
+        "-1",
+        "2",
+        "1"
+      ],
+      "correct_index": 3,
+      "hint": "En la circunferencia unitaria, coseno es x y seno es y.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_variacion_trig_1",
+      "unit": "funciones",
+      "subtopic": "variacion_trig",
+      "question": "En grados, sen(x) entre 0° y 90°…",
+      "options": [
+        "Crece de 0 a 1",
+        "Decrece de 1 a 0",
+        "Es constante en 1",
+        "Crece de −1 a 0"
+      ],
+      "correct_index": 0,
+      "hint": "Observá coordenadas y repetición; tangente no está definida donde coseno es cero.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_variacion_trig_2",
+      "unit": "funciones",
+      "subtopic": "variacion_trig",
+      "question": "En grados, cos(x) entre 0° y 90°…",
+      "options": [
+        "Crece de 0 a 1",
+        "Es constante en 0",
+        "Decrece de 0 a −1",
+        "Decrece de 1 a 0"
+      ],
+      "correct_index": 3,
+      "hint": "Observá coordenadas y repetición; tangente no está definida donde coseno es cero.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_variacion_trig_3",
+      "unit": "funciones",
+      "subtopic": "variacion_trig",
+      "question": "¿Cuál es el máximo de sen(x)?",
+      "options": [
+        "0",
+        "3",
+        "1",
+        "2"
+      ],
+      "correct_index": 2,
+      "hint": "Observá coordenadas y repetición; tangente no está definida donde coseno es cero.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_variacion_trig_4",
+      "unit": "funciones",
+      "subtopic": "variacion_trig",
+      "question": "¿Cuál es el mínimo de cos(x)?",
+      "options": [
+        "1",
+        "-1",
+        "0",
+        "-2"
+      ],
+      "correct_index": 1,
+      "hint": "Observá coordenadas y repetición; tangente no está definida donde coseno es cero.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_variacion_trig_5",
+      "unit": "funciones",
+      "subtopic": "variacion_trig",
+      "question": "¿Cuántos grados tiene un período completo de sen(x)?",
+      "options": [
+        "360",
+        "361",
+        "359",
+        "362"
+      ],
+      "correct_index": 0,
+      "hint": "Observá coordenadas y repetición; tangente no está definida donde coseno es cero.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_variacion_trig_6",
+      "unit": "funciones",
+      "subtopic": "variacion_trig",
+      "question": "En grados, tan(x) cuando x se acerca a 90° por la izquierda…",
+      "options": [
+        "Se acerca a 0",
+        "Es igual a 1",
+        "Se acerca a −1",
+        "Crece sin cota superior"
+      ],
+      "correct_index": 3,
+      "hint": "Observá coordenadas y repetición; tangente no está definida donde coseno es cero.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_modulo_1",
+      "unit": "funciones",
+      "subtopic": "modulo",
+      "question": "¿Cuánto vale |-3|?",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "5"
+      ],
+      "correct_index": 0,
+      "hint": "El valor absoluto mide distancia al cero y nunca es negativo.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_modulo_2",
+      "unit": "funciones",
+      "subtopic": "modulo",
+      "question": "¿Cuánto vale |-2|?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "El valor absoluto mide distancia al cero y nunca es negativo.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_modulo_3",
+      "unit": "funciones",
+      "subtopic": "modulo",
+      "question": "¿Cuánto vale |-1|?",
+      "options": [
+        "0",
+        "3",
+        "1",
+        "2"
+      ],
+      "correct_index": 2,
+      "hint": "El valor absoluto mide distancia al cero y nunca es negativo.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_modulo_4",
+      "unit": "funciones",
+      "subtopic": "modulo",
+      "question": "¿Cuánto vale |0|?",
+      "options": [
+        "2",
+        "0",
+        "1",
+        "-1"
+      ],
+      "correct_index": 1,
+      "hint": "El valor absoluto mide distancia al cero y nunca es negativo.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_modulo_5",
+      "unit": "funciones",
+      "subtopic": "modulo",
+      "question": "¿Cuánto vale |1|?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "El valor absoluto mide distancia al cero y nunca es negativo.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_modulo_6",
+      "unit": "funciones",
+      "subtopic": "modulo",
+      "question": "¿Cuánto vale |2|?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "El valor absoluto mide distancia al cero y nunca es negativo.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_parte_entera_1",
+      "unit": "funciones",
+      "subtopic": "parte_entera",
+      "question": "La parte entera es el mayor entero menor o igual que x. ¿Cuánto vale ⌊−3.5⌋?",
+      "options": [
+        "-4",
+        "-3",
+        "-5",
+        "-2"
+      ],
+      "correct_index": 0,
+      "hint": "Ubicá el número entre dos enteros y elegí el inferior, incluso si es negativo.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_parte_entera_2",
+      "unit": "funciones",
+      "subtopic": "parte_entera",
+      "question": "La parte entera es el mayor entero menor o igual que x. ¿Cuánto vale ⌊−2.5⌋?",
+      "options": [
+        "-2",
+        "-4",
+        "-1",
+        "-3"
+      ],
+      "correct_index": 3,
+      "hint": "Ubicá el número entre dos enteros y elegí el inferior, incluso si es negativo.",
+      "level": "inicial"
+    },
+    {
+      "id": "funciones_parte_entera_3",
+      "unit": "funciones",
+      "subtopic": "parte_entera",
+      "question": "La parte entera es el mayor entero menor o igual que x. ¿Cuánto vale ⌊−1.5⌋?",
+      "options": [
+        "-3",
+        "0",
+        "-2",
+        "-1"
+      ],
+      "correct_index": 2,
+      "hint": "Ubicá el número entre dos enteros y elegí el inferior, incluso si es negativo.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_parte_entera_4",
+      "unit": "funciones",
+      "subtopic": "parte_entera",
+      "question": "La parte entera es el mayor entero menor o igual que x. ¿Cuánto vale ⌊0.5⌋?",
+      "options": [
+        "2",
+        "0",
+        "1",
+        "-1"
+      ],
+      "correct_index": 1,
+      "hint": "Ubicá el número entre dos enteros y elegí el inferior, incluso si es negativo.",
+      "level": "practica"
+    },
+    {
+      "id": "funciones_parte_entera_5",
+      "unit": "funciones",
+      "subtopic": "parte_entera",
+      "question": "La parte entera es el mayor entero menor o igual que x. ¿Cuánto vale ⌊1.5⌋?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Ubicá el número entre dos enteros y elegí el inferior, incluso si es negativo.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "funciones_parte_entera_6",
+      "unit": "funciones",
+      "subtopic": "parte_entera",
+      "question": "La parte entera es el mayor entero menor o igual que x. ¿Cuánto vale ⌊2.5⌋?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "Ubicá el número entre dos enteros y elegí el inferior, incluso si es negativo.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_angulos_1",
+      "unit": "trigonometria",
+      "subtopic": "angulos",
+      "question": "Un giro recorre 1 cuartos de vuelta. ¿Cuántos grados recorre en total?",
+      "options": [
+        "90",
+        "91",
+        "89",
+        "92"
+      ],
+      "correct_index": 0,
+      "hint": "Una vuelta tiene 360° y un cuarto de vuelta tiene 90°.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_angulos_2",
+      "unit": "trigonometria",
+      "subtopic": "angulos",
+      "question": "Un giro recorre 2 cuartos de vuelta. ¿Cuántos grados recorre en total?",
+      "options": [
+        "181",
+        "179",
+        "182",
+        "180"
+      ],
+      "correct_index": 3,
+      "hint": "Una vuelta tiene 360° y un cuarto de vuelta tiene 90°.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_angulos_3",
+      "unit": "trigonometria",
+      "subtopic": "angulos",
+      "question": "Un giro recorre 3 cuartos de vuelta. ¿Cuántos grados recorre en total?",
+      "options": [
+        "269",
+        "272",
+        "270",
+        "271"
+      ],
+      "correct_index": 2,
+      "hint": "Una vuelta tiene 360° y un cuarto de vuelta tiene 90°.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_angulos_4",
+      "unit": "trigonometria",
+      "subtopic": "angulos",
+      "question": "Un giro recorre 4 cuartos de vuelta. ¿Cuántos grados recorre en total?",
+      "options": [
+        "362",
+        "360",
+        "361",
+        "359"
+      ],
+      "correct_index": 1,
+      "hint": "Una vuelta tiene 360° y un cuarto de vuelta tiene 90°.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_angulos_5",
+      "unit": "trigonometria",
+      "subtopic": "angulos",
+      "question": "Un giro recorre 5 cuartos de vuelta. ¿Cuántos grados recorre en total?",
+      "options": [
+        "450",
+        "451",
+        "449",
+        "452"
+      ],
+      "correct_index": 0,
+      "hint": "Una vuelta tiene 360° y un cuarto de vuelta tiene 90°.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_angulos_6",
+      "unit": "trigonometria",
+      "subtopic": "angulos",
+      "question": "Un giro recorre 6 cuartos de vuelta. ¿Cuántos grados recorre en total?",
+      "options": [
+        "541",
+        "539",
+        "542",
+        "540"
+      ],
+      "correct_index": 3,
+      "hint": "Una vuelta tiene 360° y un cuarto de vuelta tiene 90°.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_grados_radianes_1",
+      "unit": "trigonometria",
+      "subtopic": "grados_radianes",
+      "question": "Convertí 30° a radianes. Elegí el coeficiente de π (si obtenés π/6, elegí 1/6).",
+      "options": [
+        "1/6",
+        "11/6",
+        "7/2",
+        "31/6"
+      ],
+      "correct_index": 0,
+      "hint": "Multiplicá los grados por π/180 y simplificá.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_grados_radianes_2",
+      "unit": "trigonometria",
+      "subtopic": "grados_radianes",
+      "question": "Convertí 60° a radianes. Elegí el coeficiente de π (si obtenés π/6, elegí 1/6).",
+      "options": [
+        "2",
+        "11/3",
+        "16/3",
+        "1/3"
+      ],
+      "correct_index": 3,
+      "hint": "Multiplicá los grados por π/180 y simplificá.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_grados_radianes_3",
+      "unit": "trigonometria",
+      "subtopic": "grados_radianes",
+      "question": "Convertí 90° a radianes. Elegí el coeficiente de π (si obtenés π/6, elegí 1/6).",
+      "options": [
+        "23/6",
+        "11/2",
+        "1/2",
+        "13/6"
+      ],
+      "correct_index": 2,
+      "hint": "Multiplicá los grados por π/180 y simplificá.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_grados_radianes_4",
+      "unit": "trigonometria",
+      "subtopic": "grados_radianes",
+      "question": "Convertí 120° a radianes. Elegí el coeficiente de π (si obtenés π/6, elegí 1/6).",
+      "options": [
+        "17/3",
+        "2/3",
+        "7/3",
+        "4"
+      ],
+      "correct_index": 1,
+      "hint": "Multiplicá los grados por π/180 y simplificá.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_grados_radianes_5",
+      "unit": "trigonometria",
+      "subtopic": "grados_radianes",
+      "question": "Convertí 150° a radianes. Elegí el coeficiente de π (si obtenés π/6, elegí 1/6).",
+      "options": [
+        "5/6",
+        "5/2",
+        "25/6",
+        "35/6"
+      ],
+      "correct_index": 0,
+      "hint": "Multiplicá los grados por π/180 y simplificá.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_grados_radianes_6",
+      "unit": "trigonometria",
+      "subtopic": "grados_radianes",
+      "question": "Convertí 180° a radianes. Elegí el coeficiente de π (si obtenés π/6, elegí 1/6).",
+      "options": [
+        "8/3",
+        "13/3",
+        "6",
+        "1"
+      ],
+      "correct_index": 3,
+      "hint": "Multiplicá los grados por π/180 y simplificá.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_triangulo_1",
+      "unit": "trigonometria",
+      "subtopic": "triangulo",
+      "question": "¿Dónde está la hipotenusa de un triángulo rectángulo?",
+      "options": [
+        "Frente al ángulo de 90°",
+        "Siempre a la izquierda",
+        "Frente al ángulo menor",
+        "Es cualquiera de los catetos"
+      ],
+      "correct_index": 0,
+      "hint": "Identificá primero el ángulo recto; aplicá a²+b²=c² solo al triángulo rectángulo.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_triangulo_2",
+      "unit": "trigonometria",
+      "subtopic": "triangulo",
+      "question": "Los catetos miden 3 y 4. ¿Cuánto mide la hipotenusa?",
+      "options": [
+        "6",
+        "4",
+        "7",
+        "5"
+      ],
+      "correct_index": 3,
+      "hint": "Identificá primero el ángulo recto; aplicá a²+b²=c² solo al triángulo rectángulo.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_triangulo_3",
+      "unit": "trigonometria",
+      "subtopic": "triangulo",
+      "question": "La hipotenusa mide 13 y un cateto 5. ¿Cuánto mide el otro cateto?",
+      "options": [
+        "11",
+        "14",
+        "12",
+        "13"
+      ],
+      "correct_index": 2,
+      "hint": "Identificá primero el ángulo recto; aplicá a²+b²=c² solo al triángulo rectángulo.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_triangulo_4",
+      "unit": "trigonometria",
+      "subtopic": "triangulo",
+      "question": "Respecto de un ángulo agudo, el cateto opuesto…",
+      "options": [
+        "Es la hipotenusa",
+        "Está frente a ese ángulo",
+        "Toca ese ángulo",
+        "Siempre es el más largo"
+      ],
+      "correct_index": 1,
+      "hint": "Identificá primero el ángulo recto; aplicá a²+b²=c² solo al triángulo rectángulo.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_triangulo_5",
+      "unit": "trigonometria",
+      "subtopic": "triangulo",
+      "question": "Si un ángulo agudo mide 35°, ¿cuánto mide el otro ángulo agudo?",
+      "options": [
+        "55",
+        "56",
+        "54",
+        "57"
+      ],
+      "correct_index": 0,
+      "hint": "Identificá primero el ángulo recto; aplicá a²+b²=c² solo al triángulo rectángulo.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_triangulo_6",
+      "unit": "trigonometria",
+      "subtopic": "triangulo",
+      "question": "La hipotenusa mide 10 y un cateto 6. ¿Cuánto mide el otro?",
+      "options": [
+        "9",
+        "7",
+        "10",
+        "8"
+      ],
+      "correct_index": 3,
+      "hint": "Identificá primero el ángulo recto; aplicá a²+b²=c² solo al triángulo rectángulo.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_seno_1",
+      "unit": "trigonometria",
+      "subtopic": "seno",
+      "question": "Respecto de un ángulo agudo, el cateto opuesto mide 1 y la hipotenusa 3. ¿Cuál es el seno?",
+      "options": [
+        "1/3",
+        "3",
+        "1/4",
+        "2/3"
+      ],
+      "correct_index": 0,
+      "hint": "Seno = cateto opuesto / hipotenusa.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_seno_2",
+      "unit": "trigonometria",
+      "subtopic": "seno",
+      "question": "Respecto de un ángulo agudo, el cateto opuesto mide 2 y la hipotenusa 4. ¿Cuál es el seno?",
+      "options": [
+        "2",
+        "2/5",
+        "3/4",
+        "1/2"
+      ],
+      "correct_index": 3,
+      "hint": "Seno = cateto opuesto / hipotenusa.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_seno_3",
+      "unit": "trigonometria",
+      "subtopic": "seno",
+      "question": "Respecto de un ángulo agudo, el cateto opuesto mide 3 y la hipotenusa 5. ¿Cuál es el seno?",
+      "options": [
+        "1/2",
+        "4/5",
+        "3/5",
+        "5/3"
+      ],
+      "correct_index": 2,
+      "hint": "Seno = cateto opuesto / hipotenusa.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_seno_4",
+      "unit": "trigonometria",
+      "subtopic": "seno",
+      "question": "Respecto de un ángulo agudo, el cateto opuesto mide 4 y la hipotenusa 6. ¿Cuál es el seno?",
+      "options": [
+        "5/6",
+        "2/3",
+        "3/2",
+        "4/7"
+      ],
+      "correct_index": 1,
+      "hint": "Seno = cateto opuesto / hipotenusa.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_seno_5",
+      "unit": "trigonometria",
+      "subtopic": "seno",
+      "question": "Respecto de un ángulo agudo, el cateto opuesto mide 5 y la hipotenusa 7. ¿Cuál es el seno?",
+      "options": [
+        "5/7",
+        "7/5",
+        "5/8",
+        "6/7"
+      ],
+      "correct_index": 0,
+      "hint": "Seno = cateto opuesto / hipotenusa.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_seno_6",
+      "unit": "trigonometria",
+      "subtopic": "seno",
+      "question": "Respecto de un ángulo agudo, el cateto opuesto mide 6 y la hipotenusa 8. ¿Cuál es el seno?",
+      "options": [
+        "4/3",
+        "2/3",
+        "7/8",
+        "3/4"
+      ],
+      "correct_index": 3,
+      "hint": "Seno = cateto opuesto / hipotenusa.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_coseno_1",
+      "unit": "trigonometria",
+      "subtopic": "coseno",
+      "question": "Respecto de un ángulo agudo, el cateto adyacente mide 2 y la hipotenusa 4. ¿Cuál es el coseno?",
+      "options": [
+        "1/2",
+        "2",
+        "2/5",
+        "3/4"
+      ],
+      "correct_index": 0,
+      "hint": "Coseno = cateto adyacente / hipotenusa.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_coseno_2",
+      "unit": "trigonometria",
+      "subtopic": "coseno",
+      "question": "Respecto de un ángulo agudo, el cateto adyacente mide 3 y la hipotenusa 5. ¿Cuál es el coseno?",
+      "options": [
+        "5/3",
+        "1/2",
+        "4/5",
+        "3/5"
+      ],
+      "correct_index": 3,
+      "hint": "Coseno = cateto adyacente / hipotenusa.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_coseno_3",
+      "unit": "trigonometria",
+      "subtopic": "coseno",
+      "question": "Respecto de un ángulo agudo, el cateto adyacente mide 4 y la hipotenusa 6. ¿Cuál es el coseno?",
+      "options": [
+        "4/7",
+        "5/6",
+        "2/3",
+        "3/2"
+      ],
+      "correct_index": 2,
+      "hint": "Coseno = cateto adyacente / hipotenusa.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_coseno_4",
+      "unit": "trigonometria",
+      "subtopic": "coseno",
+      "question": "Respecto de un ángulo agudo, el cateto adyacente mide 5 y la hipotenusa 7. ¿Cuál es el coseno?",
+      "options": [
+        "6/7",
+        "5/7",
+        "7/5",
+        "5/8"
+      ],
+      "correct_index": 1,
+      "hint": "Coseno = cateto adyacente / hipotenusa.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_coseno_5",
+      "unit": "trigonometria",
+      "subtopic": "coseno",
+      "question": "Respecto de un ángulo agudo, el cateto adyacente mide 6 y la hipotenusa 8. ¿Cuál es el coseno?",
+      "options": [
+        "3/4",
+        "4/3",
+        "2/3",
+        "7/8"
+      ],
+      "correct_index": 0,
+      "hint": "Coseno = cateto adyacente / hipotenusa.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_coseno_6",
+      "unit": "trigonometria",
+      "subtopic": "coseno",
+      "question": "Respecto de un ángulo agudo, el cateto adyacente mide 7 y la hipotenusa 9. ¿Cuál es el coseno?",
+      "options": [
+        "9/7",
+        "7/10",
+        "8/9",
+        "7/9"
+      ],
+      "correct_index": 3,
+      "hint": "Coseno = cateto adyacente / hipotenusa.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_tangente_1",
+      "unit": "trigonometria",
+      "subtopic": "tangente",
+      "question": "Respecto de un ángulo agudo, el opuesto mide 2 y el adyacente 2. ¿Cuánto vale la tangente?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Tangente = cateto opuesto / cateto adyacente.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_tangente_2",
+      "unit": "trigonometria",
+      "subtopic": "tangente",
+      "question": "Respecto de un ángulo agudo, el opuesto mide 4 y el adyacente 2. ¿Cuánto vale la tangente?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "Tangente = cateto opuesto / cateto adyacente.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_tangente_3",
+      "unit": "trigonometria",
+      "subtopic": "tangente",
+      "question": "Respecto de un ángulo agudo, el opuesto mide 6 y el adyacente 2. ¿Cuánto vale la tangente?",
+      "options": [
+        "2",
+        "5",
+        "3",
+        "4"
+      ],
+      "correct_index": 2,
+      "hint": "Tangente = cateto opuesto / cateto adyacente.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_tangente_4",
+      "unit": "trigonometria",
+      "subtopic": "tangente",
+      "question": "Respecto de un ángulo agudo, el opuesto mide 8 y el adyacente 2. ¿Cuánto vale la tangente?",
+      "options": [
+        "6",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct_index": 1,
+      "hint": "Tangente = cateto opuesto / cateto adyacente.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_tangente_5",
+      "unit": "trigonometria",
+      "subtopic": "tangente",
+      "question": "Respecto de un ángulo agudo, el opuesto mide 10 y el adyacente 2. ¿Cuánto vale la tangente?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "Tangente = cateto opuesto / cateto adyacente.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_tangente_6",
+      "unit": "trigonometria",
+      "subtopic": "tangente",
+      "question": "Respecto de un ángulo agudo, el opuesto mide 12 y el adyacente 2. ¿Cuánto vale la tangente?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "Tangente = cateto opuesto / cateto adyacente.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_reciprocas_1",
+      "unit": "trigonometria",
+      "subtopic": "reciprocas",
+      "question": "Si sen(α)=1/2, ¿cuánto vale cosec(α)?",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "correct_index": 0,
+      "hint": "La recíproca de una razón no nula se obtiene invirtiendo numerador y denominador.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_reciprocas_2",
+      "unit": "trigonometria",
+      "subtopic": "reciprocas",
+      "question": "Si cos(α)=1/3, ¿cuánto vale sec(α)?",
+      "options": [
+        "4",
+        "2",
+        "5",
+        "3"
+      ],
+      "correct_index": 3,
+      "hint": "La recíproca de una razón no nula se obtiene invirtiendo numerador y denominador.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_reciprocas_3",
+      "unit": "trigonometria",
+      "subtopic": "reciprocas",
+      "question": "Si tan(α)=4, ¿cuánto vale cot(α)?",
+      "options": [
+        "−4",
+        "0",
+        "1/4",
+        "4"
+      ],
+      "correct_index": 2,
+      "hint": "La recíproca de una razón no nula se obtiene invirtiendo numerador y denominador.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_reciprocas_4",
+      "unit": "trigonometria",
+      "subtopic": "reciprocas",
+      "question": "¿Qué función es recíproca del seno?",
+      "options": [
+        "Secante",
+        "Cosecante",
+        "Coseno",
+        "Tangente"
+      ],
+      "correct_index": 1,
+      "hint": "La recíproca de una razón no nula se obtiene invirtiendo numerador y denominador.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_reciprocas_5",
+      "unit": "trigonometria",
+      "subtopic": "reciprocas",
+      "question": "¿Qué función es recíproca del coseno?",
+      "options": [
+        "Secante",
+        "Cosecante",
+        "Cotangente",
+        "Seno"
+      ],
+      "correct_index": 0,
+      "hint": "La recíproca de una razón no nula se obtiene invirtiendo numerador y denominador.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_reciprocas_6",
+      "unit": "trigonometria",
+      "subtopic": "reciprocas",
+      "question": "Si tan(α)=1/5, ¿cuánto vale cot(α)?",
+      "options": [
+        "6",
+        "4",
+        "7",
+        "5"
+      ],
+      "correct_index": 3,
+      "hint": "La recíproca de una razón no nula se obtiene invirtiendo numerador y denominador.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_aplicaciones_1",
+      "unit": "trigonometria",
+      "subtopic": "aplicaciones",
+      "question": "Una escalera llega a 3 m de altura y forma 30° con el suelo. Si sen(30°)=1/2, ¿cuánto mide la escalera en metros?",
+      "options": [
+        "6",
+        "7",
+        "5",
+        "8"
+      ],
+      "correct_index": 0,
+      "hint": "La escalera es la hipotenusa: seno = altura / longitud.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_aplicaciones_2",
+      "unit": "trigonometria",
+      "subtopic": "aplicaciones",
+      "question": "Una escalera llega a 4 m de altura y forma 30° con el suelo. Si sen(30°)=1/2, ¿cuánto mide la escalera en metros?",
+      "options": [
+        "9",
+        "7",
+        "10",
+        "8"
+      ],
+      "correct_index": 3,
+      "hint": "La escalera es la hipotenusa: seno = altura / longitud.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_aplicaciones_3",
+      "unit": "trigonometria",
+      "subtopic": "aplicaciones",
+      "question": "Una escalera llega a 5 m de altura y forma 30° con el suelo. Si sen(30°)=1/2, ¿cuánto mide la escalera en metros?",
+      "options": [
+        "9",
+        "12",
+        "10",
+        "11"
+      ],
+      "correct_index": 2,
+      "hint": "La escalera es la hipotenusa: seno = altura / longitud.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_aplicaciones_4",
+      "unit": "trigonometria",
+      "subtopic": "aplicaciones",
+      "question": "Una escalera llega a 6 m de altura y forma 30° con el suelo. Si sen(30°)=1/2, ¿cuánto mide la escalera en metros?",
+      "options": [
+        "14",
+        "12",
+        "13",
+        "11"
+      ],
+      "correct_index": 1,
+      "hint": "La escalera es la hipotenusa: seno = altura / longitud.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_aplicaciones_5",
+      "unit": "trigonometria",
+      "subtopic": "aplicaciones",
+      "question": "Una escalera llega a 7 m de altura y forma 30° con el suelo. Si sen(30°)=1/2, ¿cuánto mide la escalera en metros?",
+      "options": [
+        "14",
+        "15",
+        "13",
+        "16"
+      ],
+      "correct_index": 0,
+      "hint": "La escalera es la hipotenusa: seno = altura / longitud.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_aplicaciones_6",
+      "unit": "trigonometria",
+      "subtopic": "aplicaciones",
+      "question": "Una escalera llega a 8 m de altura y forma 30° con el suelo. Si sen(30°)=1/2, ¿cuánto mide la escalera en metros?",
+      "options": [
+        "17",
+        "15",
+        "18",
+        "16"
+      ],
+      "correct_index": 3,
+      "hint": "La escalera es la hipotenusa: seno = altura / longitud.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_coordenadas_1",
+      "unit": "trigonometria",
+      "subtopic": "coordenadas",
+      "question": "P=(3,4) está en el lado terminal de α y r=5. ¿Cuánto vale sen(α)?",
+      "options": [
+        "4/5",
+        "3/5",
+        "5/4",
+        "4/3"
+      ],
+      "correct_index": 0,
+      "hint": "Para P=(x,y), r=√(x²+y²), seno=y/r, coseno=x/r y tangente=y/x.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_coordenadas_2",
+      "unit": "trigonometria",
+      "subtopic": "coordenadas",
+      "question": "P=(3,4), r=5. ¿Cuánto vale cos(α)?",
+      "options": [
+        "4/5",
+        "5/3",
+        "3/4",
+        "3/5"
+      ],
+      "correct_index": 3,
+      "hint": "Para P=(x,y), r=√(x²+y²), seno=y/r, coseno=x/r y tangente=y/x.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_coordenadas_3",
+      "unit": "trigonometria",
+      "subtopic": "coordenadas",
+      "question": "P=(−3,4), r=5. ¿Cuánto vale cos(α)?",
+      "options": [
+        "4/5",
+        "−4/5",
+        "−3/5",
+        "3/5"
+      ],
+      "correct_index": 2,
+      "hint": "Para P=(x,y), r=√(x²+y²), seno=y/r, coseno=x/r y tangente=y/x.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_coordenadas_4",
+      "unit": "trigonometria",
+      "subtopic": "coordenadas",
+      "question": "P=(−3,−4), r=5. ¿Cuánto vale sen(α)?",
+      "options": [
+        "3/5",
+        "−4/5",
+        "4/5",
+        "−3/5"
+      ],
+      "correct_index": 1,
+      "hint": "Para P=(x,y), r=√(x²+y²), seno=y/r, coseno=x/r y tangente=y/x.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_coordenadas_5",
+      "unit": "trigonometria",
+      "subtopic": "coordenadas",
+      "question": "P=(4,3). ¿Cuánto vale tan(α)?",
+      "options": [
+        "3/4",
+        "4/3",
+        "3/5",
+        "−3/4"
+      ],
+      "correct_index": 0,
+      "hint": "Para P=(x,y), r=√(x²+y²), seno=y/r, coseno=x/r y tangente=y/x.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_coordenadas_6",
+      "unit": "trigonometria",
+      "subtopic": "coordenadas",
+      "question": "P=(−4,3). ¿Cuánto vale tan(α)?",
+      "options": [
+        "3/4",
+        "−4/3",
+        "4/3",
+        "−3/4"
+      ],
+      "correct_index": 3,
+      "hint": "Para P=(x,y), r=√(x²+y²), seno=y/r, coseno=x/r y tangente=y/x.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_signos_1",
+      "unit": "trigonometria",
+      "subtopic": "signos",
+      "question": "En el cuadrante II, el seno es…",
+      "options": [
+        "Positivo",
+        "Negativo",
+        "Siempre cero",
+        "Indefinido en todo el cuadrante"
+      ],
+      "correct_index": 0,
+      "hint": "Seno toma el signo de y, coseno el de x y tangente el de y/x.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_signos_2",
+      "unit": "trigonometria",
+      "subtopic": "signos",
+      "question": "En el cuadrante II, el coseno es…",
+      "options": [
+        "Positivo",
+        "Siempre cero",
+        "Indefinido en todo el cuadrante",
+        "Negativo"
+      ],
+      "correct_index": 3,
+      "hint": "Seno toma el signo de y, coseno el de x y tangente el de y/x.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_signos_3",
+      "unit": "trigonometria",
+      "subtopic": "signos",
+      "question": "En el cuadrante III, la tangente es…",
+      "options": [
+        "Siempre cero",
+        "Indefinida en todo el cuadrante",
+        "Positiva",
+        "Negativa"
+      ],
+      "correct_index": 2,
+      "hint": "Seno toma el signo de y, coseno el de x y tangente el de y/x.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_signos_4",
+      "unit": "trigonometria",
+      "subtopic": "signos",
+      "question": "En el cuadrante IV, el seno es…",
+      "options": [
+        "Indefinido en todo el cuadrante",
+        "Negativo",
+        "Positivo",
+        "Siempre cero"
+      ],
+      "correct_index": 1,
+      "hint": "Seno toma el signo de y, coseno el de x y tangente el de y/x.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_signos_5",
+      "unit": "trigonometria",
+      "subtopic": "signos",
+      "question": "En el cuadrante IV, el coseno es…",
+      "options": [
+        "Positivo",
+        "Negativo",
+        "Siempre cero",
+        "Indefinido en todo el cuadrante"
+      ],
+      "correct_index": 0,
+      "hint": "Seno toma el signo de y, coseno el de x y tangente el de y/x.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_signos_6",
+      "unit": "trigonometria",
+      "subtopic": "signos",
+      "question": "¿En qué cuadrante son positivos seno, coseno y tangente?",
+      "options": [
+        "II",
+        "III",
+        "IV",
+        "I"
+      ],
+      "correct_index": 3,
+      "hint": "Seno toma el signo de y, coseno el de x y tangente el de y/x.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_circunferencia_1",
+      "unit": "trigonometria",
+      "subtopic": "circunferencia",
+      "question": "¿Cuál es el radio de la circunferencia trigonométrica unitaria?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Cada punto unitario tiene coordenadas (cos α, sen α).",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_circunferencia_2",
+      "unit": "trigonometria",
+      "subtopic": "circunferencia",
+      "question": "El punto asociado a 0° es…",
+      "options": [
+        "(0,1)",
+        "(−1,0)",
+        "(0,−1)",
+        "(1,0)"
+      ],
+      "correct_index": 3,
+      "hint": "Cada punto unitario tiene coordenadas (cos α, sen α).",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_circunferencia_3",
+      "unit": "trigonometria",
+      "subtopic": "circunferencia",
+      "question": "El punto asociado a 90° es…",
+      "options": [
+        "(0,−1)",
+        "(−1,0)",
+        "(0,1)",
+        "(1,0)"
+      ],
+      "correct_index": 2,
+      "hint": "Cada punto unitario tiene coordenadas (cos α, sen α).",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_circunferencia_4",
+      "unit": "trigonometria",
+      "subtopic": "circunferencia",
+      "question": "El punto asociado a 180° es…",
+      "options": [
+        "(0,−1)",
+        "(−1,0)",
+        "(1,0)",
+        "(0,1)"
+      ],
+      "correct_index": 1,
+      "hint": "Cada punto unitario tiene coordenadas (cos α, sen α).",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_circunferencia_5",
+      "unit": "trigonometria",
+      "subtopic": "circunferencia",
+      "question": "¿Qué coordenada representa el seno?",
+      "options": [
+        "La coordenada y",
+        "La coordenada x",
+        "Siempre el radio",
+        "Ninguna coordenada"
+      ],
+      "correct_index": 0,
+      "hint": "Cada punto unitario tiene coordenadas (cos α, sen α).",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_circunferencia_6",
+      "unit": "trigonometria",
+      "subtopic": "circunferencia",
+      "question": "¿Dónde no está definida tan(α)?",
+      "options": [
+        "Donde sen(α)=0",
+        "Solo en 0°",
+        "Solo en 180°",
+        "Donde cos(α)=0"
+      ],
+      "correct_index": 3,
+      "hint": "Cada punto unitario tiene coordenadas (cos α, sen α).",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_identidades_1",
+      "unit": "trigonometria",
+      "subtopic": "identidades",
+      "question": "¿Cuánto vale sen²(α)+cos²(α)?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Usá identidades y respetá sus dominios; sen²+cos²=1.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_identidades_2",
+      "unit": "trigonometria",
+      "subtopic": "identidades",
+      "question": "Si sen²(α)=9/25, ¿cuánto vale cos²(α)?",
+      "options": [
+        "9/25",
+        "34/25",
+        "3/5",
+        "16/25"
+      ],
+      "correct_index": 3,
+      "hint": "Usá identidades y respetá sus dominios; sen²+cos²=1.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_identidades_3",
+      "unit": "trigonometria",
+      "subtopic": "identidades",
+      "question": "Si cos(α)≠0, tan(α) equivale a…",
+      "options": [
+        "sen(α)·cos(α)",
+        "sen(α)+cos(α)",
+        "sen(α)/cos(α)",
+        "cos(α)/sen(α)"
+      ],
+      "correct_index": 2,
+      "hint": "Usá identidades y respetá sus dominios; sen²+cos²=1.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_identidades_4",
+      "unit": "trigonometria",
+      "subtopic": "identidades",
+      "question": "¿A qué equivale 1+tan²(α), cuando está definido?",
+      "options": [
+        "cos²(α)",
+        "sec²(α)",
+        "cosec²(α)",
+        "sen²(α)"
+      ],
+      "correct_index": 1,
+      "hint": "Usá identidades y respetá sus dominios; sen²+cos²=1.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_identidades_5",
+      "unit": "trigonometria",
+      "subtopic": "identidades",
+      "question": "Si sen(α) y cosec(α) están definidos y no son cero, su producto vale…",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Usá identidades y respetá sus dominios; sen²+cos²=1.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_identidades_6",
+      "unit": "trigonometria",
+      "subtopic": "identidades",
+      "question": "Si tan(α)=2, ¿cuánto vale sec²(α)?",
+      "options": [
+        "6",
+        "4",
+        "7",
+        "5"
+      ],
+      "correct_index": 3,
+      "hint": "Usá identidades y respetá sus dominios; sen²+cos²=1.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_referencia_1",
+      "unit": "trigonometria",
+      "subtopic": "referencia",
+      "question": "¿Cuál es el ángulo de referencia de 120°? Respondé en grados.",
+      "options": [
+        "60",
+        "61",
+        "59",
+        "62"
+      ],
+      "correct_index": 0,
+      "hint": "Buscá el ángulo agudo entre el lado terminal y el eje x.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_referencia_2",
+      "unit": "trigonometria",
+      "subtopic": "referencia",
+      "question": "¿Cuál es el ángulo de referencia de 135°? Respondé en grados.",
+      "options": [
+        "46",
+        "44",
+        "47",
+        "45"
+      ],
+      "correct_index": 3,
+      "hint": "Buscá el ángulo agudo entre el lado terminal y el eje x.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_referencia_3",
+      "unit": "trigonometria",
+      "subtopic": "referencia",
+      "question": "¿Cuál es el ángulo de referencia de 210°? Respondé en grados.",
+      "options": [
+        "29",
+        "32",
+        "30",
+        "31"
+      ],
+      "correct_index": 2,
+      "hint": "Buscá el ángulo agudo entre el lado terminal y el eje x.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_referencia_4",
+      "unit": "trigonometria",
+      "subtopic": "referencia",
+      "question": "¿Cuál es el ángulo de referencia de 240°? Respondé en grados.",
+      "options": [
+        "62",
+        "60",
+        "61",
+        "59"
+      ],
+      "correct_index": 1,
+      "hint": "Buscá el ángulo agudo entre el lado terminal y el eje x.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_referencia_5",
+      "unit": "trigonometria",
+      "subtopic": "referencia",
+      "question": "¿Cuál es el ángulo de referencia de 300°? Respondé en grados.",
+      "options": [
+        "60",
+        "61",
+        "59",
+        "62"
+      ],
+      "correct_index": 0,
+      "hint": "Buscá el ángulo agudo entre el lado terminal y el eje x.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_referencia_6",
+      "unit": "trigonometria",
+      "subtopic": "referencia",
+      "question": "¿Cuál es el ángulo de referencia de 330°? Respondé en grados.",
+      "options": [
+        "31",
+        "29",
+        "32",
+        "30"
+      ],
+      "correct_index": 3,
+      "hint": "Buscá el ángulo agudo entre el lado terminal y el eje x.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_notables_1",
+      "unit": "trigonometria",
+      "subtopic": "notables",
+      "question": "¿Cuánto vale sen(30°)?",
+      "options": [
+        "1/2",
+        "√3/2",
+        "√2/2",
+        "1"
+      ],
+      "correct_index": 0,
+      "hint": "Recordá los triángulos 30°–60°–90° y 45°–45°–90°.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_notables_2",
+      "unit": "trigonometria",
+      "subtopic": "notables",
+      "question": "¿Cuánto vale cos(60°)?",
+      "options": [
+        "√3/2",
+        "√2/2",
+        "0",
+        "1/2"
+      ],
+      "correct_index": 3,
+      "hint": "Recordá los triángulos 30°–60°–90° y 45°–45°–90°.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_notables_3",
+      "unit": "trigonometria",
+      "subtopic": "notables",
+      "question": "¿Cuánto vale sen(45°)?",
+      "options": [
+        "√3/2",
+        "1",
+        "√2/2",
+        "1/2"
+      ],
+      "correct_index": 2,
+      "hint": "Recordá los triángulos 30°–60°–90° y 45°–45°–90°.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_notables_4",
+      "unit": "trigonometria",
+      "subtopic": "notables",
+      "question": "¿Cuánto vale cos(30°)?",
+      "options": [
+        "0",
+        "√3/2",
+        "1/2",
+        "√2/2"
+      ],
+      "correct_index": 1,
+      "hint": "Recordá los triángulos 30°–60°–90° y 45°–45°–90°.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_notables_5",
+      "unit": "trigonometria",
+      "subtopic": "notables",
+      "question": "¿Cuánto vale tan(45°)?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Recordá los triángulos 30°–60°–90° y 45°–45°–90°.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_notables_6",
+      "unit": "trigonometria",
+      "subtopic": "notables",
+      "question": "¿Cuánto vale tan(60°)?",
+      "options": [
+        "√3/3",
+        "1/2",
+        "√2",
+        "√3"
+      ],
+      "correct_index": 3,
+      "hint": "Recordá los triángulos 30°–60°–90° y 45°–45°–90°.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_oblicuangulos_1",
+      "unit": "trigonometria",
+      "subtopic": "oblicuangulos",
+      "question": "Un triángulo tiene ángulos 50° y 60°. ¿Cuánto mide el tercero?",
+      "options": [
+        "70",
+        "71",
+        "69",
+        "72"
+      ],
+      "correct_index": 0,
+      "hint": "Las letras mayúsculas indican ángulos y las minúsculas sus lados opuestos.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_oblicuangulos_2",
+      "unit": "trigonometria",
+      "subtopic": "oblicuangulos",
+      "question": "¿Qué ley relaciona a/sen(A) con b/sen(B)?",
+      "options": [
+        "Teorema de Pitágoras para todo triángulo",
+        "Ley de signos",
+        "Definición de amplitud",
+        "Ley de senos"
+      ],
+      "correct_index": 3,
+      "hint": "Las letras mayúsculas indican ángulos y las minúsculas sus lados opuestos.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_oblicuangulos_3",
+      "unit": "trigonometria",
+      "subtopic": "oblicuangulos",
+      "question": "a=6 está opuesto a A=30° y B=90°. Por ley de senos, ¿cuánto vale b?",
+      "options": [
+        "11",
+        "14",
+        "12",
+        "13"
+      ],
+      "correct_index": 2,
+      "hint": "Las letras mayúsculas indican ángulos y las minúsculas sus lados opuestos.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_oblicuangulos_4",
+      "unit": "trigonometria",
+      "subtopic": "oblicuangulos",
+      "question": "Los lados a=3 y b=4 forman C=90°. Por ley de cosenos, ¿cuánto vale c?",
+      "options": [
+        "7",
+        "5",
+        "6",
+        "4"
+      ],
+      "correct_index": 1,
+      "hint": "Las letras mayúsculas indican ángulos y las minúsculas sus lados opuestos.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_oblicuangulos_5",
+      "unit": "trigonometria",
+      "subtopic": "oblicuangulos",
+      "question": "En un triángulo equilátero de lado 7, ¿cuánto mide cada ángulo en grados?",
+      "options": [
+        "60",
+        "61",
+        "59",
+        "62"
+      ],
+      "correct_index": 0,
+      "hint": "Las letras mayúsculas indican ángulos y las minúsculas sus lados opuestos.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_oblicuangulos_6",
+      "unit": "trigonometria",
+      "subtopic": "oblicuangulos",
+      "question": "Con dos lados y el ángulo comprendido, ¿qué ley permite hallar directamente el tercer lado?",
+      "options": [
+        "Solo ley de senos sin más pasos",
+        "Regla del factorial",
+        "Función parte entera",
+        "Ley de cosenos"
+      ],
+      "correct_index": 3,
+      "hint": "Las letras mayúsculas indican ángulos y las minúsculas sus lados opuestos.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_grafica_seno_1",
+      "unit": "trigonometria",
+      "subtopic": "grafica_seno",
+      "question": "¿Cuánto vale sen(0)?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "2"
+      ],
+      "correct_index": 0,
+      "hint": "El seno parte de cero y oscila entre −1 y 1.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_grafica_seno_2",
+      "unit": "trigonometria",
+      "subtopic": "grafica_seno",
+      "question": "¿Cuál es el máximo de y=sen(x)?",
+      "options": [
+        "2",
+        "0",
+        "3",
+        "1"
+      ],
+      "correct_index": 3,
+      "hint": "El seno parte de cero y oscila entre −1 y 1.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_grafica_seno_3",
+      "unit": "trigonometria",
+      "subtopic": "grafica_seno",
+      "question": "¿Cuál es el mínimo de y=sen(x)?",
+      "options": [
+        "-2",
+        "1",
+        "-1",
+        "0"
+      ],
+      "correct_index": 2,
+      "hint": "El seno parte de cero y oscila entre −1 y 1.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_grafica_seno_4",
+      "unit": "trigonometria",
+      "subtopic": "grafica_seno",
+      "question": "Con x en radianes, ¿cuál es el período de sen(x)?",
+      "options": [
+        "4π",
+        "2π",
+        "π",
+        "π/2"
+      ],
+      "correct_index": 1,
+      "hint": "El seno parte de cero y oscila entre −1 y 1.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_grafica_seno_5",
+      "unit": "trigonometria",
+      "subtopic": "grafica_seno",
+      "question": "¿Cuál es el recorrido de sen(x)?",
+      "options": [
+        "[−1,1]",
+        "R",
+        "[0,1]",
+        "(−1,1)"
+      ],
+      "correct_index": 0,
+      "hint": "El seno parte de cero y oscila entre −1 y 1.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_grafica_seno_6",
+      "unit": "trigonometria",
+      "subtopic": "grafica_seno",
+      "question": "¿En qué punto corta y=sen(x) el eje y?",
+      "options": [
+        "(0,1)",
+        "(1,0)",
+        "(0,−1)",
+        "(0,0)"
+      ],
+      "correct_index": 3,
+      "hint": "El seno parte de cero y oscila entre −1 y 1.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_grafica_coseno_1",
+      "unit": "trigonometria",
+      "subtopic": "grafica_coseno",
+      "question": "¿Cuánto vale cos(0)?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "El coseno comienza en 1 y completa una oscilación cada 2π radianes.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_grafica_coseno_2",
+      "unit": "trigonometria",
+      "subtopic": "grafica_coseno",
+      "question": "¿Cuál es el máximo de y=cos(x)?",
+      "options": [
+        "2",
+        "0",
+        "3",
+        "1"
+      ],
+      "correct_index": 3,
+      "hint": "El coseno comienza en 1 y completa una oscilación cada 2π radianes.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_grafica_coseno_3",
+      "unit": "trigonometria",
+      "subtopic": "grafica_coseno",
+      "question": "¿Cuál es el mínimo de y=cos(x)?",
+      "options": [
+        "-2",
+        "1",
+        "-1",
+        "0"
+      ],
+      "correct_index": 2,
+      "hint": "El coseno comienza en 1 y completa una oscilación cada 2π radianes.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_grafica_coseno_4",
+      "unit": "trigonometria",
+      "subtopic": "grafica_coseno",
+      "question": "Con x en radianes, ¿cuál es el período de cos(x)?",
+      "options": [
+        "4π",
+        "2π",
+        "π",
+        "π/2"
+      ],
+      "correct_index": 1,
+      "hint": "El coseno comienza en 1 y completa una oscilación cada 2π radianes.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_grafica_coseno_5",
+      "unit": "trigonometria",
+      "subtopic": "grafica_coseno",
+      "question": "¿Cuál es el recorrido de cos(x)?",
+      "options": [
+        "[−1,1]",
+        "R",
+        "[0,1]",
+        "(−1,1)"
+      ],
+      "correct_index": 0,
+      "hint": "El coseno comienza en 1 y completa una oscilación cada 2π radianes.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_grafica_coseno_6",
+      "unit": "trigonometria",
+      "subtopic": "grafica_coseno",
+      "question": "¿Cuánto vale cos(π)?",
+      "options": [
+        "0",
+        "-2",
+        "1",
+        "-1"
+      ],
+      "correct_index": 3,
+      "hint": "El coseno comienza en 1 y completa una oscilación cada 2π radianes.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_grafica_tangente_1",
+      "unit": "trigonometria",
+      "subtopic": "grafica_tangente",
+      "question": "Con x en radianes, ¿cuál es el período de tan(x)?",
+      "options": [
+        "π",
+        "2π",
+        "π/2",
+        "4π"
+      ],
+      "correct_index": 0,
+      "hint": "Tangente es seno/coseno, por eso se excluyen los ceros del coseno.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_grafica_tangente_2",
+      "unit": "trigonometria",
+      "subtopic": "grafica_tangente",
+      "question": "¿Cuánto vale tan(0)?",
+      "options": [
+        "1",
+        "-1",
+        "2",
+        "0"
+      ],
+      "correct_index": 3,
+      "hint": "Tangente es seno/coseno, por eso se excluyen los ceros del coseno.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_grafica_tangente_3",
+      "unit": "trigonometria",
+      "subtopic": "grafica_tangente",
+      "question": "¿Cuál valor se excluye del dominio de tan(x)?",
+      "options": [
+        "π",
+        "2π",
+        "π/2",
+        "0"
+      ],
+      "correct_index": 2,
+      "hint": "Tangente es seno/coseno, por eso se excluyen los ceros del coseno.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_grafica_tangente_4",
+      "unit": "trigonometria",
+      "subtopic": "grafica_tangente",
+      "question": "¿Cuál es el recorrido de tan(x)?",
+      "options": [
+        "Solo enteros",
+        "R",
+        "[−1,1]",
+        "[0,∞)"
+      ],
+      "correct_index": 1,
+      "hint": "Tangente es seno/coseno, por eso se excluyen los ceros del coseno.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_grafica_tangente_5",
+      "unit": "trigonometria",
+      "subtopic": "grafica_tangente",
+      "question": "¿Dónde están las asíntotas verticales de tan(x), k entero?",
+      "options": [
+        "x=π/2+kπ",
+        "x=kπ",
+        "x=2kπ",
+        "y=1"
+      ],
+      "correct_index": 0,
+      "hint": "Tangente es seno/coseno, por eso se excluyen los ceros del coseno.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_grafica_tangente_6",
+      "unit": "trigonometria",
+      "subtopic": "grafica_tangente",
+      "question": "¿Cuál es la amplitud de tan(x)?",
+      "options": [
+        "1",
+        "π",
+        "0",
+        "No tiene amplitud finita"
+      ],
+      "correct_index": 3,
+      "hint": "Tangente es seno/coseno, por eso se excluyen los ceros del coseno.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_amplitud_1",
+      "unit": "trigonometria",
+      "subtopic": "amplitud",
+      "question": "¿Cuál es la amplitud de y=-1·sen(x)+3?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "La amplitud es el valor absoluto del coeficiente; el desplazamiento vertical no la cambia.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_amplitud_2",
+      "unit": "trigonometria",
+      "subtopic": "amplitud",
+      "question": "¿Cuál es la amplitud de y=2·sen(x)+4?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "La amplitud es el valor absoluto del coeficiente; el desplazamiento vertical no la cambia.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_amplitud_3",
+      "unit": "trigonometria",
+      "subtopic": "amplitud",
+      "question": "¿Cuál es la amplitud de y=-3·sen(x)+5?",
+      "options": [
+        "2",
+        "5",
+        "3",
+        "4"
+      ],
+      "correct_index": 2,
+      "hint": "La amplitud es el valor absoluto del coeficiente; el desplazamiento vertical no la cambia.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_amplitud_4",
+      "unit": "trigonometria",
+      "subtopic": "amplitud",
+      "question": "¿Cuál es la amplitud de y=4·sen(x)+6?",
+      "options": [
+        "6",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct_index": 1,
+      "hint": "La amplitud es el valor absoluto del coeficiente; el desplazamiento vertical no la cambia.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_amplitud_5",
+      "unit": "trigonometria",
+      "subtopic": "amplitud",
+      "question": "¿Cuál es la amplitud de y=-5·sen(x)+7?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "La amplitud es el valor absoluto del coeficiente; el desplazamiento vertical no la cambia.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_amplitud_6",
+      "unit": "trigonometria",
+      "subtopic": "amplitud",
+      "question": "¿Cuál es la amplitud de y=6·sen(x)+8?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "La amplitud es el valor absoluto del coeficiente; el desplazamiento vertical no la cambia.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_periodo_1",
+      "unit": "trigonometria",
+      "subtopic": "periodo",
+      "question": "Con x en radianes, y=sen(1x) tiene período T. ¿Cuánto vale T/π?",
+      "options": [
+        "2",
+        "4",
+        "3",
+        "5"
+      ],
+      "correct_index": 0,
+      "hint": "Para seno o coseno, T=2π/|b|; frecuencia angular y período no son lo mismo.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_periodo_2",
+      "unit": "trigonometria",
+      "subtopic": "periodo",
+      "question": "Con x en radianes, y=sen(2x) tiene período T. ¿Cuánto vale T/π?",
+      "options": [
+        "2",
+        "3/2",
+        "5/2",
+        "1"
+      ],
+      "correct_index": 3,
+      "hint": "Para seno o coseno, T=2π/|b|; frecuencia angular y período no son lo mismo.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_periodo_3",
+      "unit": "trigonometria",
+      "subtopic": "periodo",
+      "question": "Con x en radianes, y=sen(3x) tiene período T. ¿Cuánto vale T/π?",
+      "options": [
+        "1",
+        "5/3",
+        "2/3",
+        "4/3"
+      ],
+      "correct_index": 2,
+      "hint": "Para seno o coseno, T=2π/|b|; frecuencia angular y período no son lo mismo.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_periodo_4",
+      "unit": "trigonometria",
+      "subtopic": "periodo",
+      "question": "Con x en radianes, y=sen(4x) tiene período T. ¿Cuánto vale T/π?",
+      "options": [
+        "5/4",
+        "1/2",
+        "1",
+        "3/4"
+      ],
+      "correct_index": 1,
+      "hint": "Para seno o coseno, T=2π/|b|; frecuencia angular y período no son lo mismo.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_periodo_5",
+      "unit": "trigonometria",
+      "subtopic": "periodo",
+      "question": "Con x en radianes, y=sen(5x) tiene período T. ¿Cuánto vale T/π?",
+      "options": [
+        "2/5",
+        "4/5",
+        "3/5",
+        "1"
+      ],
+      "correct_index": 0,
+      "hint": "Para seno o coseno, T=2π/|b|; frecuencia angular y período no son lo mismo.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_periodo_6",
+      "unit": "trigonometria",
+      "subtopic": "periodo",
+      "question": "Con x en radianes, y=sen(6x) tiene período T. ¿Cuánto vale T/π?",
+      "options": [
+        "2/3",
+        "1/2",
+        "5/6",
+        "1/3"
+      ],
+      "correct_index": 3,
+      "hint": "Para seno o coseno, T=2π/|b|; frecuencia angular y período no son lo mismo.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_transformaciones_1",
+      "unit": "trigonometria",
+      "subtopic": "transformaciones",
+      "question": "En y=sen(x)+3, el desplazamiento vertical es…",
+      "options": [
+        "3 hacia arriba",
+        "3 hacia abajo",
+        "3 hacia la derecha",
+        "No hay desplazamiento"
+      ],
+      "correct_index": 0,
+      "hint": "Separá amplitud, escala horizontal, desplazamiento y reflexión.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_transformaciones_2",
+      "unit": "trigonometria",
+      "subtopic": "transformaciones",
+      "question": "En y=sen(x−2), con x en radianes, la gráfica se desplaza…",
+      "options": [
+        "2 hacia la izquierda",
+        "2 hacia arriba",
+        "2 hacia abajo",
+        "2 hacia la derecha"
+      ],
+      "correct_index": 3,
+      "hint": "Separá amplitud, escala horizontal, desplazamiento y reflexión.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_transformaciones_3",
+      "unit": "trigonometria",
+      "subtopic": "transformaciones",
+      "question": "En y=−sen(x), respecto de y=sen(x), hay…",
+      "options": [
+        "Amplitud −1",
+        "Período π",
+        "Reflexión respecto del eje x",
+        "Traslación 1 a la derecha"
+      ],
+      "correct_index": 2,
+      "hint": "Separá amplitud, escala horizontal, desplazamiento y reflexión.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_transformaciones_4",
+      "unit": "trigonometria",
+      "subtopic": "transformaciones",
+      "question": "¿Cuál es la línea media de y=2cos(x)−4?",
+      "options": [
+        "x=−4",
+        "y=−4",
+        "y=2",
+        "y=4"
+      ],
+      "correct_index": 1,
+      "hint": "Separá amplitud, escala horizontal, desplazamiento y reflexión.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_transformaciones_5",
+      "unit": "trigonometria",
+      "subtopic": "transformaciones",
+      "question": "¿Cuál es el máximo de y=3sen(x)+2?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "Separá amplitud, escala horizontal, desplazamiento y reflexión.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_transformaciones_6",
+      "unit": "trigonometria",
+      "subtopic": "transformaciones",
+      "question": "¿Cuál es el mínimo de y=2cos(x)−1?",
+      "options": [
+        "-2",
+        "-4",
+        "-1",
+        "-3"
+      ],
+      "correct_index": 3,
+      "hint": "Separá amplitud, escala horizontal, desplazamiento y reflexión.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_arcseno_1",
+      "unit": "trigonometria",
+      "subtopic": "arcseno",
+      "question": "En grados y usando el rango principal [−90°,90°], ¿cuánto vale arcsen(0)?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "2"
+      ],
+      "correct_index": 0,
+      "hint": "Arcsen devuelve el ángulo principal cuyo seno es el valor dado.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_arcseno_2",
+      "unit": "trigonometria",
+      "subtopic": "arcseno",
+      "question": "En grados y usando el rango principal [−90°,90°], ¿cuánto vale arcsen(1/2)?",
+      "options": [
+        "31",
+        "29",
+        "32",
+        "30"
+      ],
+      "correct_index": 3,
+      "hint": "Arcsen devuelve el ángulo principal cuyo seno es el valor dado.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_arcseno_3",
+      "unit": "trigonometria",
+      "subtopic": "arcseno",
+      "question": "En grados y usando el rango principal [−90°,90°], ¿cuánto vale arcsen(√2/2)?",
+      "options": [
+        "44",
+        "47",
+        "45",
+        "46"
+      ],
+      "correct_index": 2,
+      "hint": "Arcsen devuelve el ángulo principal cuyo seno es el valor dado.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_arcseno_4",
+      "unit": "trigonometria",
+      "subtopic": "arcseno",
+      "question": "En grados y usando el rango principal [−90°,90°], ¿cuánto vale arcsen(√3/2)?",
+      "options": [
+        "62",
+        "60",
+        "61",
+        "59"
+      ],
+      "correct_index": 1,
+      "hint": "Arcsen devuelve el ángulo principal cuyo seno es el valor dado.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_arcseno_5",
+      "unit": "trigonometria",
+      "subtopic": "arcseno",
+      "question": "En grados y usando el rango principal [−90°,90°], ¿cuánto vale arcsen(1)?",
+      "options": [
+        "90",
+        "91",
+        "89",
+        "92"
+      ],
+      "correct_index": 0,
+      "hint": "Arcsen devuelve el ángulo principal cuyo seno es el valor dado.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_arcseno_6",
+      "unit": "trigonometria",
+      "subtopic": "arcseno",
+      "question": "En grados y usando el rango principal [−90°,90°], ¿cuánto vale arcsen(−1/2)?",
+      "options": [
+        "-29",
+        "-31",
+        "-28",
+        "-30"
+      ],
+      "correct_index": 3,
+      "hint": "Arcsen devuelve el ángulo principal cuyo seno es el valor dado.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_arccoseno_1",
+      "unit": "trigonometria",
+      "subtopic": "arccoseno",
+      "question": "En grados y usando el rango principal [0°,180°], ¿cuánto vale arccos(1)?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "2"
+      ],
+      "correct_index": 0,
+      "hint": "Arccos devuelve el ángulo principal entre 0° y 180°.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_arccoseno_2",
+      "unit": "trigonometria",
+      "subtopic": "arccoseno",
+      "question": "En grados y usando el rango principal [0°,180°], ¿cuánto vale arccos(√3/2)?",
+      "options": [
+        "31",
+        "29",
+        "32",
+        "30"
+      ],
+      "correct_index": 3,
+      "hint": "Arccos devuelve el ángulo principal entre 0° y 180°.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_arccoseno_3",
+      "unit": "trigonometria",
+      "subtopic": "arccoseno",
+      "question": "En grados y usando el rango principal [0°,180°], ¿cuánto vale arccos(√2/2)?",
+      "options": [
+        "44",
+        "47",
+        "45",
+        "46"
+      ],
+      "correct_index": 2,
+      "hint": "Arccos devuelve el ángulo principal entre 0° y 180°.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_arccoseno_4",
+      "unit": "trigonometria",
+      "subtopic": "arccoseno",
+      "question": "En grados y usando el rango principal [0°,180°], ¿cuánto vale arccos(1/2)?",
+      "options": [
+        "62",
+        "60",
+        "61",
+        "59"
+      ],
+      "correct_index": 1,
+      "hint": "Arccos devuelve el ángulo principal entre 0° y 180°.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_arccoseno_5",
+      "unit": "trigonometria",
+      "subtopic": "arccoseno",
+      "question": "En grados y usando el rango principal [0°,180°], ¿cuánto vale arccos(0)?",
+      "options": [
+        "90",
+        "91",
+        "89",
+        "92"
+      ],
+      "correct_index": 0,
+      "hint": "Arccos devuelve el ángulo principal entre 0° y 180°.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_arccoseno_6",
+      "unit": "trigonometria",
+      "subtopic": "arccoseno",
+      "question": "En grados y usando el rango principal [0°,180°], ¿cuánto vale arccos(−1)?",
+      "options": [
+        "181",
+        "179",
+        "182",
+        "180"
+      ],
+      "correct_index": 3,
+      "hint": "Arccos devuelve el ángulo principal entre 0° y 180°.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_arctangente_1",
+      "unit": "trigonometria",
+      "subtopic": "arctangente",
+      "question": "En grados y usando el rango principal (−90°,90°), ¿cuánto vale arctan(0)?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "2"
+      ],
+      "correct_index": 0,
+      "hint": "Arctan devuelve el ángulo principal cuya tangente coincide con el dato.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_arctangente_2",
+      "unit": "trigonometria",
+      "subtopic": "arctangente",
+      "question": "En grados y usando el rango principal (−90°,90°), ¿cuánto vale arctan(1)?",
+      "options": [
+        "46",
+        "44",
+        "47",
+        "45"
+      ],
+      "correct_index": 3,
+      "hint": "Arctan devuelve el ángulo principal cuya tangente coincide con el dato.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_arctangente_3",
+      "unit": "trigonometria",
+      "subtopic": "arctangente",
+      "question": "En grados y usando el rango principal (−90°,90°), ¿cuánto vale arctan(−1)?",
+      "options": [
+        "-46",
+        "-43",
+        "-45",
+        "-44"
+      ],
+      "correct_index": 2,
+      "hint": "Arctan devuelve el ángulo principal cuya tangente coincide con el dato.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_arctangente_4",
+      "unit": "trigonometria",
+      "subtopic": "arctangente",
+      "question": "En grados y usando el rango principal (−90°,90°), ¿cuánto vale arctan(√3)?",
+      "options": [
+        "62",
+        "60",
+        "61",
+        "59"
+      ],
+      "correct_index": 1,
+      "hint": "Arctan devuelve el ángulo principal cuya tangente coincide con el dato.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_arctangente_5",
+      "unit": "trigonometria",
+      "subtopic": "arctangente",
+      "question": "En grados y usando el rango principal (−90°,90°), ¿cuánto vale arctan(√3/3)?",
+      "options": [
+        "30",
+        "31",
+        "29",
+        "32"
+      ],
+      "correct_index": 0,
+      "hint": "Arctan devuelve el ángulo principal cuya tangente coincide con el dato.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_arctangente_6",
+      "unit": "trigonometria",
+      "subtopic": "arctangente",
+      "question": "En grados y usando el rango principal (−90°,90°), ¿cuánto vale arctan(−√3)?",
+      "options": [
+        "-59",
+        "-61",
+        "-58",
+        "-60"
+      ],
+      "correct_index": 3,
+      "hint": "Arctan devuelve el ángulo principal cuya tangente coincide con el dato.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_cotangente_1",
+      "unit": "trigonometria",
+      "subtopic": "cotangente",
+      "question": "¿Cuánto vale cot(45°)?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Cotangente = coseno/seno; se excluyen los ceros del seno.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_cotangente_2",
+      "unit": "trigonometria",
+      "subtopic": "cotangente",
+      "question": "Con x en radianes, ¿cuál es el período de cot(x)?",
+      "options": [
+        "2π",
+        "π/2",
+        "4π",
+        "π"
+      ],
+      "correct_index": 3,
+      "hint": "Cotangente = coseno/seno; se excluyen los ceros del seno.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_cotangente_3",
+      "unit": "trigonometria",
+      "subtopic": "cotangente",
+      "question": "¿Qué valor se excluye del dominio de cot(x)?",
+      "options": [
+        "π/4",
+        "3π/2",
+        "0",
+        "π/2"
+      ],
+      "correct_index": 2,
+      "hint": "Cotangente = coseno/seno; se excluyen los ceros del seno.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_cotangente_4",
+      "unit": "trigonometria",
+      "subtopic": "cotangente",
+      "question": "¿A qué equivale cot(x), donde está definida?",
+      "options": [
+        "1/sen(x)",
+        "cos(x)/sen(x)",
+        "sen(x)/cos(x)",
+        "1/cos(x)"
+      ],
+      "correct_index": 1,
+      "hint": "Cotangente = coseno/seno; se excluyen los ceros del seno.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_cotangente_5",
+      "unit": "trigonometria",
+      "subtopic": "cotangente",
+      "question": "¿Cuánto vale cot(90°)?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "2"
+      ],
+      "correct_index": 0,
+      "hint": "Cotangente = coseno/seno; se excluyen los ceros del seno.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_cotangente_6",
+      "unit": "trigonometria",
+      "subtopic": "cotangente",
+      "question": "¿Cuál es el recorrido de cot(x)?",
+      "options": [
+        "[−1,1]",
+        "[0,∞)",
+        "Solo positivos",
+        "R"
+      ],
+      "correct_index": 3,
+      "hint": "Cotangente = coseno/seno; se excluyen los ceros del seno.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_secante_1",
+      "unit": "trigonometria",
+      "subtopic": "secante",
+      "question": "¿Cuánto vale sec(0°)?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Secante = 1/coseno; solo existe cuando coseno no es cero.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_secante_2",
+      "unit": "trigonometria",
+      "subtopic": "secante",
+      "question": "¿Cuánto vale sec(60°)?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "Secante = 1/coseno; solo existe cuando coseno no es cero.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_secante_3",
+      "unit": "trigonometria",
+      "subtopic": "secante",
+      "question": "¿Cuánto vale sec(180°)?",
+      "options": [
+        "-2",
+        "1",
+        "-1",
+        "0"
+      ],
+      "correct_index": 2,
+      "hint": "Secante = 1/coseno; solo existe cuando coseno no es cero.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_secante_4",
+      "unit": "trigonometria",
+      "subtopic": "secante",
+      "question": "¿Qué valor se excluye del dominio de sec(x)?",
+      "options": [
+        "2π",
+        "π/2",
+        "0",
+        "π"
+      ],
+      "correct_index": 1,
+      "hint": "Secante = 1/coseno; solo existe cuando coseno no es cero.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_secante_5",
+      "unit": "trigonometria",
+      "subtopic": "secante",
+      "question": "¿Cuál es el recorrido de sec(x)?",
+      "options": [
+        "(−∞,−1] ∪ [1,∞)",
+        "[−1,1]",
+        "R",
+        "[0,1]"
+      ],
+      "correct_index": 0,
+      "hint": "Secante = 1/coseno; solo existe cuando coseno no es cero.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_secante_6",
+      "unit": "trigonometria",
+      "subtopic": "secante",
+      "question": "Con x en radianes, ¿cuál es el período de sec(x)?",
+      "options": [
+        "π",
+        "π/2",
+        "4π",
+        "2π"
+      ],
+      "correct_index": 3,
+      "hint": "Secante = 1/coseno; solo existe cuando coseno no es cero.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_cosecante_1",
+      "unit": "trigonometria",
+      "subtopic": "cosecante",
+      "question": "¿Cuánto vale cosec(90°)?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Cosecante = 1/seno; solo existe cuando seno no es cero.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_cosecante_2",
+      "unit": "trigonometria",
+      "subtopic": "cosecante",
+      "question": "¿Cuánto vale cosec(30°)?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "Cosecante = 1/seno; solo existe cuando seno no es cero.",
+      "level": "inicial"
+    },
+    {
+      "id": "trigonometria_cosecante_3",
+      "unit": "trigonometria",
+      "subtopic": "cosecante",
+      "question": "¿Cuánto vale cosec(270°)?",
+      "options": [
+        "-2",
+        "1",
+        "-1",
+        "0"
+      ],
+      "correct_index": 2,
+      "hint": "Cosecante = 1/seno; solo existe cuando seno no es cero.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_cosecante_4",
+      "unit": "trigonometria",
+      "subtopic": "cosecante",
+      "question": "¿Qué valor se excluye del dominio de cosec(x)?",
+      "options": [
+        "3π/2",
+        "0",
+        "π/2",
+        "π/4"
+      ],
+      "correct_index": 1,
+      "hint": "Cosecante = 1/seno; solo existe cuando seno no es cero.",
+      "level": "practica"
+    },
+    {
+      "id": "trigonometria_cosecante_5",
+      "unit": "trigonometria",
+      "subtopic": "cosecante",
+      "question": "¿Cuál es el recorrido de cosec(x)?",
+      "options": [
+        "(−∞,−1] ∪ [1,∞)",
+        "[−1,1]",
+        "R",
+        "[0,1]"
+      ],
+      "correct_index": 0,
+      "hint": "Cosecante = 1/seno; solo existe cuando seno no es cero.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "trigonometria_cosecante_6",
+      "unit": "trigonometria",
+      "subtopic": "cosecante",
+      "question": "Con x en radianes, ¿cuál es el período de cosec(x)?",
+      "options": [
+        "π",
+        "π/2",
+        "4π",
+        "2π"
+      ],
+      "correct_index": 3,
+      "hint": "Cosecante = 1/seno; solo existe cuando seno no es cero.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_relacion_1",
+      "unit": "geometria",
+      "subtopic": "relacion",
+      "question": "¿Qué permite la geometría analítica?",
+      "options": [
+        "Representar figuras mediante coordenadas y ecuaciones",
+        "Estudiar solo números naturales",
+        "Evitar toda medida",
+        "Reemplazar todos los puntos por ángulos"
+      ],
+      "correct_index": 0,
+      "hint": "Un punto se escribe (x,y), primero horizontal y luego vertical.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_relacion_2",
+      "unit": "geometria",
+      "subtopic": "relacion",
+      "question": "El punto (2,3) tiene coordenada x igual a…",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "Un punto se escribe (x,y), primero horizontal y luego vertical.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_relacion_3",
+      "unit": "geometria",
+      "subtopic": "relacion",
+      "question": "El punto (−4,5) tiene coordenada y igual a…",
+      "options": [
+        "4",
+        "7",
+        "5",
+        "6"
+      ],
+      "correct_index": 2,
+      "hint": "Un punto se escribe (x,y), primero horizontal y luego vertical.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_relacion_4",
+      "unit": "geometria",
+      "subtopic": "relacion",
+      "question": "¿Qué figura representa y=2x+1 en el plano cartesiano?",
+      "options": [
+        "Un punto único",
+        "Una recta",
+        "Una circunferencia",
+        "Una parábola"
+      ],
+      "correct_index": 1,
+      "hint": "Un punto se escribe (x,y), primero horizontal y luego vertical.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_relacion_5",
+      "unit": "geometria",
+      "subtopic": "relacion",
+      "question": "¿Cuál es la ecuación del eje x?",
+      "options": [
+        "y=0",
+        "x=0",
+        "y=1",
+        "x=1"
+      ],
+      "correct_index": 0,
+      "hint": "Un punto se escribe (x,y), primero horizontal y luego vertical.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_relacion_6",
+      "unit": "geometria",
+      "subtopic": "relacion",
+      "question": "¿Cuál es la ecuación del eje y?",
+      "options": [
+        "y=0",
+        "y=x",
+        "x=1",
+        "x=0"
+      ],
+      "correct_index": 3,
+      "hint": "Un punto se escribe (x,y), primero horizontal y luego vertical.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_lugar_1",
+      "unit": "geometria",
+      "subtopic": "lugar",
+      "question": "¿Qué lugar forman los puntos a distancia 3 de un punto fijo del plano?",
+      "options": [
+        "Una circunferencia",
+        "Una recta",
+        "Un semiplano",
+        "Un segmento"
+      ],
+      "correct_index": 0,
+      "hint": "Un lugar geométrico reúne todos los puntos que cumplen una misma condición.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_lugar_2",
+      "unit": "geometria",
+      "subtopic": "lugar",
+      "question": "¿Qué lugar forman los puntos equidistantes de dos puntos distintos?",
+      "options": [
+        "El segmento que los une",
+        "Una sola circunferencia",
+        "Un único punto",
+        "La mediatriz del segmento que los une"
+      ],
+      "correct_index": 3,
+      "hint": "Un lugar geométrico reúne todos los puntos que cumplen una misma condición.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_lugar_3",
+      "unit": "geometria",
+      "subtopic": "lugar",
+      "question": "¿Qué lugar describe y=2?",
+      "options": [
+        "Una circunferencia",
+        "Solo el punto (0,2)",
+        "Una recta horizontal",
+        "Una recta vertical"
+      ],
+      "correct_index": 2,
+      "hint": "Un lugar geométrico reúne todos los puntos que cumplen una misma condición.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_lugar_4",
+      "unit": "geometria",
+      "subtopic": "lugar",
+      "question": "¿Qué lugar describe x=−3?",
+      "options": [
+        "Solo el punto (−3,0)",
+        "Una recta vertical",
+        "Una recta horizontal",
+        "Una parábola"
+      ],
+      "correct_index": 1,
+      "hint": "Un lugar geométrico reúne todos los puntos que cumplen una misma condición.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_lugar_5",
+      "unit": "geometria",
+      "subtopic": "lugar",
+      "question": "¿Qué ecuación representa la circunferencia unitaria centrada en el origen?",
+      "options": [
+        "x²+y²=1",
+        "x+y=1",
+        "x²−y²=1",
+        "y=x²"
+      ],
+      "correct_index": 0,
+      "hint": "Un lugar geométrico reúne todos los puntos que cumplen una misma condición.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_lugar_6",
+      "unit": "geometria",
+      "subtopic": "lugar",
+      "question": "¿Qué significa pertenecer a un lugar geométrico?",
+      "options": [
+        "Estar siempre en el origen",
+        "Tener ambas coordenadas positivas",
+        "Ser un punto de un eje",
+        "Cumplir su condición o ecuación"
+      ],
+      "correct_index": 3,
+      "hint": "Un lugar geométrico reúne todos los puntos que cumplen una misma condición.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_distancia_1",
+      "unit": "geometria",
+      "subtopic": "distancia",
+      "question": "¿Cuál es la distancia entre A=(1,0) y B=(4,4)?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "Aplicá √((x₂−x₁)²+(y₂−y₁)²).",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_distancia_2",
+      "unit": "geometria",
+      "subtopic": "distancia",
+      "question": "¿Cuál es la distancia entre A=(2,0) y B=(5,4)?",
+      "options": [
+        "6",
+        "4",
+        "7",
+        "5"
+      ],
+      "correct_index": 3,
+      "hint": "Aplicá √((x₂−x₁)²+(y₂−y₁)²).",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_distancia_3",
+      "unit": "geometria",
+      "subtopic": "distancia",
+      "question": "¿Cuál es la distancia entre A=(3,0) y B=(6,4)?",
+      "options": [
+        "4",
+        "7",
+        "5",
+        "6"
+      ],
+      "correct_index": 2,
+      "hint": "Aplicá √((x₂−x₁)²+(y₂−y₁)²).",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_distancia_4",
+      "unit": "geometria",
+      "subtopic": "distancia",
+      "question": "¿Cuál es la distancia entre A=(4,0) y B=(7,4)?",
+      "options": [
+        "7",
+        "5",
+        "6",
+        "4"
+      ],
+      "correct_index": 1,
+      "hint": "Aplicá √((x₂−x₁)²+(y₂−y₁)²).",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_distancia_5",
+      "unit": "geometria",
+      "subtopic": "distancia",
+      "question": "¿Cuál es la distancia entre A=(5,0) y B=(8,4)?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "Aplicá √((x₂−x₁)²+(y₂−y₁)²).",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_distancia_6",
+      "unit": "geometria",
+      "subtopic": "distancia",
+      "question": "¿Cuál es la distancia entre A=(6,0) y B=(9,4)?",
+      "options": [
+        "6",
+        "4",
+        "7",
+        "5"
+      ],
+      "correct_index": 3,
+      "hint": "Aplicá √((x₂−x₁)²+(y₂−y₁)²).",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_punto_medio_1",
+      "unit": "geometria",
+      "subtopic": "punto_medio",
+      "question": "Entre A=(1,2) y B=(5,6), ¿cuál es la coordenada x del punto medio?",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "5"
+      ],
+      "correct_index": 0,
+      "hint": "Promediá las coordenadas correspondientes de los extremos.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_punto_medio_2",
+      "unit": "geometria",
+      "subtopic": "punto_medio",
+      "question": "Entre A=(2,2) y B=(6,6), ¿cuál es la coordenada x del punto medio?",
+      "options": [
+        "5",
+        "3",
+        "6",
+        "4"
+      ],
+      "correct_index": 3,
+      "hint": "Promediá las coordenadas correspondientes de los extremos.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_punto_medio_3",
+      "unit": "geometria",
+      "subtopic": "punto_medio",
+      "question": "Entre A=(3,2) y B=(7,6), ¿cuál es la coordenada x del punto medio?",
+      "options": [
+        "4",
+        "7",
+        "5",
+        "6"
+      ],
+      "correct_index": 2,
+      "hint": "Promediá las coordenadas correspondientes de los extremos.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_punto_medio_4",
+      "unit": "geometria",
+      "subtopic": "punto_medio",
+      "question": "Entre A=(4,2) y B=(8,6), ¿cuál es la coordenada x del punto medio?",
+      "options": [
+        "8",
+        "6",
+        "7",
+        "5"
+      ],
+      "correct_index": 1,
+      "hint": "Promediá las coordenadas correspondientes de los extremos.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_punto_medio_5",
+      "unit": "geometria",
+      "subtopic": "punto_medio",
+      "question": "Entre A=(5,2) y B=(9,6), ¿cuál es la coordenada x del punto medio?",
+      "options": [
+        "7",
+        "8",
+        "6",
+        "9"
+      ],
+      "correct_index": 0,
+      "hint": "Promediá las coordenadas correspondientes de los extremos.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_punto_medio_6",
+      "unit": "geometria",
+      "subtopic": "punto_medio",
+      "question": "Entre A=(6,2) y B=(10,6), ¿cuál es la coordenada x del punto medio?",
+      "options": [
+        "9",
+        "7",
+        "10",
+        "8"
+      ],
+      "correct_index": 3,
+      "hint": "Promediá las coordenadas correspondientes de los extremos.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_pendiente_1",
+      "unit": "geometria",
+      "subtopic": "pendiente",
+      "question": "Una recta sube 2 unidades por cada 2 unidades hacia la derecha. ¿Cuál es su pendiente?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "La pendiente es cambio vertical dividido por cambio horizontal.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_pendiente_2",
+      "unit": "geometria",
+      "subtopic": "pendiente",
+      "question": "Una recta sube 4 unidades por cada 2 unidades hacia la derecha. ¿Cuál es su pendiente?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "La pendiente es cambio vertical dividido por cambio horizontal.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_pendiente_3",
+      "unit": "geometria",
+      "subtopic": "pendiente",
+      "question": "Una recta sube 6 unidades por cada 2 unidades hacia la derecha. ¿Cuál es su pendiente?",
+      "options": [
+        "2",
+        "5",
+        "3",
+        "4"
+      ],
+      "correct_index": 2,
+      "hint": "La pendiente es cambio vertical dividido por cambio horizontal.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_pendiente_4",
+      "unit": "geometria",
+      "subtopic": "pendiente",
+      "question": "Una recta sube 8 unidades por cada 2 unidades hacia la derecha. ¿Cuál es su pendiente?",
+      "options": [
+        "6",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct_index": 1,
+      "hint": "La pendiente es cambio vertical dividido por cambio horizontal.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_pendiente_5",
+      "unit": "geometria",
+      "subtopic": "pendiente",
+      "question": "Una recta sube 10 unidades por cada 2 unidades hacia la derecha. ¿Cuál es su pendiente?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "La pendiente es cambio vertical dividido por cambio horizontal.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_pendiente_6",
+      "unit": "geometria",
+      "subtopic": "pendiente",
+      "question": "Una recta sube 12 unidades por cada 2 unidades hacia la derecha. ¿Cuál es su pendiente?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "La pendiente es cambio vertical dividido por cambio horizontal.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_pendiente_puntos_1",
+      "unit": "geometria",
+      "subtopic": "pendiente_puntos",
+      "question": "¿Cuál es la pendiente entre (1,2) y (3,4)?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Restá las coordenadas en el mismo orden: (y₂−y₁)/(x₂−x₁).",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_pendiente_puntos_2",
+      "unit": "geometria",
+      "subtopic": "pendiente_puntos",
+      "question": "¿Cuál es la pendiente entre (1,2) y (3,6)?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "Restá las coordenadas en el mismo orden: (y₂−y₁)/(x₂−x₁).",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_pendiente_puntos_3",
+      "unit": "geometria",
+      "subtopic": "pendiente_puntos",
+      "question": "¿Cuál es la pendiente entre (1,2) y (3,8)?",
+      "options": [
+        "2",
+        "5",
+        "3",
+        "4"
+      ],
+      "correct_index": 2,
+      "hint": "Restá las coordenadas en el mismo orden: (y₂−y₁)/(x₂−x₁).",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_pendiente_puntos_4",
+      "unit": "geometria",
+      "subtopic": "pendiente_puntos",
+      "question": "¿Cuál es la pendiente entre (1,2) y (3,10)?",
+      "options": [
+        "6",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct_index": 1,
+      "hint": "Restá las coordenadas en el mismo orden: (y₂−y₁)/(x₂−x₁).",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_pendiente_puntos_5",
+      "unit": "geometria",
+      "subtopic": "pendiente_puntos",
+      "question": "¿Cuál es la pendiente entre (1,2) y (3,12)?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "Restá las coordenadas en el mismo orden: (y₂−y₁)/(x₂−x₁).",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_pendiente_puntos_6",
+      "unit": "geometria",
+      "subtopic": "pendiente_puntos",
+      "question": "¿Cuál es la pendiente entre (1,2) y (3,14)?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "Restá las coordenadas en el mismo orden: (y₂−y₁)/(x₂−x₁).",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_paralelas_1",
+      "unit": "geometria",
+      "subtopic": "paralelas",
+      "question": "Una recta tiene ecuación y=1x+2. ¿Qué pendiente debe tener otra recta paralela a ella?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Las rectas paralelas no verticales tienen igual pendiente.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_paralelas_2",
+      "unit": "geometria",
+      "subtopic": "paralelas",
+      "question": "Una recta tiene ecuación y=2x+2. ¿Qué pendiente debe tener otra recta paralela a ella?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "Las rectas paralelas no verticales tienen igual pendiente.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_paralelas_3",
+      "unit": "geometria",
+      "subtopic": "paralelas",
+      "question": "Una recta tiene ecuación y=3x+2. ¿Qué pendiente debe tener otra recta paralela a ella?",
+      "options": [
+        "2",
+        "5",
+        "3",
+        "4"
+      ],
+      "correct_index": 2,
+      "hint": "Las rectas paralelas no verticales tienen igual pendiente.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_paralelas_4",
+      "unit": "geometria",
+      "subtopic": "paralelas",
+      "question": "Una recta tiene ecuación y=4x+2. ¿Qué pendiente debe tener otra recta paralela a ella?",
+      "options": [
+        "6",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct_index": 1,
+      "hint": "Las rectas paralelas no verticales tienen igual pendiente.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_paralelas_5",
+      "unit": "geometria",
+      "subtopic": "paralelas",
+      "question": "Una recta tiene ecuación y=5x+2. ¿Qué pendiente debe tener otra recta paralela a ella?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "Las rectas paralelas no verticales tienen igual pendiente.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_paralelas_6",
+      "unit": "geometria",
+      "subtopic": "paralelas",
+      "question": "Una recta tiene ecuación y=6x+2. ¿Qué pendiente debe tener otra recta paralela a ella?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "Las rectas paralelas no verticales tienen igual pendiente.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_perpendiculares_1",
+      "unit": "geometria",
+      "subtopic": "perpendiculares",
+      "question": "Una recta tiene pendiente 1. ¿Cuál es la pendiente de una recta perpendicular?",
+      "options": [
+        "-1",
+        "1",
+        "2",
+        "-2"
+      ],
+      "correct_index": 0,
+      "hint": "Para pendientes definidas y no nulas, m₁·m₂=−1.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_perpendiculares_2",
+      "unit": "geometria",
+      "subtopic": "perpendiculares",
+      "question": "Una recta tiene pendiente 2. ¿Cuál es la pendiente de una recta perpendicular?",
+      "options": [
+        "1/2",
+        "3",
+        "-3",
+        "-1/2"
+      ],
+      "correct_index": 3,
+      "hint": "Para pendientes definidas y no nulas, m₁·m₂=−1.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_perpendiculares_3",
+      "unit": "geometria",
+      "subtopic": "perpendiculares",
+      "question": "Una recta tiene pendiente 3. ¿Cuál es la pendiente de una recta perpendicular?",
+      "options": [
+        "4",
+        "-4",
+        "-1/3",
+        "1/3"
+      ],
+      "correct_index": 2,
+      "hint": "Para pendientes definidas y no nulas, m₁·m₂=−1.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_perpendiculares_4",
+      "unit": "geometria",
+      "subtopic": "perpendiculares",
+      "question": "Una recta tiene pendiente 4. ¿Cuál es la pendiente de una recta perpendicular?",
+      "options": [
+        "-5",
+        "-1/4",
+        "1/4",
+        "5"
+      ],
+      "correct_index": 1,
+      "hint": "Para pendientes definidas y no nulas, m₁·m₂=−1.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_perpendiculares_5",
+      "unit": "geometria",
+      "subtopic": "perpendiculares",
+      "question": "Una recta tiene pendiente 5. ¿Cuál es la pendiente de una recta perpendicular?",
+      "options": [
+        "-1/5",
+        "1/5",
+        "6",
+        "-6"
+      ],
+      "correct_index": 0,
+      "hint": "Para pendientes definidas y no nulas, m₁·m₂=−1.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_perpendiculares_6",
+      "unit": "geometria",
+      "subtopic": "perpendiculares",
+      "question": "Una recta tiene pendiente 6. ¿Cuál es la pendiente de una recta perpendicular?",
+      "options": [
+        "1/6",
+        "7",
+        "-7",
+        "-1/6"
+      ],
+      "correct_index": 3,
+      "hint": "Para pendientes definidas y no nulas, m₁·m₂=−1.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_angulo_rectas_1",
+      "unit": "geometria",
+      "subtopic": "angulo_rectas",
+      "question": "¿Cuántos grados tiene el ángulo menor entre rectas perpendiculares?",
+      "options": [
+        "90",
+        "91",
+        "89",
+        "92"
+      ],
+      "correct_index": 0,
+      "hint": "Usá tan(θ)=|(m₂−m₁)/(1+m₁m₂)| cuando procede, o identificá perpendicularidad.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_angulo_rectas_2",
+      "unit": "geometria",
+      "subtopic": "angulo_rectas",
+      "question": "¿Cuántos grados tiene el ángulo menor entre dos rectas paralelas?",
+      "options": [
+        "1",
+        "-1",
+        "2",
+        "0"
+      ],
+      "correct_index": 3,
+      "hint": "Usá tan(θ)=|(m₂−m₁)/(1+m₁m₂)| cuando procede, o identificá perpendicularidad.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_angulo_rectas_3",
+      "unit": "geometria",
+      "subtopic": "angulo_rectas",
+      "question": "¿Cuál es el ángulo menor entre y=0 y y=x? Respondé en grados.",
+      "options": [
+        "44",
+        "47",
+        "45",
+        "46"
+      ],
+      "correct_index": 2,
+      "hint": "Usá tan(θ)=|(m₂−m₁)/(1+m₁m₂)| cuando procede, o identificá perpendicularidad.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_angulo_rectas_4",
+      "unit": "geometria",
+      "subtopic": "angulo_rectas",
+      "question": "¿Cuál es el ángulo menor entre y=x y y=−x? Respondé en grados.",
+      "options": [
+        "92",
+        "90",
+        "91",
+        "89"
+      ],
+      "correct_index": 1,
+      "hint": "Usá tan(θ)=|(m₂−m₁)/(1+m₁m₂)| cuando procede, o identificá perpendicularidad.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_angulo_rectas_5",
+      "unit": "geometria",
+      "subtopic": "angulo_rectas",
+      "question": "¿Cuál es el ángulo menor entre una recta horizontal y una vertical? Respondé en grados.",
+      "options": [
+        "90",
+        "91",
+        "89",
+        "92"
+      ],
+      "correct_index": 0,
+      "hint": "Usá tan(θ)=|(m₂−m₁)/(1+m₁m₂)| cuando procede, o identificá perpendicularidad.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_angulo_rectas_6",
+      "unit": "geometria",
+      "subtopic": "angulo_rectas",
+      "question": "Para pendientes m₁=0 y m₂=√3, ¿cuánto mide el ángulo menor en grados?",
+      "options": [
+        "61",
+        "59",
+        "62",
+        "60"
+      ],
+      "correct_index": 3,
+      "hint": "Usá tan(θ)=|(m₂−m₁)/(1+m₁m₂)| cuando procede, o identificá perpendicularidad.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_ecuacion_1",
+      "unit": "geometria",
+      "subtopic": "ecuacion",
+      "question": "En la recta y=3x−2, ¿cuánto vale y cuando x=1?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Sustituí x en la ecuación de la recta.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_ecuacion_2",
+      "unit": "geometria",
+      "subtopic": "ecuacion",
+      "question": "En la recta y=3x−2, ¿cuánto vale y cuando x=2?",
+      "options": [
+        "5",
+        "3",
+        "6",
+        "4"
+      ],
+      "correct_index": 3,
+      "hint": "Sustituí x en la ecuación de la recta.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_ecuacion_3",
+      "unit": "geometria",
+      "subtopic": "ecuacion",
+      "question": "En la recta y=3x−2, ¿cuánto vale y cuando x=3?",
+      "options": [
+        "6",
+        "9",
+        "7",
+        "8"
+      ],
+      "correct_index": 2,
+      "hint": "Sustituí x en la ecuación de la recta.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_ecuacion_4",
+      "unit": "geometria",
+      "subtopic": "ecuacion",
+      "question": "En la recta y=3x−2, ¿cuánto vale y cuando x=4?",
+      "options": [
+        "12",
+        "10",
+        "11",
+        "9"
+      ],
+      "correct_index": 1,
+      "hint": "Sustituí x en la ecuación de la recta.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_ecuacion_5",
+      "unit": "geometria",
+      "subtopic": "ecuacion",
+      "question": "En la recta y=3x−2, ¿cuánto vale y cuando x=5?",
+      "options": [
+        "13",
+        "14",
+        "12",
+        "15"
+      ],
+      "correct_index": 0,
+      "hint": "Sustituí x en la ecuación de la recta.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_ecuacion_6",
+      "unit": "geometria",
+      "subtopic": "ecuacion",
+      "question": "En la recta y=3x−2, ¿cuánto vale y cuando x=6?",
+      "options": [
+        "17",
+        "15",
+        "18",
+        "16"
+      ],
+      "correct_index": 3,
+      "hint": "Sustituí x en la ecuación de la recta.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_formas_1",
+      "unit": "geometria",
+      "subtopic": "formas",
+      "question": "Escribí mentalmente 1x−y+4=0 como y=mx+b. ¿Cuánto vale m?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "Despejá y sin perder los signos.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_formas_2",
+      "unit": "geometria",
+      "subtopic": "formas",
+      "question": "Escribí mentalmente 2x−y+4=0 como y=mx+b. ¿Cuánto vale m?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "Despejá y sin perder los signos.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_formas_3",
+      "unit": "geometria",
+      "subtopic": "formas",
+      "question": "Escribí mentalmente 3x−y+4=0 como y=mx+b. ¿Cuánto vale m?",
+      "options": [
+        "2",
+        "5",
+        "3",
+        "4"
+      ],
+      "correct_index": 2,
+      "hint": "Despejá y sin perder los signos.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_formas_4",
+      "unit": "geometria",
+      "subtopic": "formas",
+      "question": "Escribí mentalmente 4x−y+4=0 como y=mx+b. ¿Cuánto vale m?",
+      "options": [
+        "6",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct_index": 1,
+      "hint": "Despejá y sin perder los signos.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_formas_5",
+      "unit": "geometria",
+      "subtopic": "formas",
+      "question": "Escribí mentalmente 5x−y+4=0 como y=mx+b. ¿Cuánto vale m?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "Despejá y sin perder los signos.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_formas_6",
+      "unit": "geometria",
+      "subtopic": "formas",
+      "question": "Escribí mentalmente 6x−y+4=0 como y=mx+b. ¿Cuánto vale m?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "Despejá y sin perder los signos.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_punto_pendiente_1",
+      "unit": "geometria",
+      "subtopic": "punto_pendiente",
+      "question": "Una recta de pendiente 1 pasa por (1,2). ¿Cuánto vale y cuando x=3?",
+      "options": [
+        "4",
+        "5",
+        "3",
+        "6"
+      ],
+      "correct_index": 0,
+      "hint": "Usá y−y₁=m(x−x₁).",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_punto_pendiente_2",
+      "unit": "geometria",
+      "subtopic": "punto_pendiente",
+      "question": "Una recta de pendiente 2 pasa por (1,2). ¿Cuánto vale y cuando x=3?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "Usá y−y₁=m(x−x₁).",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_punto_pendiente_3",
+      "unit": "geometria",
+      "subtopic": "punto_pendiente",
+      "question": "Una recta de pendiente 3 pasa por (1,2). ¿Cuánto vale y cuando x=3?",
+      "options": [
+        "7",
+        "10",
+        "8",
+        "9"
+      ],
+      "correct_index": 2,
+      "hint": "Usá y−y₁=m(x−x₁).",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_punto_pendiente_4",
+      "unit": "geometria",
+      "subtopic": "punto_pendiente",
+      "question": "Una recta de pendiente 4 pasa por (1,2). ¿Cuánto vale y cuando x=3?",
+      "options": [
+        "12",
+        "10",
+        "11",
+        "9"
+      ],
+      "correct_index": 1,
+      "hint": "Usá y−y₁=m(x−x₁).",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_punto_pendiente_5",
+      "unit": "geometria",
+      "subtopic": "punto_pendiente",
+      "question": "Una recta de pendiente 5 pasa por (1,2). ¿Cuánto vale y cuando x=3?",
+      "options": [
+        "12",
+        "13",
+        "11",
+        "14"
+      ],
+      "correct_index": 0,
+      "hint": "Usá y−y₁=m(x−x₁).",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_punto_pendiente_6",
+      "unit": "geometria",
+      "subtopic": "punto_pendiente",
+      "question": "Una recta de pendiente 6 pasa por (1,2). ¿Cuánto vale y cuando x=3?",
+      "options": [
+        "15",
+        "13",
+        "16",
+        "14"
+      ],
+      "correct_index": 3,
+      "hint": "Usá y−y₁=m(x−x₁).",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_dos_puntos_1",
+      "unit": "geometria",
+      "subtopic": "dos_puntos",
+      "question": "Una recta pasa por (0,1) y (2,3). ¿Cuánto vale y cuando x=4?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "Hallá primero la pendiente y luego la ecuación.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_dos_puntos_2",
+      "unit": "geometria",
+      "subtopic": "dos_puntos",
+      "question": "Una recta pasa por (0,1) y (2,5). ¿Cuánto vale y cuando x=4?",
+      "options": [
+        "10",
+        "8",
+        "11",
+        "9"
+      ],
+      "correct_index": 3,
+      "hint": "Hallá primero la pendiente y luego la ecuación.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_dos_puntos_3",
+      "unit": "geometria",
+      "subtopic": "dos_puntos",
+      "question": "Una recta pasa por (0,1) y (2,7). ¿Cuánto vale y cuando x=4?",
+      "options": [
+        "12",
+        "15",
+        "13",
+        "14"
+      ],
+      "correct_index": 2,
+      "hint": "Hallá primero la pendiente y luego la ecuación.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_dos_puntos_4",
+      "unit": "geometria",
+      "subtopic": "dos_puntos",
+      "question": "Una recta pasa por (0,1) y (2,9). ¿Cuánto vale y cuando x=4?",
+      "options": [
+        "19",
+        "17",
+        "18",
+        "16"
+      ],
+      "correct_index": 1,
+      "hint": "Hallá primero la pendiente y luego la ecuación.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_dos_puntos_5",
+      "unit": "geometria",
+      "subtopic": "dos_puntos",
+      "question": "Una recta pasa por (0,1) y (2,11). ¿Cuánto vale y cuando x=4?",
+      "options": [
+        "21",
+        "22",
+        "20",
+        "23"
+      ],
+      "correct_index": 0,
+      "hint": "Hallá primero la pendiente y luego la ecuación.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_dos_puntos_6",
+      "unit": "geometria",
+      "subtopic": "dos_puntos",
+      "question": "Una recta pasa por (0,1) y (2,13). ¿Cuánto vale y cuando x=4?",
+      "options": [
+        "26",
+        "24",
+        "27",
+        "25"
+      ],
+      "correct_index": 3,
+      "hint": "Hallá primero la pendiente y luego la ecuación.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_distancia_recta_1",
+      "unit": "geometria",
+      "subtopic": "distancia_recta",
+      "question": "¿Cuál es la distancia del punto (2,4) a la recta horizontal y=3?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "La distancia a y=c es |y₀−c|; en general usá |Ax₀+By₀+C|/√(A²+B²).",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_distancia_recta_2",
+      "unit": "geometria",
+      "subtopic": "distancia_recta",
+      "question": "¿Cuál es la distancia del punto (2,5) a la recta horizontal y=3?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "La distancia a y=c es |y₀−c|; en general usá |Ax₀+By₀+C|/√(A²+B²).",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_distancia_recta_3",
+      "unit": "geometria",
+      "subtopic": "distancia_recta",
+      "question": "¿Cuál es la distancia del punto (2,6) a la recta horizontal y=3?",
+      "options": [
+        "2",
+        "5",
+        "3",
+        "4"
+      ],
+      "correct_index": 2,
+      "hint": "La distancia a y=c es |y₀−c|; en general usá |Ax₀+By₀+C|/√(A²+B²).",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_distancia_recta_4",
+      "unit": "geometria",
+      "subtopic": "distancia_recta",
+      "question": "¿Cuál es la distancia del punto (2,7) a la recta horizontal y=3?",
+      "options": [
+        "6",
+        "4",
+        "5",
+        "3"
+      ],
+      "correct_index": 1,
+      "hint": "La distancia a y=c es |y₀−c|; en general usá |Ax₀+By₀+C|/√(A²+B²).",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_distancia_recta_5",
+      "unit": "geometria",
+      "subtopic": "distancia_recta",
+      "question": "¿Cuál es la distancia del punto (2,8) a la recta horizontal y=3?",
+      "options": [
+        "5",
+        "6",
+        "4",
+        "7"
+      ],
+      "correct_index": 0,
+      "hint": "La distancia a y=c es |y₀−c|; en general usá |Ax₀+By₀+C|/√(A²+B²).",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_distancia_recta_6",
+      "unit": "geometria",
+      "subtopic": "distancia_recta",
+      "question": "¿Cuál es la distancia del punto (2,9) a la recta horizontal y=3?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "La distancia a y=c es |y₀−c|; en general usá |Ax₀+By₀+C|/√(A²+B²).",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_aplicaciones_lineal_1",
+      "unit": "geometria",
+      "subtopic": "aplicaciones_lineal",
+      "question": "Un transporte cobra 5.000 Gs fijos más 2.000 Gs por kilómetro. ¿Cuánto cuesta un viaje de 1 km en guaraníes?",
+      "options": [
+        "7000",
+        "7001",
+        "6999",
+        "7002"
+      ],
+      "correct_index": 0,
+      "hint": "Separá costo fijo y costo variable: total = fijo + tarifa·distancia.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_aplicaciones_lineal_2",
+      "unit": "geometria",
+      "subtopic": "aplicaciones_lineal",
+      "question": "Un transporte cobra 5.000 Gs fijos más 2.000 Gs por kilómetro. ¿Cuánto cuesta un viaje de 2 km en guaraníes?",
+      "options": [
+        "9001",
+        "8999",
+        "9002",
+        "9000"
+      ],
+      "correct_index": 3,
+      "hint": "Separá costo fijo y costo variable: total = fijo + tarifa·distancia.",
+      "level": "inicial"
+    },
+    {
+      "id": "geometria_aplicaciones_lineal_3",
+      "unit": "geometria",
+      "subtopic": "aplicaciones_lineal",
+      "question": "Un transporte cobra 5.000 Gs fijos más 2.000 Gs por kilómetro. ¿Cuánto cuesta un viaje de 3 km en guaraníes?",
+      "options": [
+        "10999",
+        "11002",
+        "11000",
+        "11001"
+      ],
+      "correct_index": 2,
+      "hint": "Separá costo fijo y costo variable: total = fijo + tarifa·distancia.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_aplicaciones_lineal_4",
+      "unit": "geometria",
+      "subtopic": "aplicaciones_lineal",
+      "question": "Un transporte cobra 5.000 Gs fijos más 2.000 Gs por kilómetro. ¿Cuánto cuesta un viaje de 4 km en guaraníes?",
+      "options": [
+        "13002",
+        "13000",
+        "13001",
+        "12999"
+      ],
+      "correct_index": 1,
+      "hint": "Separá costo fijo y costo variable: total = fijo + tarifa·distancia.",
+      "level": "practica"
+    },
+    {
+      "id": "geometria_aplicaciones_lineal_5",
+      "unit": "geometria",
+      "subtopic": "aplicaciones_lineal",
+      "question": "Un transporte cobra 5.000 Gs fijos más 2.000 Gs por kilómetro. ¿Cuánto cuesta un viaje de 5 km en guaraníes?",
+      "options": [
+        "15000",
+        "15001",
+        "14999",
+        "15002"
+      ],
+      "correct_index": 0,
+      "hint": "Separá costo fijo y costo variable: total = fijo + tarifa·distancia.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "geometria_aplicaciones_lineal_6",
+      "unit": "geometria",
+      "subtopic": "aplicaciones_lineal",
+      "question": "Un transporte cobra 5.000 Gs fijos más 2.000 Gs por kilómetro. ¿Cuánto cuesta un viaje de 6 km en guaraníes?",
+      "options": [
+        "17001",
+        "16999",
+        "17002",
+        "17000"
+      ],
+      "correct_index": 3,
+      "hint": "Separá costo fijo y costo variable: total = fijo + tarifa·distancia.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_factorial_1",
+      "unit": "combinatoria",
+      "subtopic": "factorial",
+      "question": "¿Cuánto vale 1!?",
+      "options": [
+        "1",
+        "2",
+        "0",
+        "3"
+      ],
+      "correct_index": 0,
+      "hint": "n! multiplica los enteros desde 1 hasta n; por convenio 0!=1.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_factorial_2",
+      "unit": "combinatoria",
+      "subtopic": "factorial",
+      "question": "¿Cuánto vale 2!?",
+      "options": [
+        "3",
+        "1",
+        "4",
+        "2"
+      ],
+      "correct_index": 3,
+      "hint": "n! multiplica los enteros desde 1 hasta n; por convenio 0!=1.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_factorial_3",
+      "unit": "combinatoria",
+      "subtopic": "factorial",
+      "question": "¿Cuánto vale 3!?",
+      "options": [
+        "5",
+        "8",
+        "6",
+        "7"
+      ],
+      "correct_index": 2,
+      "hint": "n! multiplica los enteros desde 1 hasta n; por convenio 0!=1.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_factorial_4",
+      "unit": "combinatoria",
+      "subtopic": "factorial",
+      "question": "¿Cuánto vale 4!?",
+      "options": [
+        "26",
+        "24",
+        "25",
+        "23"
+      ],
+      "correct_index": 1,
+      "hint": "n! multiplica los enteros desde 1 hasta n; por convenio 0!=1.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_factorial_5",
+      "unit": "combinatoria",
+      "subtopic": "factorial",
+      "question": "¿Cuánto vale 5!?",
+      "options": [
+        "120",
+        "121",
+        "119",
+        "122"
+      ],
+      "correct_index": 0,
+      "hint": "n! multiplica los enteros desde 1 hasta n; por convenio 0!=1.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_factorial_6",
+      "unit": "combinatoria",
+      "subtopic": "factorial",
+      "question": "¿Cuánto vale 6!?",
+      "options": [
+        "721",
+        "719",
+        "722",
+        "720"
+      ],
+      "correct_index": 3,
+      "hint": "n! multiplica los enteros desde 1 hasta n; por convenio 0!=1.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_concepto_1",
+      "unit": "combinatoria",
+      "subtopic": "concepto",
+      "question": "¿Qué estudia el análisis combinatorio?",
+      "options": [
+        "Maneras de contar selecciones y ordenamientos",
+        "Solo ángulos",
+        "Solo ecuaciones de rectas",
+        "Solo áreas"
+      ],
+      "correct_index": 0,
+      "hint": "Antes de contar, decidí si importan el orden y la repetición.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_concepto_2",
+      "unit": "combinatoria",
+      "subtopic": "concepto",
+      "question": "Para elegir presidente y secretario entre 5 personas distintas, ¿importa el orden de asignación?",
+      "options": [
+        "No, los cargos son iguales",
+        "Solo si hay empate",
+        "Nunca importa el orden",
+        "Sí, los cargos son diferentes"
+      ],
+      "correct_index": 3,
+      "hint": "Antes de contar, decidí si importan el orden y la repetición.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_concepto_3",
+      "unit": "combinatoria",
+      "subtopic": "concepto",
+      "question": "Para formar una pareja de estudio sin cargos, ¿importa el orden de elección?",
+      "options": [
+        "Solo si son dos personas",
+        "Depende de la edad",
+        "No",
+        "Sí, siempre"
+      ],
+      "correct_index": 2,
+      "hint": "Antes de contar, decidí si importan el orden y la repetición.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_concepto_4",
+      "unit": "combinatoria",
+      "subtopic": "concepto",
+      "question": "Hay 3 jugos y 2 sándwiches. ¿Cuántos combos de uno de cada tipo se forman?",
+      "options": [
+        "8",
+        "6",
+        "7",
+        "5"
+      ],
+      "correct_index": 1,
+      "hint": "Antes de contar, decidí si importan el orden y la repetición.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_concepto_5",
+      "unit": "combinatoria",
+      "subtopic": "concepto",
+      "question": "¿Cuántas maneras hay de ordenar 3 libros distintos?",
+      "options": [
+        "6",
+        "7",
+        "5",
+        "8"
+      ],
+      "correct_index": 0,
+      "hint": "Antes de contar, decidí si importan el orden y la repetición.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_concepto_6",
+      "unit": "combinatoria",
+      "subtopic": "concepto",
+      "question": "¿Cuántas parejas sin cargos se eligen entre 4 estudiantes?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "Antes de contar, decidí si importan el orden y la repetición.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_conteo_1",
+      "unit": "combinatoria",
+      "subtopic": "conteo",
+      "question": "Hay 2 opciones de merienda y 3 bebidas. Eligiendo una de cada, ¿cuántos combos hay?",
+      "options": [
+        "6",
+        "7",
+        "5",
+        "8"
+      ],
+      "correct_index": 0,
+      "hint": "Para elecciones sucesivas independientes, multiplicá las opciones.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_conteo_2",
+      "unit": "combinatoria",
+      "subtopic": "conteo",
+      "question": "Hay 3 opciones de merienda y 3 bebidas. Eligiendo una de cada, ¿cuántos combos hay?",
+      "options": [
+        "10",
+        "8",
+        "11",
+        "9"
+      ],
+      "correct_index": 3,
+      "hint": "Para elecciones sucesivas independientes, multiplicá las opciones.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_conteo_3",
+      "unit": "combinatoria",
+      "subtopic": "conteo",
+      "question": "Hay 4 opciones de merienda y 3 bebidas. Eligiendo una de cada, ¿cuántos combos hay?",
+      "options": [
+        "11",
+        "14",
+        "12",
+        "13"
+      ],
+      "correct_index": 2,
+      "hint": "Para elecciones sucesivas independientes, multiplicá las opciones.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_conteo_4",
+      "unit": "combinatoria",
+      "subtopic": "conteo",
+      "question": "Hay 5 opciones de merienda y 3 bebidas. Eligiendo una de cada, ¿cuántos combos hay?",
+      "options": [
+        "17",
+        "15",
+        "16",
+        "14"
+      ],
+      "correct_index": 1,
+      "hint": "Para elecciones sucesivas independientes, multiplicá las opciones.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_conteo_5",
+      "unit": "combinatoria",
+      "subtopic": "conteo",
+      "question": "Hay 6 opciones de merienda y 3 bebidas. Eligiendo una de cada, ¿cuántos combos hay?",
+      "options": [
+        "18",
+        "19",
+        "17",
+        "20"
+      ],
+      "correct_index": 0,
+      "hint": "Para elecciones sucesivas independientes, multiplicá las opciones.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_conteo_6",
+      "unit": "combinatoria",
+      "subtopic": "conteo",
+      "question": "Hay 7 opciones de merienda y 3 bebidas. Eligiendo una de cada, ¿cuántos combos hay?",
+      "options": [
+        "22",
+        "20",
+        "23",
+        "21"
+      ],
+      "correct_index": 3,
+      "hint": "Para elecciones sucesivas independientes, multiplicá las opciones.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_variacion_1",
+      "unit": "combinatoria",
+      "subtopic": "variacion",
+      "question": "Entre 3 estudiantes distintos se eligen presidente y secretario, sin repetir persona. ¿Cuántas asignaciones hay?",
+      "options": [
+        "6",
+        "7",
+        "5",
+        "8"
+      ],
+      "correct_index": 0,
+      "hint": "El orden importa: hay n opciones para el primer cargo y n−1 para el segundo.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_variacion_2",
+      "unit": "combinatoria",
+      "subtopic": "variacion",
+      "question": "Entre 4 estudiantes distintos se eligen presidente y secretario, sin repetir persona. ¿Cuántas asignaciones hay?",
+      "options": [
+        "13",
+        "11",
+        "14",
+        "12"
+      ],
+      "correct_index": 3,
+      "hint": "El orden importa: hay n opciones para el primer cargo y n−1 para el segundo.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_variacion_3",
+      "unit": "combinatoria",
+      "subtopic": "variacion",
+      "question": "Entre 5 estudiantes distintos se eligen presidente y secretario, sin repetir persona. ¿Cuántas asignaciones hay?",
+      "options": [
+        "19",
+        "22",
+        "20",
+        "21"
+      ],
+      "correct_index": 2,
+      "hint": "El orden importa: hay n opciones para el primer cargo y n−1 para el segundo.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_variacion_4",
+      "unit": "combinatoria",
+      "subtopic": "variacion",
+      "question": "Entre 6 estudiantes distintos se eligen presidente y secretario, sin repetir persona. ¿Cuántas asignaciones hay?",
+      "options": [
+        "32",
+        "30",
+        "31",
+        "29"
+      ],
+      "correct_index": 1,
+      "hint": "El orden importa: hay n opciones para el primer cargo y n−1 para el segundo.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_variacion_5",
+      "unit": "combinatoria",
+      "subtopic": "variacion",
+      "question": "Entre 7 estudiantes distintos se eligen presidente y secretario, sin repetir persona. ¿Cuántas asignaciones hay?",
+      "options": [
+        "42",
+        "43",
+        "41",
+        "44"
+      ],
+      "correct_index": 0,
+      "hint": "El orden importa: hay n opciones para el primer cargo y n−1 para el segundo.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_variacion_6",
+      "unit": "combinatoria",
+      "subtopic": "variacion",
+      "question": "Entre 8 estudiantes distintos se eligen presidente y secretario, sin repetir persona. ¿Cuántas asignaciones hay?",
+      "options": [
+        "57",
+        "55",
+        "58",
+        "56"
+      ],
+      "correct_index": 3,
+      "hint": "El orden importa: hay n opciones para el primer cargo y n−1 para el segundo.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_permutacion_1",
+      "unit": "combinatoria",
+      "subtopic": "permutacion",
+      "question": "¿De cuántas maneras se ordenan 2 libros distintos en una fila?",
+      "options": [
+        "2",
+        "3",
+        "1",
+        "4"
+      ],
+      "correct_index": 0,
+      "hint": "Sin repetición, ordenar todos los elementos da n!.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_permutacion_2",
+      "unit": "combinatoria",
+      "subtopic": "permutacion",
+      "question": "¿De cuántas maneras se ordenan 3 libros distintos en una fila?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "Sin repetición, ordenar todos los elementos da n!.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_permutacion_3",
+      "unit": "combinatoria",
+      "subtopic": "permutacion",
+      "question": "¿De cuántas maneras se ordenan 4 libros distintos en una fila?",
+      "options": [
+        "23",
+        "26",
+        "24",
+        "25"
+      ],
+      "correct_index": 2,
+      "hint": "Sin repetición, ordenar todos los elementos da n!.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_permutacion_4",
+      "unit": "combinatoria",
+      "subtopic": "permutacion",
+      "question": "¿De cuántas maneras se ordenan 5 libros distintos en una fila?",
+      "options": [
+        "122",
+        "120",
+        "121",
+        "119"
+      ],
+      "correct_index": 1,
+      "hint": "Sin repetición, ordenar todos los elementos da n!.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_permutacion_5",
+      "unit": "combinatoria",
+      "subtopic": "permutacion",
+      "question": "¿De cuántas maneras se ordenan 6 libros distintos en una fila?",
+      "options": [
+        "720",
+        "721",
+        "719",
+        "722"
+      ],
+      "correct_index": 0,
+      "hint": "Sin repetición, ordenar todos los elementos da n!.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_permutacion_6",
+      "unit": "combinatoria",
+      "subtopic": "permutacion",
+      "question": "¿De cuántas maneras se ordenan 7 libros distintos en una fila?",
+      "options": [
+        "5041",
+        "5039",
+        "5042",
+        "5040"
+      ],
+      "correct_index": 3,
+      "hint": "Sin repetición, ordenar todos los elementos da n!.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_combinacion_1",
+      "unit": "combinatoria",
+      "subtopic": "combinacion",
+      "question": "De 3 estudiantes se elige una pareja sin cargos. ¿Cuántas parejas distintas hay?",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "5"
+      ],
+      "correct_index": 0,
+      "hint": "Sin importar el orden, usá C(n,2)=n(n−1)/2.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_combinacion_2",
+      "unit": "combinatoria",
+      "subtopic": "combinacion",
+      "question": "De 4 estudiantes se elige una pareja sin cargos. ¿Cuántas parejas distintas hay?",
+      "options": [
+        "7",
+        "5",
+        "8",
+        "6"
+      ],
+      "correct_index": 3,
+      "hint": "Sin importar el orden, usá C(n,2)=n(n−1)/2.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_combinacion_3",
+      "unit": "combinatoria",
+      "subtopic": "combinacion",
+      "question": "De 5 estudiantes se elige una pareja sin cargos. ¿Cuántas parejas distintas hay?",
+      "options": [
+        "9",
+        "12",
+        "10",
+        "11"
+      ],
+      "correct_index": 2,
+      "hint": "Sin importar el orden, usá C(n,2)=n(n−1)/2.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_combinacion_4",
+      "unit": "combinatoria",
+      "subtopic": "combinacion",
+      "question": "De 6 estudiantes se elige una pareja sin cargos. ¿Cuántas parejas distintas hay?",
+      "options": [
+        "17",
+        "15",
+        "16",
+        "14"
+      ],
+      "correct_index": 1,
+      "hint": "Sin importar el orden, usá C(n,2)=n(n−1)/2.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_combinacion_5",
+      "unit": "combinatoria",
+      "subtopic": "combinacion",
+      "question": "De 7 estudiantes se elige una pareja sin cargos. ¿Cuántas parejas distintas hay?",
+      "options": [
+        "21",
+        "22",
+        "20",
+        "23"
+      ],
+      "correct_index": 0,
+      "hint": "Sin importar el orden, usá C(n,2)=n(n−1)/2.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_combinacion_6",
+      "unit": "combinatoria",
+      "subtopic": "combinacion",
+      "question": "De 8 estudiantes se elige una pareja sin cargos. ¿Cuántas parejas distintas hay?",
+      "options": [
+        "29",
+        "27",
+        "30",
+        "28"
+      ],
+      "correct_index": 3,
+      "hint": "Sin importar el orden, usá C(n,2)=n(n−1)/2.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_numeros_1",
+      "unit": "combinatoria",
+      "subtopic": "numeros",
+      "question": "Por simetría, C(4,3)=C(4,1). ¿Cuánto vale ese número combinatorio?",
+      "options": [
+        "4",
+        "5",
+        "3",
+        "6"
+      ],
+      "correct_index": 0,
+      "hint": "C(n,r)=C(n,n−r); elegir n−1 equivale a elegir quién queda fuera.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_numeros_2",
+      "unit": "combinatoria",
+      "subtopic": "numeros",
+      "question": "Por simetría, C(5,4)=C(5,1). ¿Cuánto vale ese número combinatorio?",
+      "options": [
+        "6",
+        "4",
+        "7",
+        "5"
+      ],
+      "correct_index": 3,
+      "hint": "C(n,r)=C(n,n−r); elegir n−1 equivale a elegir quién queda fuera.",
+      "level": "inicial"
+    },
+    {
+      "id": "combinatoria_numeros_3",
+      "unit": "combinatoria",
+      "subtopic": "numeros",
+      "question": "Por simetría, C(6,5)=C(6,1). ¿Cuánto vale ese número combinatorio?",
+      "options": [
+        "5",
+        "8",
+        "6",
+        "7"
+      ],
+      "correct_index": 2,
+      "hint": "C(n,r)=C(n,n−r); elegir n−1 equivale a elegir quién queda fuera.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_numeros_4",
+      "unit": "combinatoria",
+      "subtopic": "numeros",
+      "question": "Por simetría, C(7,6)=C(7,1). ¿Cuánto vale ese número combinatorio?",
+      "options": [
+        "9",
+        "7",
+        "8",
+        "6"
+      ],
+      "correct_index": 1,
+      "hint": "C(n,r)=C(n,n−r); elegir n−1 equivale a elegir quién queda fuera.",
+      "level": "practica"
+    },
+    {
+      "id": "combinatoria_numeros_5",
+      "unit": "combinatoria",
+      "subtopic": "numeros",
+      "question": "Por simetría, C(8,7)=C(8,1). ¿Cuánto vale ese número combinatorio?",
+      "options": [
+        "8",
+        "9",
+        "7",
+        "10"
+      ],
+      "correct_index": 0,
+      "hint": "C(n,r)=C(n,n−r); elegir n−1 equivale a elegir quién queda fuera.",
+      "level": "aplicacion"
+    },
+    {
+      "id": "combinatoria_numeros_6",
+      "unit": "combinatoria",
+      "subtopic": "numeros",
+      "question": "Por simetría, C(9,8)=C(9,1). ¿Cuánto vale ese número combinatorio?",
+      "options": [
+        "10",
+        "8",
+        "11",
+        "9"
+      ],
+      "correct_index": 3,
+      "hint": "C(n,r)=C(n,n−r); elegir n−1 equivale a elegir quién queda fuera.",
+      "level": "aplicacion"
+    }
+  ]
+}

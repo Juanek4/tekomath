@@ -1,6 +1,6 @@
 <?php
 /* ============================================
-   TEKO MATH — TekoBeta (tekobeta.php)
+   TEKO MATH — Teko Desafíos (tekobeta.php)
    Laboratorio de Experiencias: Teko Live & Misiones de Aprendizaje
    ============================================ */
 require_once __DIR__ . '/../01_sistema_principal_y_registro_offline/config/session.php';
@@ -48,13 +48,15 @@ try {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="TEKO Math — TekoBeta: Laboratorio interactivo de Teko Live y Misiones de Aprendizaje.">
-  <title>TEKO Math — TekoBeta 🧪</title>
+  <meta name="description" content="TEKO Math — Teko Desafíos: Laboratorio interactivo de Teko Live y Misiones de Aprendizaje.">
+  <title>TEKO Math — Teko Desafíos 🧪</title>
   <link rel="stylesheet" href="../07_diseno_y_graficos/style.css?v=<?= time() ?>">
   <link rel="stylesheet" href="../07_diseno_y_graficos/dashboard.css?v=<?= time() ?>">
   <link rel="stylesheet" href="misiones.css?v=<?= time() ?>">
   <link rel="stylesheet" href="../06_teko_live/teko_live.css?v=<?= time() ?>">
   <link rel="icon" type="image/png" href="../02_tekobot/TekoBot/Hackaton/assets/images/tejuxi-face.png?v=20260926">
+<link rel="stylesheet" href="../07_diseno_y_graficos/teko-ui.css?v=20261028">
+<script src="../07_diseno_y_graficos/api-security.js?v=20261028"></script>
 </head>
 <body>
 
@@ -94,7 +96,7 @@ try {
           🤖 Tekobot
         </a>
         <a href="tekobeta.php" class="topnav__link topnav__link--active" data-section="beta">
-          🧪 TekoBeta
+          🧪 Teko Desafíos
         </a>
       </div>
 
@@ -141,7 +143,7 @@ try {
       <a href="../01_sistema_principal_y_registro_offline/dashboard.php" class="topnav__mobile-link" data-section="inicio">🏠 Inicio</a>
       <a href="../03_teko_arcade/juego.php" class="topnav__mobile-link" data-section="juegos">🎮 TekoArcade</a>
       <a href="../02_tekobot/chat.php" class="topnav__mobile-link" data-section="agente">🤖 Tekobot</a>
-      <a href="tekobeta.php" class="topnav__mobile-link topnav__mobile-link--active" data-section="beta">🧪 TekoBeta</a>
+      <a href="tekobeta.php" class="topnav__mobile-link topnav__mobile-link--active" data-section="beta">🧪 Teko Desafíos</a>
       <div class="topnav__mobile-divider"></div>
       <a href="../01_sistema_principal_y_registro_offline/logout.php" class="topnav__mobile-link topnav__mobile-link--logout">🚪 Cerrar sesión</a>
     </div>
@@ -159,7 +161,7 @@ try {
             <span class="pill pill--green" style="font-size:0.72rem;">Versión Experimental</span>
           </div>
           <h1 class="welcome__title" style="color:var(--purple-900);">
-            ¡Bienvenido a <span class="welcome__name">TekoBeta</span>! ✨
+            ¡Bienvenido a <span class="welcome__name">Teko Desafíos</span>! ✨
           </h1>
           <p class="welcome__subtitle" style="color:var(--purple-800);max-width:680px;">
             Aquí encontrarás los módulos más dinámicos de la plataforma: <strong>Teko Live</strong> para competir en vivo en clase y las <strong>Misiones de Aprendizaje</strong> en 5 etapas interactivas.

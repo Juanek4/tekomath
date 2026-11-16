@@ -12,11 +12,12 @@ test('starts with the selected bank exercise and builds exactly three rounds', (
   assert.equal(new Set(rounds.map((exercise) => exercise.id)).size, 3)
 })
 
-test('falls back to the local bank for an exercise without a bank answer', () => {
-  const custom = { ...toTriangleForgeExercise(sinExercises[0]), id: 'custom' }
+test('preserves a validated custom exercise instead of substituting the bank', () => {
+  const custom = { ...toTriangleForgeExercise(sinExercises[0]), id: 'custom', expectedAnswer:'5/13' }
   const rounds = createTriangleForgeExerciseSet(custom, sinExercises)
 
-  assert.equal(rounds[0].id, sinExercises[0].id)
+  assert.equal(rounds[0].id, 'custom')
+  assert.equal(rounds[0].expectedAnswer,'5/13')
   assert.equal(rounds.length, 3)
 })
 

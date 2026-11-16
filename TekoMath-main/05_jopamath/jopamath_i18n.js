@@ -476,16 +476,16 @@
   function injectLanguageSwitcher() {
     if (document.getElementById('jopamath-lang-switcher')) return;
 
-    const topnavUser = document.querySelector('.topnav__user') || document.querySelector('.topnav__inner') || document.querySelector('.brand') || document.querySelector('.sidebar') || document.body;
+    const topnavUser = document.querySelector('.topnav__user') || document.querySelector('.topnav__inner') || document.querySelector('.nav-actions-sidebar') || document.querySelector('.brand') || document.querySelector('.sidebar') || document.body;
     if (!topnavUser) return;
 
     const switcher = document.createElement('div');
     switcher.id = 'jopamath-lang-switcher';
     switcher.className = 'jopamath-switcher-container';
     switcher.innerHTML = `
-      <div class="jopamath-pill-toggle" title="Modo de Idioma: Guaraní Jopara (JOPAMATH v2)">
-        <button type="button" class="jopamath-lang-btn" data-lang="es" title="Español">🇪🇸 ES</button>
-        <button type="button" class="jopamath-lang-btn" data-lang="jopara" title="Guaraní Jopara">🇵🇾 Jopara</button>
+      <div class="jopamath-pill-toggle" role="group" aria-label="Idioma de la página">
+        <button type="button" class="jopamath-lang-btn" data-lang="es" title="Español">Español</button>
+        <button type="button" class="jopamath-lang-btn" data-lang="jopara" title="Guaraní Jopara">Jopara</button>
       </div>
     `;
 

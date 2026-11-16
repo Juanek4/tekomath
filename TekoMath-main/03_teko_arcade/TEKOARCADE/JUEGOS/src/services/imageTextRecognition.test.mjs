@@ -7,7 +7,7 @@ import {
 
 test('recognizes and normalizes Spanish text from an image blob', async () => {
   let receivedImage
-  const recognized = await recognizeImageText(new Blob(['image']), {
+  const recognized = await recognizeImageText(new Blob(['image'], {type:'image/png'}), {
     workerFactory: async () => ({
       recognize: async (image) => {
         receivedImage = image
@@ -28,7 +28,14 @@ test('rejects empty and oversized images before starting OCR', async () => {
     workerCreated = true
     throw new Error('worker should not start')
   }
-  await assert.rejects(recognizeImageText(new Blob([]), { workerFactory }), /size is not supported/)
-  await assert.rejects(recognizeImageText(new Blob([new Uint8Array(12 * 1024 * 1024 + 1)]), { workerFactory }), /size is not supported/)
+  await assert.rejects(recognizeImageText(new Blob([]), { workerFactory }), /12 MB/)
+  await assert.rejects(recognizeImageText(new Blob([new Uint8Array(12 * 1024 * 1024 + 1)]), { workerFactory }), /12 MB/)
   assert.equal(workerCreated, false)
+})
+test('rejects unsupported files and low-confidence recognition without fabricating text', async () => {
+  await assert.rejects(recognizeImageText(new Blob(['text'], { type: 'text/plain' })), /JPG/)
+  await assert.rejects(recognizeImageText(new Blob(['image'], { type: 'image/png' }), {
+    workerFactory: async () => ({ recognize: async () => ({ data: { text: 'uncertain', confidence: 10 } }), terminate: async () => undefined }),
+  }), /claridad/)
+  await terminateImageTextRecognition()
 })

@@ -1,5 +1,17 @@
 # Estructura Modular de TEKO Math
 
+Preparación del servidor actualizado: [requisitos y comprobación de PHP/MariaDB](docs/SERVIDOR_Y_VERSIONES.md). Ejecutar `php scripts/check_hosting.php` para revisar el entorno sin modificar las bases.
+
+## Ejecutar en XAMPP
+
+1. Guardá esta carpeta directamente dentro de `htdocs`, sin otra carpeta del proyecto anidada.
+2. Iniciá Apache y MySQL desde XAMPP.
+3. Abrí http://localhost/TekoMath-main/ si la carpeta se llama `TekoMath-main`.
+
+El `index.php` de la raíz redirige al módulo principal. Los siete módulos, las pruebas y la documentación comparten una única raíz.
+
+Para usar http://localhost/TEKO%20Math/, el nombre de esta carpeta dentro de `htdocs` debe ser `TEKO Math`. Las rutas entre módulos son relativas.
+
 Este directorio organiza todos los módulos funcionales del ecosistema **TEKO Math** en 7 secciones estructuradas:
 
 ```

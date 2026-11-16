@@ -15,14 +15,21 @@ if (file_exists(__DIR__ . '/config/session.php')) {
 }
 
 requireLogin();
+require_once __DIR__.'/../01_sistema_principal_y_registro_offline/config/api_security.php';
+apiMutationGuard();
 
 $user = getUser();
 $db = getDB();
-asegurarMisionesDemo($db, 2);
+require_once __DIR__.'/../01_sistema_principal_y_registro_offline/config/resource_access.php';
+$resourceScope=teachingResourceScope($user,'t');
+$assignedScope=TeacherAssignments::scope((int)$user['id']);
+
 
 $method = $_SERVER['REQUEST_METHOD'];
 $action = $_GET['action'] ?? $_POST['action'] ?? null;
 
+require_once __DIR__.'/../01_sistema_principal_y_registro_offline/config/mission_attempts.php';
+if ($method === 'POST') handleMissionAttempt($db,$user,$action);
 // ============================================
 // GET: Consultas
 // ============================================
@@ -50,7 +57,7 @@ if ($method === 'GET') {
                 SELECT t.*, u.nombre AS docente_nombre
                 FROM tareas t
                 LEFT JOIN usuarios u ON t.docente_id = u.id
-                WHERE t.id = :id
+                WHERE t.id = :id AND {$resourceScope}
             ");
             $stmt->execute([':id' => $id]);
             $tarea = $stmt->fetch();
@@ -86,8 +93,8 @@ if ($method === 'GET') {
 
             echo json_encode([
                 'success' => true,
-                'mision' => $tarea,
-                'mision_data' => $misionData,
+                'mision' => ($user['rol']==='estudiante'?array_diff_key($tarea,['mision_data'=>true]):$tarea),
+                'mision_data' => ($user['rol']==='estudiante'?publicMissionData($misionData):$misionData),
                 'progreso' => $progreso
             ]);
         } catch (Exception $e) {
@@ -111,7 +118,8 @@ if ($method === 'GET') {
                        u.nombre AS estudiante_nombre, u.email AS estudiante_email
                 FROM progreso_misiones pm
                 JOIN tareas t ON pm.tarea_id = t.id
-                JOIN usuarios u ON pm.estudiante_id = u.id
+                JOIN usuarios u ON pm.estudiante_id = u.id AND {$assignedScope}
+                WHERE {$resourceScope}
                 ORDER BY pm.created_at DESC
                 LIMIT 100
             ");
@@ -133,9 +141,11 @@ if ($method === 'GET') {
                    u.nombre AS docente_nombre
             FROM tareas t
             LEFT JOIN usuarios u ON t.docente_id = u.id
+            WHERE {$resourceScope}
             ORDER BY t.created_at DESC
         ");
         $tareas = $stmt->fetchAll();
+        if($user['rol']==='estudiante')foreach($tareas as &$publicTask){unset($publicTask['mision_data']);} unset($publicTask);
 
         // Si es estudiante, anexar estado de completitud y dominio
         if ($user['rol'] === 'estudiante') {
@@ -199,6 +209,22 @@ if ($method === 'POST') {
         }
 
         try {
+            requireTeachingResource($db,$user,'tareas',$tareaId);
+            require_once __DIR__.'/../01_sistema_principal_y_registro_offline/config/mission_grading.php';
+            missionAttemptTable($db);
+            $db->beginTransaction();
+            try {
+                $attempt=loadMissionAttempt($db,$user,$tareaId);
+                $mission=json_decode($attempt['snapshot_json'],true);
+                $submitted=json_decode($attempt['answers_json'],true);
+                $solved=[];foreach($submitted as $answer)if($answer['correct'])$solved[$answer['stage'].':'.$answer['step']]=true;
+                if(count($solved)!==count(missionItems($mission)))throw new InvalidArgumentException('Completá los ejercicios antes de guardar.');
+                $grade=gradeMission($mission,$submitted);
+            }catch(InvalidArgumentException $invalid){$db->rollBack();http_response_code(409);echo json_encode(['success'=>false,'error'=>$invalid->getMessage()]);exit;}
+            $dominioPct=$grade['percentage'];$aciertos=$grade['correct'];$errores=$grade['errors'];$intentos=$grade['attempts'];
+            $desafiosSuperados=$grade['correct'];$totalDesafios=$grade['total'];
+            $pistasUsadas=0;$autocorrecciones=0;$conceptosFeedback='{}';
+            $detallesJson=json_encode(['source'=>'server','rubric'=>'first_answer_per_item','answers'=>$submitted,'grade'=>$grade]);
             // Verificar si ya existe registro para actualizarlo o insertar nuevo
             $checkStmt = $db->prepare("SELECT id FROM progreso_misiones WHERE tarea_id = :tid AND estudiante_id = :uid");
             $checkStmt->execute([':tid' => $tareaId, ':uid' => $user['id']]);
@@ -261,6 +287,13 @@ if ($method === 'POST') {
                 $regId = $db->lastInsertId();
             }
 
+            $ownerQuery=$db->prepare('SELECT docente_id,titulo FROM tareas WHERE id=?');
+            $ownerQuery->execute([$tareaId]);$resultTask=$ownerQuery->fetch();
+            $db->prepare('INSERT INTO mission_results(attempt_id,student_id,teacher_id,task_id,task_title,correct_count,total_count,percentage,completed_at) VALUES(?,?,?,?,?,?,?,?,?)')->execute([
+                $attempt['id'],$user['id'],$resultTask['docente_id'],$tareaId,$resultTask['titulo'],$grade['correct'],$grade['total'],$grade['percentage'],gmdate('Y-m-d H:i:s')
+            ]);
+            $db->prepare('UPDATE mission_attempts SET finished=1 WHERE id=?')->execute([$attempt['id']]);
+            $db->commit();
             echo json_encode([
                 'success' => true,
                 'message' => '¡Progreso de misión registrado exitosamente!',
@@ -269,7 +302,9 @@ if ($method === 'POST') {
             ]);
         } catch (Exception $e) {
             http_response_code(500);
-            echo json_encode(['success' => false, 'error' => 'Error al guardar el progreso de la misión: ' . $e->getMessage()]);
+            if($db->inTransaction())$db->rollBack();
+            error_log($e->getMessage());
+            echo json_encode(['success'=>false,'error'=>'No se pudo guardar la misión. Intentá nuevamente.']);
         }
         exit;
     }
@@ -290,16 +325,15 @@ if ($method === 'POST') {
         }
 
         try {
+            requireTeachingResource($db,$user,'tareas',$id);
+            $db->beginTransaction();
             // Eliminar progresos asociados
             $db->prepare("DELETE FROM progreso_misiones WHERE tarea_id = :id")->execute([':id' => $id]);
 
             $stmt = $db->prepare("DELETE FROM tareas WHERE id = :id AND docente_id = :docente_id");
             $stmt->execute([':id' => $id, ':docente_id' => $user['id']]);
             
-            if ($stmt->rowCount() === 0) {
-                $stmt2 = $db->prepare("DELETE FROM tareas WHERE id = :id");
-                $stmt2->execute([':id' => $id]);
-            }
+            $db->commit();
 
             echo json_encode(['success' => true, 'message' => 'Misión eliminada correctamente']);
         } catch (Exception $e) {
@@ -396,7 +430,7 @@ if ($method === 'POST') {
                 'fecha_entrega' => $fechaEntrega,
                 'puntos' => $puntos,
                 'instrucciones' => $instrucciones,
-                'mision_data' => $misionData,
+                'mision_data' => ($user['rol']==='estudiante'?publicMissionData($misionData):$misionData),
                 'created_at' => date('Y-m-d H:i:s')
             ]
         ]);

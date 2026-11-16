@@ -685,3 +685,22 @@
     transition-duration: 0.01ms !important;
   }
 }
+/* Keep the welcome copy readable inside the dashboard preview as well as fullscreen. */
+.hero-page{container-type:inline-size}
+.hero-panel__content{min-width:0}
+.hero-page .hero-panel h1{max-width:100%;overflow-wrap:normal;word-break:normal;hyphens:none;text-wrap:balance;line-height:1.08}
+@container (max-width:680px){
+ .hero-panel{grid-template-columns:minmax(0,1fr);gap:24px}
+ .hero-page .hero-panel h1{font-size:clamp(2rem,7cqi,3rem);max-width:100%}
+ .player-status{width:100%;max-width:none}
+}
+/* Welcome layout follows the available content width, including embedded previews. */
+.hero-panel{display:flex;flex-wrap:wrap;align-items:center;gap:24px}
+.hero-panel > .hero-panel__content{flex:1 1 360px;min-width:0;width:auto}
+.hero-panel > .player-status{flex:1 1 240px;min-width:0;max-width:100%;position:relative;inset:auto;transform:none}
+.hero-page .hero-panel h1{width:auto;max-width:100%;font-size:clamp(2rem,3.3vw,3.5rem);line-height:1.12;overflow-wrap:normal;word-break:normal;text-wrap:balance;margin-bottom:16px}
+@media(max-width:1200px){
+ .hero-panel{flex-direction:column;align-items:stretch}
+ .hero-panel > .hero-panel__content,.hero-panel > .player-status{flex:none;width:100%;max-width:100%}
+ .hero-page .hero-panel h1{font-size:clamp(1.8rem,3.5vw,2.75rem)}
+}
