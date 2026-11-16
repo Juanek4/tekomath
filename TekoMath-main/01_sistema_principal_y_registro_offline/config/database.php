@@ -4,12 +4,11 @@
    Config para XAMPP (localhost)
    ============================================ */
 
-// Datos de conexión XAMPP por defecto
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'teko_math');
-define('DB_USER', 'root');
-define('DB_PASS', '');        // XAMPP no tiene contraseña por defecto
-define('DB_CHARSET', 'utf8mb4');
+require_once __DIR__.'/../../config/runtime.php';
+$mainConnection=teko_database('main');
+define('DB_HOST',$mainConnection['host']);define('DB_PORT',$mainConnection['port']);
+define('DB_NAME',$mainConnection['name']);define('DB_USER',$mainConnection['user']);
+define('DB_PASS',$mainConnection['password']);define('DB_CHARSET','utf8mb4');
 
 /**
  * Obtiene una conexión PDO a la base de datos.
@@ -19,7 +18,7 @@ function getDB(): PDO {
     static $pdo = null;
 
     if ($pdo === null) {
-        $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+        $dsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
 
         $options = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -28,12 +27,23 @@ function getDB(): PDO {
         ];
 
         try {
-            $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+            try {
+                $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+            } catch (PDOException $connectionError) {
+                // Bootstrap only a missing database; never conceal authentication or server failures.
+                if (!teko_schema_setup() || (int)($connectionError->errorInfo[1] ?? 0) !== 1049) {
+                    throw $connectionError;
+                }
+                $server = new PDO('mysql:host=' . DB_HOST . ';port=' . DB_PORT . ';charset=' . DB_CHARSET, DB_USER, DB_PASS, $options);
+                $databaseName = str_replace('`', '``', DB_NAME);
+                $server->exec('CREATE DATABASE IF NOT EXISTS `' . $databaseName . '` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
+                $server = null;
+                $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+            }
 
             // Auto-crear tablas requeridas si no existen (ejecución individual y segura)
             try {
-                $pdo->exec("
-                    CREATE TABLE IF NOT EXISTS usuarios (
+                teko_schema_exec($pdo," CREATE TABLE IF NOT EXISTS usuarios (
                       id INT AUTO_INCREMENT PRIMARY KEY,
                       nombre VARCHAR(100) NOT NULL,
                       email VARCHAR(150) NOT NULL UNIQUE,
@@ -42,23 +52,10 @@ function getDB(): PDO {
                       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
                 ");
-                // Insertar usuarios demo si está vacía
-                $checkUsers = $pdo->query("SELECT COUNT(*) FROM usuarios")->fetchColumn();
-                if ($checkUsers == 0) {
-                    $pass = password_hash('1234', PASSWORD_BCRYPT);
-                    $pdo->exec("
-                        INSERT INTO usuarios (nombre, email, password, rol) VALUES
-                        ('Estudiante Demo', 'estudiante@teko.com', '$pass', 'estudiante'),
-                        ('Docente Demo', 'docente@teko.com', '$pass', 'docente'),
-                        ('María García', 'maria@teko.com', '$pass', 'estudiante'),
-                        ('Carlos López', 'carlos@teko.com', '$pass', 'docente');
-                    ");
-                }
             } catch (Exception $e) {}
 
             try {
-                $pdo->exec("
-                    CREATE TABLE IF NOT EXISTS tareas (
+                teko_schema_exec($pdo," CREATE TABLE IF NOT EXISTS tareas (
                       id INT AUTO_INCREMENT PRIMARY KEY,
                       docente_id INT NOT NULL,
                       titulo VARCHAR(200) NOT NULL,
@@ -76,8 +73,7 @@ function getDB(): PDO {
             } catch (Exception $e) {}
 
             try {
-                $pdo->exec("
-                    CREATE TABLE IF NOT EXISTS materiales (
+                teko_schema_exec($pdo," CREATE TABLE IF NOT EXISTS materiales (
                       id INT AUTO_INCREMENT PRIMARY KEY,
                       docente_id INT NOT NULL,
                       titulo VARCHAR(200) NOT NULL,
@@ -92,8 +88,7 @@ function getDB(): PDO {
             } catch (Exception $e) {}
 
             try {
-                $pdo->exec("
-                    CREATE TABLE IF NOT EXISTS progreso_quizzes (
+                teko_schema_exec($pdo," CREATE TABLE IF NOT EXISTS progreso_quizzes (
                       id INT AUTO_INCREMENT PRIMARY KEY,
                       estudiante_id INT NOT NULL,
                       tema VARCHAR(100) NOT NULL,
@@ -109,8 +104,7 @@ function getDB(): PDO {
             } catch (Exception $e) {}
 
             try {
-                $pdo->exec("
-                    CREATE TABLE IF NOT EXISTS progreso_misiones (
+                teko_schema_exec($pdo," CREATE TABLE IF NOT EXISTS progreso_misiones (
                       id INT AUTO_INCREMENT PRIMARY KEY,
                       tarea_id INT NOT NULL,
                       estudiante_id INT NOT NULL,
@@ -136,8 +130,7 @@ function getDB(): PDO {
             } catch (Exception $e) {}
 
             try {
-                $pdo->exec("
-                    CREATE TABLE IF NOT EXISTS salas_clase (
+                teko_schema_exec($pdo," CREATE TABLE IF NOT EXISTS salas_clase (
                       id INT AUTO_INCREMENT PRIMARY KEY,
                       codigo_pin VARCHAR(10) NOT NULL UNIQUE,
                       docente_id INT NOT NULL,
@@ -159,8 +152,7 @@ function getDB(): PDO {
             } catch (Exception $e) {}
 
             try {
-                $pdo->exec("
-                    CREATE TABLE IF NOT EXISTS packs_quiz (
+                teko_schema_exec($pdo," CREATE TABLE IF NOT EXISTS packs_quiz (
                       id INT AUTO_INCREMENT PRIMARY KEY,
                       docente_id INT NOT NULL,
                       titulo VARCHAR(200) NOT NULL,
@@ -178,16 +170,21 @@ function getDB(): PDO {
             try {
                 $colsStmt = $pdo->query("SHOW COLUMNS FROM tareas LIKE 'mision_data'");
                 if ($colsStmt && $colsStmt->rowCount() === 0) {
-                    $pdo->exec("ALTER TABLE tareas ADD COLUMN tipo VARCHAR(50) NOT NULL DEFAULT 'mision' AFTER tema");
-                    $pdo->exec("ALTER TABLE tareas ADD COLUMN historia TEXT AFTER tipo");
-                    $pdo->exec("ALTER TABLE tareas ADD COLUMN mision_data LONGTEXT AFTER instrucciones");
+                    teko_schema_exec($pdo,"ALTER TABLE tareas ADD COLUMN tipo VARCHAR(50) NOT NULL DEFAULT 'mision' AFTER tema");
+                    teko_schema_exec($pdo,"ALTER TABLE tareas ADD COLUMN historia TEXT AFTER tipo");
+                    teko_schema_exec($pdo,"ALTER TABLE tareas ADD COLUMN mision_data LONGTEXT AFTER instrucciones");
                 }
             } catch (Exception $ignored) {}
         } catch (PDOException $e) {
             // En producción nunca muestres el error real
-            die("Error de conexión a la base de datos. Verifica que XAMPP esté corriendo y que la base de datos 'teko_math' exista.");
+            error_log('Principal database connection failed: '.$e->getMessage());
+            if(PHP_SAPI==='cli')throw new RuntimeException('La base principal no está disponible.',0,$e);
+            http_response_code(503);exit('La base de datos no está disponible. Intentá nuevamente más tarde.');
         }
     }
 
+    require_once __DIR__.'/teacher_assignments.php';
+    static $assignmentsReady=false;
+    if (!$assignmentsReady) { TeacherAssignments::ensure($pdo); require_once __DIR__.'/account_security.php'; AccountSecurity::ensure($pdo); $assignmentsReady=true; }
     return $pdo;
 }

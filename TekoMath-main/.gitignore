@@ -15,3 +15,8 @@ node_modules/
 Thumbs.db
 .vscode/
 .idea/
+
+# Private runtime files must live outside the public checkout.
+*.private.php
+.env.*
+!.env.example

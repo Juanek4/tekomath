@@ -15,6 +15,8 @@ $inicialNombre = mb_strtoupper(mb_substr($user['nombre'], 0, 1));
 $rol = $user['rol'];
 
 $db = getDB();
+require_once __DIR__.'/config/resource_access.php';
+$taskScope=teachingResourceScope($user,'t'); $materialScope=teachingResourceScope($user,'m');
 asegurarMisionesDemo($db, 2);
 
 // Obtener tareas y misiones activas asignadas por docentes
@@ -22,6 +24,7 @@ $tareasStmt = $db->query("
     SELECT t.*, u.nombre AS docente_nombre
     FROM tareas t
     LEFT JOIN usuarios u ON t.docente_id = u.id
+    WHERE {$taskScope}
     ORDER BY t.created_at DESC
 ");
 $tareas = $tareasStmt->fetchAll();
@@ -106,6 +109,8 @@ foreach ($temasSugeridos as $ts) {
   <link rel="stylesheet" href="../06_teko_live/teko_live.css?v=<?= time() ?>">
 
   <link rel="icon" type="image/png" href="../02_tekobot/TekoBot/Hackaton/assets/images/tejuxi-face.png?v=20260926">
+<link rel="stylesheet" href="../07_diseno_y_graficos/teko-ui.css?v=20261028">
+<script src="../07_diseno_y_graficos/api-security.js?v=20261028"></script>
 </head>
 <body>
 
@@ -145,7 +150,7 @@ foreach ($temasSugeridos as $ts) {
           🤖 Tekobot
         </a>
         <a href="../04_diagnostico_y_rutas_de_aprendizaje/tekobeta.php" class="topnav__link" data-section="beta">
-          🧪 TekoBeta
+          🧪 Teko Desafíos
         </a>
       </div>
 
@@ -162,7 +167,7 @@ foreach ($temasSugeridos as $ts) {
               <span class="pill pill--green" style="font-size:0.65rem;padding:2px 8px;"><?= ucfirst($rol) ?></span>
             </div>
             <a href="../04_diagnostico_y_rutas_de_aprendizaje/tekobeta.php" class="topnav__user-dropdown-link" style="color:var(--purple-700);font-weight:700;">
-              🧪 TekoBeta (Live & Misiones)
+              🧪 Teko Desafíos (Live & Misiones)
             </a>
             <a href="../03_teko_arcade/juego.php" class="topnav__user-dropdown-link" style="color:#d97706;font-weight:700;">
               🎮 Zona de Juegos Arcade
@@ -192,14 +197,14 @@ foreach ($temasSugeridos as $ts) {
       <a href="dashboard.php" class="topnav__mobile-link topnav__mobile-link--active" data-section="inicio">🏠 Inicio</a>
       <a href="../03_teko_arcade/juego.php" class="topnav__mobile-link" data-section="juegos">🎮 TekoArcade</a>
       <a href="../02_tekobot/chat.php" class="topnav__mobile-link" data-section="agente">🤖 Tekobot</a>
-      <a href="../04_diagnostico_y_rutas_de_aprendizaje/tekobeta.php" class="topnav__mobile-link" data-section="beta">🧪 TekoBeta</a>
+      <a href="../04_diagnostico_y_rutas_de_aprendizaje/tekobeta.php" class="topnav__mobile-link" data-section="beta">🧪 Teko Desafíos</a>
       <div class="topnav__mobile-divider"></div>
       <a href="logout.php" class="topnav__mobile-link topnav__mobile-link--logout">🚪 Cerrar sesión</a>
     </div>
   </nav>
 
   <!-- ====== MAIN CONTENT ====== -->
-  <main class="dashboard" id="dashboard">
+  <main class="dashboard" id="dashboard"><a class="assignment-entry" href="asignaciones.php"><span class="assignment-entry__icon" aria-hidden="true">👥</span><span><strong>Mis docentes</strong><small>Ingresá el código y vinculá tu cuenta</small></span><span aria-hidden="true">→</span></a>
 
     <!-- ====== WELCOME SECTION ====== -->
     <section class="welcome anim-fade-up">
@@ -207,10 +212,10 @@ foreach ($temasSugeridos as $ts) {
         <div class="welcome__text">
           <span class="pill pill--purple">📐 <?= ucfirst($rol) ?></span>
           <h1 class="welcome__title">¡Hola, <span class="welcome__name"><?= $nombre ?></span>!</h1>
-          <p class="welcome__subtitle">Bienvenido a tu espacio de aprendizaje interactivo. Practicá con el visualizador matemático, desafíate en TekoArcade o ingresa a TekoBeta.</p>
+          <p class="welcome__subtitle">Bienvenido a tu espacio de aprendizaje interactivo. Practicá con el visualizador matemático, desafíate en TekoArcade o ingresa a Teko Desafíos.</p>
           <div class="welcome__actions">
             <a href="../04_diagnostico_y_rutas_de_aprendizaje/tekobeta.php" class="btn btn--primary btn--purple btn--md">
-              🧪 TekoBeta (Live & Misiones)
+              🧪 Teko Desafíos (Live & Misiones)
             </a>
             <a href="../03_teko_arcade/juego.php" class="btn btn--secondary btn--md" style="background:#fef3c7;border-color:#b45309;color:#92400e;font-weight:700;">
               🎮 TekoArcade
@@ -640,6 +645,19 @@ foreach ($temasSugeridos as $ts) {
       <span class="agent-fab__badge">En línea</span>
     </a>
 
+    <section class="desafios-preview" aria-labelledby="desafios-title">
+      <div class="desafios-preview__intro">
+        <span class="pill pill--purple">MISIONES Y CLASES EN VIVO</span>
+        <h2 id="desafios-title">Teko Desafíos</h2>
+        <p>Poné en práctica lo que aprendiste. Resolvé misiones paso a paso y participá en los desafíos de tu clase.</p>
+        <a class="btn btn--primary btn--purple" href="../04_diagnostico_y_rutas_de_aprendizaje/tekobeta.php">Explorar Teko Desafíos →</a>
+      </div>
+      <div class="desafios-preview__activities">
+        <a href="../04_diagnostico_y_rutas_de_aprendizaje/tekobeta.php"><span aria-hidden="true">🎯</span><div><h3>Misiones de aprendizaje</h3><p>Practicá con actividades guiadas y revisá tu avance.</p></div><span aria-hidden="true">↗</span></a>
+        <a href="../04_diagnostico_y_rutas_de_aprendizaje/tekobeta.php"><span aria-hidden="true">⚡</span><div><h3>Teko Live</h3><p>Entrá a la sala de tu docente y participá con tu clase.</p></div><span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <p><a class="assignment-entry" href="historial_misiones.php">📊 Historial de calificaciones de misiones →</a></p>
   </main>
 
   <script src="../05_jopamath/jopamath_i18n.js?v=<?= time() ?>"></script>

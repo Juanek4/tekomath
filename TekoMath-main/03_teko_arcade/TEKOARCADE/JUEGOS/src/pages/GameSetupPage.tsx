@@ -22,7 +22,7 @@ import {
 } from '../services/exerciseGenerationProvider'
 import { useLanguage } from '../i18n/LanguageProvider'
 import { translateExerciseCopy, type TranslationKey } from '../i18n/translations'
-import type { Difficulty, ExerciseDefinition, GameSessionDefinition, SourceType } from '../types'
+import type { Difficulty, ExerciseDefinition, GameSessionDefinition } from '../types'
 
 type SetupSource = 'teko' | 'text' | 'image'
 
@@ -61,6 +61,9 @@ export function GameSetupPage() {
 
   if (!currentTopic || !game) {
     return <Navigate to={currentTopic ? `/tema/${currentTopic.id}` : '/mapa'} replace />
+  }
+  if (!game.supportedTopics.includes(currentTopic.id)) {
+    return <Navigate to={`/tema/${currentTopic.id}`} replace />
   }
 
   const topicAccentMap: Record<string, string> = {
@@ -127,26 +130,10 @@ export function GameSetupPage() {
   }
 
   const handleConfirm = () => {
-    const effectiveSource: SourceType = selectedSource === 'teko'
-      ? selectedExercise?.source ?? 'teko'
-      : selectedSource === 'text' ? 'user-text' : 'user-image'
-
-    const preparedExercise: ExerciseDefinition = selectedSource === 'teko' && selectedExercise
-      ? selectedExercise
-      : {
-          id: `temp-${Date.now()}`,
-          topic: currentTopic.id,
-          statement: selectedSource === 'image'
-            ? t('setup.uploadedImage', { name: imageName || 'ejercicio' })
-            : exerciseText.trim() || t('setup.userTask'),
-          difficulty: game.difficulty,
-          source: effectiveSource,
-          knownValues: {},
-          unknown: '',
-          answer: '',
-          hints: [],
-          metadata: selectedSource === 'image' ? { fileName: imageName } : undefined,
-        }
+    if(selectedSource !== 'teko'){navigate('/mi-tarea?mode='+selectedSource);return}
+    if(!selectedExercise)return
+    const preparedExercise=selectedExercise
+    const effectiveSource=preparedExercise.source
 
     const session: GameSessionDefinition = {
       user: 'mock-user',
@@ -155,6 +142,7 @@ export function GameSetupPage() {
       exerciseId: preparedExercise.id,
       gameId: game.id,
       source: effectiveSource,
+      exerciseDefinition: preparedExercise,
       mode: 'offline',
       date: new Date().toISOString(),
       result: 'pending',
@@ -204,8 +192,8 @@ export function GameSetupPage() {
 
         <div className="source-grid">
           <ExerciseSourceCard title={t('setup.sourceChallenge')} description={t('setup.sourceChallengeDescription')} icon={<Sparkles size={20} />} selected={selectedSource === 'teko'} onClick={() => setSelectedSource('teko')} />
-          <ExerciseSourceCard title={t('setup.sourceText')} description={t('setup.sourceTextDescription')} icon={<FileText size={20} />} selected={selectedSource === 'text'} onClick={() => setSelectedSource('text')} />
-          <ExerciseSourceCard title={t('setup.sourceImage')} description={t('setup.sourceImageDescription')} icon={<Camera size={20} />} selected={selectedSource === 'image'} onClick={() => setSelectedSource('image')} />
+          <ExerciseSourceCard title={t('setup.sourceText')} description={t('setup.sourceTextDescription')} icon={<FileText size={20} />} selected={selectedSource === 'text'} onClick={() => navigate('/mi-tarea?mode=text')} />
+          <ExerciseSourceCard title={t('setup.sourceImage')} description={t('setup.sourceImageDescription')} icon={<Camera size={20} />} selected={selectedSource === 'image'} onClick={() => navigate('/mi-tarea?mode=image')} />
         </div>
 
         {selectedSource === 'teko' ? (

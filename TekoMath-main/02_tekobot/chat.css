@@ -162,3 +162,7 @@ body.tekobot-page-body {
   }
 }
 
+/* Let the embedded tutor consume the remaining viewport, including short screens. */
+.tekobot-frame-container {flex:1 1 0;min-height:0;height:auto;}
+.topnav--tekobot {flex-shrink:0;}
+@media(max-width:640px){.tekobot-frame-container{height:auto;min-height:0}.tekobot-fullscreen-btn{min-width:44px;min-height:44px}}

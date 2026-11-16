@@ -1,14 +1,6 @@
 <?php
-// api/upload_image.php - Endpoint para recepción y OCR de fotos de cuadernos
+// Legacy server upload disabled: both modules recognize locally with the shared engine.
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-
-require_once __DIR__ . '/../services/image_service.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['exercise_image'])) {
-    $res = ImageService::processExerciseImage($_FILES['exercise_image']);
-    echo json_encode($res, JSON_UNESCAPED_UNICODE);
-    exit;
-}
-
-echo json_encode(['success' => false, 'error' => 'No se recibió ninguna imagen válida.']);
+require_once __DIR__.'/../../../../01_sistema_principal_y_registro_offline/config/session.php';
+if(!isLoggedIn()){http_response_code(401);echo json_encode(['success'=>false,'error'=>'Iniciá sesión.']);exit;}
+http_response_code(410);echo json_encode(['success'=>false,'error'=>'La lectura de imágenes ahora se realiza en el navegador. Recargá la página para usar el lector compartido.']);

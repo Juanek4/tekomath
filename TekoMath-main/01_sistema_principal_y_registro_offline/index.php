@@ -25,6 +25,7 @@ unset($_SESSION['login_error'], $_SESSION['login_success'], $_SESSION['login_ema
   <title>TEKO Math — Iniciar sesión</title>
   <link rel="stylesheet" href="../07_diseno_y_graficos/style.css">
   <link rel="icon" type="image/png" href="../02_tekobot/TekoBot/Hackaton/assets/images/tejuxi-face.png?v=20260926">
+<link rel="stylesheet" href="../07_diseno_y_graficos/teko-ui.css?v=20261028">
 </head>
 <body>
 
@@ -181,6 +182,8 @@ unset($_SESSION['login_error'], $_SESSION['login_success'], $_SESSION['login_ema
       </div>
     </section>
 
+    <p class="auth-switch"><a href="recuperar.php" class="auth-switch__link">¿Olvidaste tu contraseña?</a></p>
+    <p style="text-align:center;margin:20px 0"><a class="assignment-entry" style="margin-inline:auto" href="admin.php">🔐 Consola de administración →</a></p>
     <!-- Footer -->
     <footer class="login-footer anim-fade-up-delay-3">
       <p class="login-footer__text">TEKO Math © 2026 — Plataforma educativa</p>

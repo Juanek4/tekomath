@@ -1,0 +1,31 @@
+{
+  "source_sha256": "aeb3547189e13b3f5c1c444ce55aeafcd8567b5ed147cec2ffa13705c3f6ab23",
+  "source_unchanged": true,
+  "historical_records": 32,
+  "added_records": 29,
+  "last_record": 61,
+  "preserved_parts": [
+    "[Content_Types].xml",
+    "_rels/.rels",
+    "docProps/app.xml",
+    "word/_rels/document.xml.rels",
+    "word/styles.xml",
+    "word/stylesWithEffects.xml",
+    "word/webSettings.xml",
+    "word/fontTable.xml",
+    "word/theme/theme1.xml",
+    "customXml/item1.xml",
+    "customXml/_rels/item1.xml.rels",
+    "customXml/itemProps1.xml",
+    "word/numbering.xml",
+    "word/header1.xml",
+    "docProps/thumbnail.jpeg"
+  ],
+  "modified_parts": [
+    "word/document.xml",
+    "word/footer1.xml",
+    "word/settings.xml",
+    "docProps/core.xml"
+  ],
+  "output": "C:\\xampp1\\htdocs\\TekoMath-main\\docs\\Informe_general_TEKO_Math_actualizado_2026-11-01.docx"
+}

@@ -1,0 +1,150 @@
+[
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\admin.php",
+    "UTC": "2026-10-28 12:06:37"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\api_csrf.php",
+    "UTC": "2026-10-28 13:06:55"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\api_estudiantes.php",
+    "UTC": "2026-10-28 11:56:27"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\api_progreso.php",
+    "UTC": "2026-10-28 13:06:56"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\asignaciones.php",
+    "UTC": "2026-10-28 12:16:39"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\dashboard.php",
+    "UTC": "2026-10-28 13:06:56"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\docente_registro.php",
+    "UTC": "2026-10-28 12:07:05"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\docente_tutor_analysis.php",
+    "UTC": "2026-10-28 12:14:13"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\docente.php",
+    "UTC": "2026-10-28 13:06:56"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\index.php",
+    "UTC": "2026-10-28 12:07:05"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\registro_process.php",
+    "UTC": "2026-10-28 11:54:21"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\registro.php",
+    "UTC": "2026-10-28 11:54:53"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\config\\admin_invitations.php",
+    "UTC": "2026-10-28 12:06:37"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\config\\api_security.php",
+    "UTC": "2026-10-28 13:06:55"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\config\\database.php",
+    "UTC": "2026-10-28 11:56:00"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\config\\registration_policy.php",
+    "UTC": "2026-10-28 11:54:21"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\config\\resource_access.php",
+    "UTC": "2026-10-28 12:56:49"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\config\\session.php",
+    "UTC": "2026-10-28 11:54:21"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\01_sistema_principal_y_registro_offline\\config\\teacher_assignments.php",
+    "UTC": "2026-10-28 12:16:38"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\04_diagnostico_y_rutas_de_aprendizaje\\api_materiales.php",
+    "UTC": "2026-10-28 13:06:55"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\04_diagnostico_y_rutas_de_aprendizaje\\api_tareas.php",
+    "UTC": "2026-10-28 13:06:55"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\04_diagnostico_y_rutas_de_aprendizaje\\tekobeta.php",
+    "UTC": "2026-10-28 13:06:56"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\06_teko_live\\access.php",
+    "UTC": "2026-10-28 13:07:17"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\06_teko_live\\api_sala.php",
+    "UTC": "2026-10-28 13:06:55"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\07_diseno_y_graficos\\api-security.js",
+    "UTC": "2026-10-28 13:06:55"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\07_diseno_y_graficos\\teko-ui.css",
+    "UTC": "2026-10-28 12:07:05"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\tests\\admin_invitations_test.php",
+    "UTC": "2026-10-28 12:07:05"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\tests\\live_permissions_http_test.cjs",
+    "UTC": "2026-10-28 13:07:18"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\tests\\pilot_accounts_http_test.cjs",
+    "UTC": "2026-10-28 12:16:39"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\tests\\registration_policy_test.php",
+    "UTC": "2026-10-28 11:54:22"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\tests\\resource_permissions_http_test.cjs",
+    "UTC": "2026-10-28 13:06:56"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\tests\\teacher_assignments_test.php",
+    "UTC": "2026-10-28 11:56:48"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\tests\\tutor_identity_http_test.cjs",
+    "UTC": "2026-10-28 12:14:13"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\docs\\ASIGNACIONES_PILOTO.md",
+    "UTC": "2026-10-28 11:57:19"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\docs\\AUDITORIA_PILOTO_2027.md",
+    "UTC": "2026-10-28 11:52:05"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\docs\\PERMISOS_TAREAS_MATERIALES.md",
+    "UTC": "2026-10-28 12:57:37"
+  },
+  {
+    "FullName": "C:\\xampp1\\htdocs\\TekoMath-main\\docs\\VERIFICACION_CUENTAS_PILOTO.md",
+    "UTC": "2026-10-28 12:11:28"
+  }
+]

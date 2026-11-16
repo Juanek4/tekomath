@@ -1,3 +1,4 @@
+import { createVectorLaunchChallenges } from '../games/vector-launch/vectorLaunchEngine'
 import {
   ArrowLeft,
   Camera,
@@ -12,7 +13,7 @@ import {
   XCircle,
 } from 'lucide-react'
 import { useEffect, useMemo, useState, type ChangeEvent } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { getGamesForTopic } from '../data/gameRegistry'
 import type { ExerciseDefinition, GameSessionDefinition, SourceType } from '../types'
 import { localExerciseParser, type LocalExerciseParseResult } from '../engine/parser/localExerciseParser'
@@ -48,9 +49,10 @@ const topicExplanationKeys: Record<string, TranslationKey> = {
 const resultExplanationKeys = topicExplanationKeys
 
 export function MyTaskPage() {
+  const [searchParams] = useSearchParams()
   const { language, t } = useLanguage()
   const navigate = useNavigate()
-  const [selectedMode, setSelectedMode] = useState<'text' | 'image'>('text')
+  const [selectedMode, setSelectedMode] = useState<'text' | 'image'>(searchParams.get('mode') === 'image' ? 'image' : 'text')
   const [exerciseText, setExerciseText] = useState('')
   const [manualTopic, setManualTopic] = useState<keyof typeof topicLabels>('sin')
   const [imageName, setImageName] = useState('')
@@ -67,7 +69,7 @@ export function MyTaskPage() {
   }, [previewUrl])
 
   const effectiveTopic = exerciseDefinition?.topic ?? parseResult?.detectedTopic
-  const compatibleGames = useMemo(() => effectiveTopic ? getGamesForTopic(effectiveTopic) : [], [effectiveTopic])
+  const compatibleGames = useMemo(() => effectiveTopic ? getGamesForTopic(effectiveTopic).filter(game=>(['triangle-forge','ratio-rush'].includes(game.id) || (game.id==='vector-launch' && Boolean(exerciseDefinition && createVectorLaunchChallenges([exerciseDefinition],exerciseDefinition.topic,exerciseDefinition.difficulty,'compatibility',1,exerciseDefinition.id).length)))) : [], [effectiveTopic, exerciseDefinition])
   const activeGameId = compatibleGames.some((game) => game.id === selectedGameId)
     ? selectedGameId
     : compatibleGames[0]?.id ?? ''
@@ -136,11 +138,14 @@ export function MyTaskPage() {
         setAnalysisState('ready')
         return
       }
-      await analyzeTaskText(recognizedText, 'user-image')
-    } catch {
+      setExerciseDefinition(null)
+      setParseResult(null)
+      setAnalysisMessage('Revisá el texto reconocido y pulsá Analizar texto para continuar.')
+      setAnalysisState('ready')
+    } catch (error) {
       setParseResult(localExerciseParser(''))
       setExerciseDefinition(null)
-      setAnalysisMessage(t('task.ocrOffline'))
+      setAnalysisMessage(error instanceof Error ? error.message : t('task.ocrOffline'))
       setAnalysisState('ready')
     }
   }
@@ -213,8 +218,9 @@ export function MyTaskPage() {
   const handleConfirm = () => {
     const exercise = exerciseDefinition
     if (!exercise) return
-    const selectedGameForSession = getGamesForTopic(exercise.topic).find((game) => game.id === activeGameId)
-      ?? getGamesForTopic(exercise.topic)[0]
+    const taskGames=getGamesForTopic(exercise.topic).filter(game=>(['triangle-forge','ratio-rush'].includes(game.id) || (game.id==='vector-launch' && Boolean(exerciseDefinition && createVectorLaunchChallenges([exerciseDefinition],exerciseDefinition.topic,exerciseDefinition.difficulty,'compatibility',1,exerciseDefinition.id).length))))
+    const selectedGameForSession = taskGames.find((game) => game.id === activeGameId)
+      ?? taskGames[0]
     if (!selectedGameForSession) return
 
     const session: GameSessionDefinition = {

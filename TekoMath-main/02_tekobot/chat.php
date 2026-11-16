@@ -30,6 +30,7 @@ $badgeClass = $isDocente ? 'pill--purple' : 'pill--green';
   <link rel="stylesheet" href="../07_diseno_y_graficos/dashboard.css?v=<?= time() ?>">
   <link rel="stylesheet" href="chat.css?v=<?= time() ?>">
   <link rel="icon" type="image/png" href="TekoBot/Hackaton/assets/images/tejuxi-face.png?v=20260926">
+<link rel="stylesheet" href="../07_diseno_y_graficos/teko-ui.css?v=20261028">
 </head>
 <body class="tekobot-page-body">
 

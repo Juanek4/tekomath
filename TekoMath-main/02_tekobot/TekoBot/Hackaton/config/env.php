@@ -1,41 +1,9 @@
 <?php
-// config/env.php - Manejo ligero de variables de entorno sin dependencias
-
-function loadEnv($path = __DIR__ . '/../.env') {
-    if (!file_exists($path)) {
-        return;
-    }
-    
-    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    foreach ($lines as $line) {
-        $line = trim($line);
-        if (empty($line) || strpos($line, '#') === 0) {
-            continue;
-        }
-        
-        $parts = explode('=', $line, 2);
-        if (count($parts) === 2) {
-            $key = trim($parts[0]);
-            $val = trim($parts[1]);
-            
-            // Remover comillas si existen
-            if ((str_starts_with($val, '"') && str_ends_with($val, '"')) ||
-                (str_starts_with($val, "'") && str_ends_with($val, "'"))) {
-                $val = substr($val, 1, -1);
-            }
-            
-            $_ENV[$key] = $val;
-            putenv("$key=$val");
-        }
-    }
-}
-
-loadEnv();
-
-function env($key, $default = null) {
-    $val = getenv($key);
-    if ($val === false) {
-        return $_ENV[$key] ?? $default;
-    }
-    return $val;
+require_once __DIR__.'/../../../../config/runtime.php';
+// Legacy variable names are mapped to the common private configuration.
+function env($key,$default=null){
+ $map=['DB_HOST'=>'HOST','DB_NAME'=>'NAME','DB_USER'=>'USER','DB_PASS'=>'PASSWORD','DB_PORT'=>'PORT'];
+ if(isset($map[$key]))return teko_database('tutor')[strtolower($map[$key])==='password'?'password':strtolower($map[$key])];
+ if($key==='DB_DRIVER')return teko_production()?'mysql':teko_config('TUTOR_DB_DRIVER','mysql');
+ return teko_config($key,$default);
 }

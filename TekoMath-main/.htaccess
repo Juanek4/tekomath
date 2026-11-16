@@ -1,0 +1,13 @@
+# Apache 2.4 protection for the TEKO Math application.
+# These rules restrict HTTP requests only; PHP includes and local file tools still work.
+Options -Indexes
+RewriteEngine On
+
+# Internal implementation, configuration, data and development directories.
+RewriteRule (^|/)(config|database|services|prompts|tests|scripts|tmp|docs|node_modules|src|__pycache__|SOURCES|JOPAMATH|JOPAMATH_v2|models)(/|$) - [F,END,NC]
+RewriteRule (^|/)\.(git|svn|hg|codex|agents|aws)(/|$) - [F,END,NC]
+
+# Environment files, database copies, logs, sources and editor backups.
+<FilesMatch "(?i)(^\.env(?:\..*)?$|^\.(?:htaccess|htpasswd|gitignore|gitattributes)$|\.(?:sqlite(?:3)?|db)(?:-(?:wal|shm|journal))?$|\.(?:sql|bak|backup|log|map|py|ts|tsx|toml|ini|pem|key|p12|pfx|yml|yaml)(?:\.(?:gz|zip))?$|(?:~|\.sw[op])$|^(?:package(?:-lock)?\.json|tsconfig.*\.json|README(?:\..*)?|DOCUMENTACION_TECNICA\.txt|Teko\.pptx)$)">
+    Require all denied
+</FilesMatch>

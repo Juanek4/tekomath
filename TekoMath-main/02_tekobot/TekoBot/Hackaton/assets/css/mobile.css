@@ -1,0 +1,36 @@
+@media(max-width:960px){
+ body:not(.show-welcome){height:var(--teko-viewport,100dvh);min-height:0;overflow:hidden;display:flex;flex-direction:column}
+ .navbar{flex:none;margin:0;padding:8px 10px;border-radius:0;min-height:60px}
+ .nav-brand{flex:0 0 auto;min-width:0}.brand-logo{width:36px;height:36px}.brand-sub{display:none}
+ .nav-brand > div{display:none}
+ .navbar{flex-wrap:nowrap;gap:6px}
+ .nav-quick-actions{min-width:0;margin-left:auto;flex:1;justify-content:flex-end;flex-wrap:wrap}
+ .nav-quick-actions .btn-header{white-space:normal;overflow-wrap:anywhere;min-width:0}
+ .nav-quick-actions{display:flex;gap:4px}.btn-header{min-height:44px;padding:6px 9px;font-size:.8rem}
+ .mobile-study-nav{flex:none;padding:6px 10px;gap:8px}.mobile-study-nav a{padding:8px;min-height:44px;font-size:.85rem}
+ .mobile-study-nav a[aria-current=page]{background:#176b4b;color:white}
+ body:not(.show-welcome) .app-container{flex:1;min-height:0;overflow:hidden;padding:0 8px 8px;gap:0}
+ .chat-panel{flex:1;width:100%;height:auto;min-height:0;max-height:none}
+ .chat-header{flex:none;padding:6px 10px}.chat-quick-bar{display:flex;flex-wrap:nowrap;overflow-x:auto}
+ .chat-action-btn{flex:0 0 auto;min-height:44px}
+ .chat-messages{flex:1;min-height:0;overflow-y:auto;padding:10px}
+ .chat-input-area{flex:none;padding:8px 8px max(8px,env(safe-area-inset-bottom))}
+ .input-box-wrapper{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:6px}
+ .problem-toggle{grid-column:1/-1;min-height:30px;font-size:.8rem}
+ .input-box-wrapper .btn-icon{grid-column:1;min-width:44px;min-height:44px;font-size:.75rem}
+ .chat-input{grid-column:2;min-width:0;min-height:44px;padding:8px;font-size:16px}
+ .btn-send{grid-column:3;min-height:44px;padding:8px;font-size:.85rem}
+ .input-box-wrapper .chat-input{grid-column:2;grid-row:2}
+ .input-box-wrapper .problem-toggle{grid-column:1/-1;grid-row:1}
+ .input-box-wrapper label[for="camera-upload"]{grid-column:1;grid-row:2}
+ .input-box-wrapper .btn-send{grid-column:3;grid-row:2}
+ body:not(.study-visuals) .visual-panel{display:none}
+ body.study-visuals .chat-panel{display:none}
+ body.study-visuals .visual-panel{display:flex;flex-direction:column;flex:1;min-height:0;overflow-y:auto;width:100%}
+ .chat-message{gap:6px}.message-avatar{flex-shrink:0;max-width:32px;max-height:32px}
+ .message-content{min-width:0;overflow-wrap:anywhere}.message-content .katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden}
+ .tutor-welcome{padding:20px 12px}.welcome-topics{grid-template-columns:1fr}
+ .app-sidebar{max-height:var(--teko-viewport,100dvh);overflow-y:auto}
+}
+body.show-welcome #btn-welcome{display:none}
+.image-review-panel{padding:12px;margin-bottom:10px;background:var(--bg-card-subtle,#f5f0ff);border:2px solid var(--border-dark,#1a1a1a);border-radius:14px;max-height:40dvh;overflow-y:auto;display:grid;gap:8px}.image-review-panel label{font-weight:700}.image-review-panel textarea{width:100%;min-width:0;padding:10px;border:2px solid #1a1a1a;border-radius:10px;font:16px/1.5 system-ui;background:white;color:#1a1a1a}.image-review-panel p{font-size:.8rem;line-height:1.4}.image-review-panel button{min-height:44px;white-space:normal}

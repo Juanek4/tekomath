@@ -30,8 +30,18 @@ export function HomePage() {
     || userProgress.correctAnswers > 0
     || Object.values(userProgress.topicProgress).some((topicProgress) => topicProgress.gamesPlayed > 0)
 
+  let resumeGameId: string | null = null
+  try {
+    const stored=JSON.parse(sessionStorage.getItem('teko-juegos-session')||'null')
+    const account=(window as Window & {__TEKO_ARCADE_STORAGE_KEY__?:string}).__TEKO_ARCADE_STORAGE_KEY__
+    if(account && stored?.sessionId && typeof stored.gameId==='string'){
+      const saved=JSON.parse(sessionStorage.getItem(`${account}:game:${stored.sessionId}:session`)||'null')
+      if(saved && ['playing','feedback'].includes(saved.status))resumeGameId=stored.gameId
+    }
+  }catch{/* Ignore an incomplete tab cache. */}
   return (
     <section className="page-shell hero-page">
+      {resumeGameId ? <Link className="secondary-button resume-game-link" to={'/juego/'+resumeGameId}>Continuar mi partida pendiente <ArrowRight size={18} /></Link> : null}
       <div className="hero-panel">
         <div className="hero-panel__content">
           <p className="eyebrow">{t('home.eyebrow')}</p>

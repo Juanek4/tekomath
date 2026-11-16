@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { usePersistentGameState } from '../core/usePersistentGameState'
+import { useEffect } from 'react'
 import { Check } from 'lucide-react'
 import { GameTemplateFrame } from '../core/GameTemplateFrame'
 import { finishAndRecordGame } from '../core/finishAndRecordGame'
@@ -18,11 +19,11 @@ function timestamp(): string {
 
 export function PairMatrixGame(props: PairMatrixProps) {
   const { t } = useLanguage()
-  const [session, setSession] = useState(() => ({
+  const [session, setSession] = usePersistentGameState(props.session.sessionId, 'session', () => ({
     ...props.session,
     exercise: { ...props.session.exercise, prompt: t('game.pair.prompt') },
   }))
-  const [local, setLocal] = useState<PairMatrixLocalState>({
+  const [local, setLocal] = usePersistentGameState<PairMatrixLocalState>(props.session.sessionId, 'local', {
     selectedCards: [],
     solvedCards: [],
     solvedPairs: [],
@@ -30,7 +31,7 @@ export function PairMatrixGame(props: PairMatrixProps) {
     bestCombo: 0,
     elapsedSeconds: 0,
   })
-  const [isPaused, setIsPaused] = useState(false)
+  const [isPaused, setIsPaused] = usePersistentGameState(props.session.sessionId, 'isPaused', false)
 
   useEffect(() => {
     if (session.status !== 'playing' || isPaused) return

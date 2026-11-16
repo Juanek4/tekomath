@@ -1,43 +1,36 @@
 <?php
+require_once __DIR__.'/../config/api_guard.php';
+tutorApiGuard(['POST']);
 // api/chat.php - Endpoint con memoria persistente, gestión de sesiones y multi-tema MEC
-header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
-
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit(0);
-}
-
 require_once __DIR__ . '/../services/ai_service.php';
 require_once __DIR__ . '/../services/pedagogy_service.php';
 require_once __DIR__ . '/../services/progress_service.php';
+require_once __DIR__ . '/../services/student_analysis.php';
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/student_identity.php';
 
-$rawInput = file_get_contents('php://input');
-$data = json_decode($rawInput, true) ?? [];
+$data = tutorApiJson();
+if(!is_string($data['message']??null)||mb_strlen($data['message'])>12000)tutorApiError(422,'Escribí un mensaje de hasta 12.000 caracteres.');
+if(!is_string($data['session_uuid']??null)||!preg_match('/^[a-zA-Z0-9_-]{1,36}$/D',$data['session_uuid']))tutorApiError(422,'Conversación inválida.');
+if(isset($data['action'])&&(!is_string($data['action'])||strlen($data['action'])>80))tutorApiError(422,'Acción inválida.');
+if(isset($data['revision'])&&(!is_int($data['revision'])||$data['revision']<1))tutorApiError(422,'Revisión inválida.');
 
+if(isset($data['language'])&&!is_string($data['language']))tutorApiError(422,'Idioma inválido.');
 $userMessage = trim($data['message'] ?? '');
-$studentId = (int)($data['student_id'] ?? 1);
+$studentId = $authenticatedStudentId;
 $sessionUuid = $data['session_uuid'] ?? 'default-session';
 $language = TutorLanguage::normalize($data['language'] ?? 'jopara');
-$context = $data['context'] ?? [];
+$context = []; // Context and pedagogical state are reconstructed on the server.
 $startMs = microtime(true);
 
-if (empty($userMessage)) {
-    echo json_encode([
-        'success' => false,
-        'error' => 'El mensaje no puede estar vacío.'
-    ]);
-    exit;
-}
+if($userMessage==='')tutorApiError(422,'El mensaje no puede estar vacío.');
 
 try {
     // Sessions are created only after choosing a unit/subtopic.
     $lookup = Database::getConnection()->prepare('SELECT id FROM learning_sessions WHERE session_uuid = ? AND student_id = ?');
     $lookup->execute([$sessionUuid, $studentId]);
     $sessionId = (int)$lookup->fetchColumn();
-    if (!$sessionId) throw new InvalidArgumentException('Seleccioná una unidad y un subtema para iniciar la conversación.');
+    if (!$sessionId) tutorApiError(404,'Conversación no disponible.');
 
     $session = Database::getSession($sessionId, $studentId);
     $tutorState = Database::getTutorState($sessionId, $studentId);
@@ -60,6 +53,7 @@ try {
         }
         $tutorState['language'] = $language;
         $next = PedagogyService::transition($tutorState, $userMessage, $data['action'] ?? '');
+        $next = StudentAnalysis::adapt(StudentAnalysis::update($next, $userMessage, $data['action'] ?? ''));
         $next = AIService::interpretWorkshop($next);
         unset($next['last_response']);
         $response = AIService::renderLesson($userMessage, $next, $chatHistory, PedagogyService::response($next));
@@ -162,9 +156,4 @@ try {
         'updated_progress' => $progressOverview
     ], JSON_UNESCAPED_UNICODE);
 
-} catch (Exception $e) {
-    echo json_encode([
-        'success' => false,
-        'error' => 'Error procesando la solicitud: ' . $e->getMessage()
-    ]);
-}
+} catch (Throwable $e) { tutorApiFailure($e); }

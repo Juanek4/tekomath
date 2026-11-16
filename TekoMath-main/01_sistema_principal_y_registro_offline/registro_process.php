@@ -6,6 +6,7 @@
 
 require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/config/session.php';
+require_once __DIR__ . '/config/registration_policy.php';
 
 // Solo aceptar peticiones POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -18,7 +19,12 @@ $nombre           = trim($_POST['nombre'] ?? '');
 $email            = trim($_POST['email'] ?? '');
 $password         = $_POST['password'] ?? '';
 $password_confirm = $_POST['password_confirm'] ?? '';
-$rol              = $_POST['rol'] ?? 'estudiante';
+$rol              = publicRegistrationRole($_POST['rol'] ?? null);
+if (!validRegistrationToken($_POST['csrf_token'] ?? null, $_SESSION['registration_token'] ?? null)) {
+    $_SESSION['reg_error'] = 'La página de registro venció. Volvé a cargarla e intentá de nuevo.';
+    header('Location: registro.php');
+    exit;
+}
 
 // Validaciones
 $errors = [];
@@ -31,8 +37,8 @@ if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = 'Ingresa un correo electrónico válido.';
 }
 
-if (empty($password) || mb_strlen($password) < 4) {
-    $errors[] = 'La contraseña debe tener al menos 4 caracteres.';
+if (mb_strlen($password) < 8 || strlen($password) > 72) {
+    $errors[] = 'Usá una contraseña de al menos 8 caracteres. Si es muy larga, acortala.';
 }
 
 if ($password !== $password_confirm) {
@@ -106,7 +112,8 @@ try {
     }
 
 } catch (Exception $e) {
-    $_SESSION['reg_error']  = 'Error al procesar el registro: ' . htmlspecialchars($e->getMessage());
+    error_log('Registration failed: ' . $e->getMessage());
+    $_SESSION['reg_error']  = 'No pudimos crear tu cuenta. Intentá nuevamente en unos momentos.';
     $_SESSION['reg_nombre'] = $nombre;
     $_SESSION['reg_email']  = $email;
     $_SESSION['reg_rol']    = $rol;

@@ -1,6 +1,6 @@
 // assets/js/app.js - Orquestador completo (Banana & Verde, Sin Emojis, Widgets a la Izquierda, Chat Amplio a la Derecha)
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
 
     // ── PREVENCIÓN DE ERRORES CORS EN ARCHIVOS LOCALES ─────────────
     // Evita que la consola se llene de errores CORS "origin 'null' has been blocked"
@@ -20,7 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
         return 'sess_' + Math.random().toString(36).substring(2, 10) + '_' + Date.now();
     }
 
-    let studentId = parseInt(localStorage.getItem('kyhyjey_student') || '1');
+    let verifiedUserId = null;
+    if (window.location.protocol !== 'file:') {
+        try {
+            const response = await fetch('api/security.php', {cache:'no-store'});
+            const identity = await response.json();
+            if (response.ok && Number.isInteger(identity.user_id)) verifiedUserId = identity.user_id;
+        } catch (_) {}
+    }
+    // Legacy unscoped caches have no reliable owner and are never imported automatically.
+    const scopedStorage = verifiedUserId ? localStorage : sessionStorage;
+    const storagePrefix = verifiedUserId ? `teko-tutor:user:${verifiedUserId}:` : 'teko-tutor:guest:';
+    const userStorage = {
+        getItem: key => scopedStorage.getItem(storagePrefix + key),
+        setItem: (key, value) => scopedStorage.setItem(storagePrefix + key, value),
+        removeItem: key => scopedStorage.removeItem(storagePrefix + key)
+    };
+    let studentId = verifiedUserId || 0;
     let currentLanguage = window.JopaMathI18n?.getLanguage() || localStorage.getItem('teko_math_lang') || 'es';
     let currentTopic = 'trigonometria';
     let sessionUuid = null;
@@ -43,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
         tutorState = state;
         offlineEngine.setTutorState(state);
         currentTopic = state.topic;
-        localStorage.setItem('kyhyjey_topic', currentTopic);
-        localStorage.setItem(`kyhyjey_state_${sessionUuid}`, JSON.stringify(state));
+        userStorage.setItem('kyhyjey_topic', currentTopic);
+        userStorage.setItem(`kyhyjey_state_${sessionUuid}`, JSON.stringify(state));
         if (offlineEngine.topic !== currentTopic) offlineEngine.setTopic(currentTopic);
         renderTopicChips();
         if(topicChanged) updateTopicVisualizer(currentTopic);
@@ -54,27 +70,27 @@ document.addEventListener('DOMContentLoaded', () => {
     function restoreLocalTutorState() {
         tutorState = null;
         dbSessionId = null;
-        try { applyTutorState(JSON.parse(localStorage.getItem(`kyhyjey_state_${sessionUuid}`))); } catch (e) {}
+        try { applyTutorState(JSON.parse(userStorage.getItem(`kyhyjey_state_${sessionUuid}`))); } catch (e) {}
     }
 
     function getLocalSessionsStore() {
         try {
-            return JSON.parse(localStorage.getItem('kyhyjey_sessions_store')) || [];
+            return JSON.parse(userStorage.getItem('kyhyjey_sessions_store')) || [];
         } catch (e) {
             return [];
         }
     }
 
     function saveLocalSessionsStore(sessions) {
-        localStorage.setItem('kyhyjey_sessions_store', JSON.stringify(sessions));
+        userStorage.setItem('kyhyjey_sessions_store', JSON.stringify(sessions));
     }
 
     function saveMessageToLocalSession(uuid, role, message, latex = null) {
         const key = `kyhyjey_history_${uuid}`;
         let history = [];
-        try { history = JSON.parse(localStorage.getItem(key)) || []; } catch(e) {}
+        try { history = JSON.parse(userStorage.getItem(key)) || []; } catch(e) {}
         history.push({ role, message, formula_latex: latex, created_at: new Date().toISOString() });
-        localStorage.setItem(key, JSON.stringify(history));
+        userStorage.setItem(key, JSON.stringify(history));
 
         let store = getLocalSessionsStore();
         let sessionIndex = store.findIndex(s => s.session_uuid === uuid);
@@ -152,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const res = await fetch(`api/sessions.php?student_id=${studentId}`);
+            if ([401,403].includes(res.status)) {chatsListContainer.textContent = 'Iniciá sesión nuevamente para ver tus conversaciones.'; return;}
             if (res.ok) {
                 const json = await res.json();
                 if (json.success && json.sessions && json.sessions.length > 0) {
@@ -188,16 +205,21 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = `chat-item-card ${isActive ? 'active' : ''}`;
             card.innerHTML = `
                 <div class="chat-item-info">
-                    <div class="chat-item-title">${s.topic_label || 'Matemática'} (${(s.language || 'jopara').toUpperCase()})</div>
-                    <div class="chat-item-preview">${s.preview || 'Conversación activa'}</div>
+                    <div class="chat-item-title"></div>
+                    <div class="chat-item-preview"></div>
                     <div class="chat-item-meta">
-                        <span>Fecha: ${s.date_formatted || 'Reciente'}</span>
-                        <span>${s.interactions || 1} mensajes</span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
                 <button class="chat-item-delete" title="Eliminar conversación">&times;</button>
             `;
 
+            card.querySelector('.chat-item-title').textContent = `${s.topic_label || 'Matemática'} (${String(s.language || 'jopara').toUpperCase()})`;
+            card.querySelector('.chat-item-preview').textContent = s.preview || 'Conversación activa';
+            const metadata = card.querySelectorAll('.chat-item-meta span');
+            metadata[0].textContent = `Fecha: ${s.date_formatted || 'Reciente'}`;
+            metadata[1].textContent = `${Number(s.interactions) || 0} mensajes`;
             card.addEventListener('click', (e) => {
                 if (e.target.classList.contains('chat-item-delete')) return;
                 switchChatSession(s.session_uuid, s.topic, s.language);
@@ -219,10 +241,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (submitting) return;
         openLearningView();
         sessionUuid = uuid;
-        localStorage.setItem('kyhyjey_session', uuid);
+        userStorage.setItem('kyhyjey_session', uuid);
         if (topic) {
             currentTopic = topic;
-            localStorage.setItem('kyhyjey_topic', topic);
+            userStorage.setItem('kyhyjey_topic', topic);
             offlineEngine.setTopic(topic);
             renderTopicChips();
             updateTopicVisualizer(topic);
@@ -251,10 +273,10 @@ document.addEventListener('DOMContentLoaded', () => {
         tutorState.language=currentLanguage;
         offlineEngine.setTutorState(tutorState);
         dbSessionId = null;
-        localStorage.setItem('kyhyjey_session', newUuid);
-        localStorage.setItem(`kyhyjey_state_${newUuid}`, JSON.stringify(tutorState));
+        userStorage.setItem('kyhyjey_session', newUuid);
+        userStorage.setItem(`kyhyjey_state_${newUuid}`, JSON.stringify(tutorState));
         currentTopic = topic;
-        localStorage.setItem('kyhyjey_topic', topic);
+        userStorage.setItem('kyhyjey_topic', topic);
         offlineEngine.setTopic(topic);
         currentExercise = offlineEngine.getCurrentExercise();
 
@@ -292,13 +314,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             const result = await response.json();
             if (sessionUuid !== newUuid) return;
+            if (response.status >= 400 && response.status < 500) {const error = new Error(result.error || 'No pudimos crear la conversación.'); error.serverRejected = true; throw error;}
             if (!result.success) throw new Error(result.error);
             if (result.success) {
                 dbSessionId = result.session.id;
                 applyTutorState(result.session.tutor_state);
             }
         } catch (e) {
-            localStorage.setItem(`kyhyjey_local_${newUuid}`, '1');
+            if (e.serverRejected) {chatUI.appendMessage('tutor',e.message); return;}
+            userStorage.setItem(`kyhyjey_local_${newUuid}`, '1');
         } finally { submitting = false; }
         if (sessionUuid !== newUuid) return;
 
@@ -316,21 +340,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function deleteChatSession(uuid, dbId, cardElement) {
         if (!confirm('¿Seguro que querés eliminar esta conversación?')) return;
-        cardElement.remove();
-
-        let store = getLocalSessionsStore().filter(s => s.session_uuid !== uuid);
-        saveLocalSessionsStore(store);
-        localStorage.removeItem(`kyhyjey_history_${uuid}`);
-
         if (dbId) {
             try {
-                fetch('api/sessions.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'delete', session_id: dbId, student_id: studentId })
+                const response = await fetch('api/sessions.php', {
+                    method: 'POST', headers: {'Content-Type':'application/json'},
+                    body: JSON.stringify({action:'delete',session_id:Number(dbId)})
                 });
-            } catch (e) {}
+                const result = await response.json();
+                if (!response.ok || !result.success) throw new Error(result.error || 'No pudimos eliminar la conversación.');
+            } catch (error) {
+                alert(error.message || 'No pudimos eliminar la conversación. Intentá nuevamente.');
+                return;
+            }
         }
+        cardElement.remove();
+        saveLocalSessionsStore(getLocalSessionsStore().filter(s => s.session_uuid !== uuid));
+        userStorage.removeItem(`kyhyjey_history_${uuid}`);
+        userStorage.removeItem(`kyhyjey_state_${uuid}`);
+        userStorage.removeItem(`kyhyjey_local_${uuid}`);
+
     }
 
     // ── SELECTOR DE TEMAS MEC (SIN EMOJIS, ELEGANTES NOMBRES TÉCNICOS) ─────
@@ -379,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(problemToggle){problemToggle.closest('label').hidden=Boolean(tutorState?.workshop);if(tutorState?.workshop)problemToggle.checked=false;}
         if(tutorState?.workshop){context.textContent='Resolver un problema · Guía paso a paso y comprobación de tu resultado';return;}
         const labels={TOPIC_SELECTED:'Preparación',TEACHING_MODE:'Explicación',EXAMPLE_MODE:'Ejemplo resuelto',QUESTION_MODE:'Tu pregunta',CHECK_UNDERSTANDING:'Comprobación',READY_CHECK:'Antes de practicar',PRACTICE_MODE:'Práctica guiada',REVIEW_MODE:'Repaso',COMPLETED:'Lección guardada'};
-        context.textContent=lesson ? `Unidad ${tutorState.unit_id} · ${lesson.title} · ${labels[tutorState.mode]||'Aprendizaje'}${localStorage.getItem(`kyhyjey_local_${sessionUuid}`)?' · Guardado en este dispositivo':''}` : 'Elegí una unidad y un subtema para comenzar.';
+        context.textContent=lesson ? `Unidad ${tutorState.unit_id} · ${lesson.title} · ${labels[tutorState.mode]||'Aprendizaje'}${userStorage.getItem(`kyhyjey_local_${sessionUuid}`)?' · Guardado en este dispositivo':''}` : 'Elegí una unidad y un subtema para comenzar.';
         if(lesson) {
             const source=document.createElement(lesson.source?'a':'span');source.className='lesson-source';
             source.textContent=lesson.source?`Aranduka · MEC 2016, página ${lesson.source.printed_page}`:lesson.source_note;
@@ -439,13 +467,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (currentLanguage === language) return;
             currentLanguage = language;
             if (langSelect) langSelect.value = language;
-            localStorage.setItem('kyhyjey_lang', currentLanguage);
+            userStorage.setItem('kyhyjey_lang', currentLanguage);
             saveLocalSessionsStore(getLocalSessionsStore().map(session => session.session_uuid === sessionUuid ? {...session, language} : session));
             offlineEngine.setLanguage(language);
             if (tutorState) {
                 tutorState.language = language;
                 delete tutorState.last_response;
-                localStorage.setItem(`kyhyjey_state_${sessionUuid}`, JSON.stringify(tutorState));
+                userStorage.setItem(`kyhyjey_state_${sessionUuid}`, JSON.stringify(tutorState));
                 chatUI.renderQuickOptions(LessonEngine.response(tutorState).quick_options);
             }
     }
@@ -457,13 +485,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             currentLanguage = e.target.value;
-            localStorage.setItem('kyhyjey_lang', currentLanguage);
+            userStorage.setItem('kyhyjey_lang', currentLanguage);
             saveLocalSessionsStore(getLocalSessionsStore().map(session=>session.session_uuid===sessionUuid?{...session,language:currentLanguage}:session));
             offlineEngine.setLanguage(currentLanguage);
             if(tutorState) {
                 tutorState.language=currentLanguage;
                 delete tutorState.last_response;
-                localStorage.setItem(`kyhyjey_state_${sessionUuid}`,JSON.stringify(tutorState));
+                userStorage.setItem(`kyhyjey_state_${sessionUuid}`,JSON.stringify(tutorState));
                 const localized=LessonEngine.response(tutorState);
                 chatUI.renderQuickOptions(localized.quick_options);
             }
@@ -482,8 +510,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let history = [];
 
         try {
-            if(localStorage.getItem(`kyhyjey_local_${sessionUuid}`)) throw new Error('Local session');
+            if(userStorage.getItem(`kyhyjey_local_${sessionUuid}`)) throw new Error('Local session');
             const res = await fetch(`api/history.php?session_uuid=${sessionUuid}&student_id=${studentId}&limit=50`);
+            if ([401,403,404].includes(res.status)) {chatUI.appendMessage('tutor','La conversación no está disponible. Iniciá sesión nuevamente o elegí otra conversación.'); return true;}
             if (res.ok) {
                 const json = await res.json();
                 if (sessionUuid !== requestedUuid) return true;
@@ -500,7 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sessionUuid !== requestedUuid) return true;
         if (!history || history.length === 0) {
             try {
-                history = JSON.parse(localStorage.getItem(`kyhyjey_history_${sessionUuid}`)) || [];
+                history = JSON.parse(userStorage.getItem(`kyhyjey_history_${sessionUuid}`)) || [];
             } catch (e) {}
         }
 
@@ -535,34 +564,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ── SUBIDA DE FOTO OCR ─────────────────────────────────────────
+    // Image recognition uses the same local engine and assets as Arcade.
     const cameraUpload = document.getElementById('camera-upload');
     if (cameraUpload) {
-        cameraUpload.addEventListener('change', async (e) => {
-            const file = e.target.files[0];
+        cameraUpload.addEventListener('change', async (event) => {
+            const file = event.target.files?.[0];
             if (!file) return;
-            chatUI.appendMessage('user', `Foto: ${file.name}`);
+            if (submitting) {
+                cameraUpload.value = '';
+                chatUI.appendMessage('tutor', 'Esperá a que termine la operación actual y volvé a seleccionar la foto.');
+                return;
+            }
+            submitting = true; cameraUpload.disabled = true;
+            chatUI.appendMessage('user', 'Foto: ' + file.name);
             chatUI.showTypingIndicator();
-            const fd = new FormData();
-            fd.append('exercise_image', file);
             try {
-                const res  = await fetch('api/upload_image.php', { method: 'POST', body: fd });
-                const json = await res.json();
-                submitting = false;
-        chatUI.hideTypingIndicator();
-                if (json.success) {
-                    chatUI.appendMessage('tutor', json.confirmation_message_jopara, json.formula_latex, "Ejercicio detectado");
-                    chatUI.renderQuickOptions(["¡Sí, está correcto! Empecemos", "No, déjame corregirlo"]);
-                }
-            } catch (err) {
-                submitting = false;
-        chatUI.hideTypingIndicator();
-                chatUI.appendMessage('tutor', "Ahecha peteĩ ejercicio en tu foto:\n\n\"Determinar el ejercicio\"\n\n¿Está correcto? ¿Jajapo juntos?", null, "Confirmá para comenzar");
-                chatUI.renderQuickOptions(["¡Sí, está correcto!", "No, probar otra foto"]);
+                const engine = await import('../../../../../03_teko_arcade/TEKOARCADE/JUEGOS/dist/shared/image-recognition.js');
+                const text = await engine.recognizeImageText(file);
+                document.getElementById('image-review-panel')?.remove();
+                const panel = document.createElement('section');panel.id = 'image-review-panel';panel.className = 'image-review-panel';
+                const label = document.createElement('label');label.htmlFor = 'image-review-text';label.textContent = 'Revisá el enunciado antes de continuar';
+                const editor = document.createElement('textarea');editor.id = 'image-review-text';editor.rows = 5;editor.maxLength = 12000;editor.value = text;
+                const note = document.createElement('p');note.textContent = 'La lectura puede confundir signos, fracciones o letras. Corregí el texto si hace falta.';
+                const confirm = document.createElement('button');confirm.type = 'button';confirm.className = 'btn-header';confirm.textContent = 'Confirmar y trabajar este ejercicio';
+                const cancel = document.createElement('button');cancel.type = 'button';cancel.className = 'btn-header';cancel.textContent = 'Cancelar';
+                cancel.addEventListener('click', () => panel.remove());
+                confirm.addEventListener('click', async () => {
+                    const statement = editor.value.trim();if(!statement || submitting)return;
+                    confirm.disabled = true;
+                    try {
+                        if(!tutorState)await createNewTopicChatSession('funciones','concepto');
+                        panel.remove();
+                        await handleUserSubmission(statement, 'image_problem');
+                    } catch(error) { confirm.disabled=false;chatUI.appendMessage('tutor', 'No pudimos abrir el ejercicio. Podés copiar el texto y enviarlo en el chat.'); }
+                });
+                panel.append(label,editor,note,confirm,cancel);
+                document.querySelector('.chat-input-area').prepend(panel);
+            } catch(error) {
+                chatUI.appendMessage('tutor', error.message || 'No pude leer la imagen. Podés escribir el ejercicio en el chat.');
+            } finally {
+                submitting=false;cameraUpload.disabled=false;cameraUpload.value='';chatUI.hideTypingIndicator();
             }
         });
     }
-
     // ── ENVÍO DE MENSAJES ──────────────────────────────────────────
     async function handleUserSubmission(userMsg, action = '') {
         if (!userMsg?.trim() || submitting) return;
@@ -578,17 +622,11 @@ document.addEventListener('DOMContentLoaded', () => {
         messageHistory.push({ role: 'user', content: msg });
         saveMessageToLocalSession(sessionUuid, 'user', msg);
 
-        if (/video|youtube|eheka.*video/i.test(msg)) {
-            chatUI.appendMessage('tutor','La búsqueda de videos todavía no está conectada. Podemos continuar con la explicación o el ejemplo de este subtema.');
-            if(tutorState && LessonEngine.lesson(tutorState)) chatUI.renderQuickOptions(LessonEngine.options(tutorState));
-            return;
-        }
-
         submitting = true;
         chatUI.showTypingIndicator();
         let tutorResult = null;
 
-        if (isOnline && !localStorage.getItem(`kyhyjey_local_${sessionUuid}`)) {
+        if (isOnline && !userStorage.getItem(`kyhyjey_local_${sessionUuid}`)) {
             try {
                 const res = await fetch('api/chat.php', {
                     method: 'POST',
@@ -599,15 +637,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         revision: tutorState?.revision,
                         student_id: studentId,
                         session_uuid: sessionUuid,
-                        language: currentLanguage,
-                        context: {
-                            current_topic: currentTopic,
-                            current_exercise: currentExercise || offlineEngine.getCurrentExercise(),
-                            hint_level: offlineEngine.currentHintLevel,
-                            history: messageHistory.slice(-12)
-                        }
+                        language: currentLanguage
+                        // History, exercise and pedagogical state come from the server.
                     })
                 });
+                if ([400,401,403,404,413,415,422].includes(res.status)) {
+                    const rejected = await res.json();
+                    chatUI.appendMessage('tutor',rejected.error || 'No pudimos enviar el mensaje.');
+                    submitting=false;chatUI.hideTypingIndicator();return;
+                }
                 if (res.status === 409) {
                     const data=await res.json();applyTutorState(data.tutor_state);
                     chatUI.appendMessage('tutor',data.error);
@@ -628,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!tutorResult) {
             if(tutorState && LessonEngine.lesson(tutorState)) {
-                localStorage.setItem(`kyhyjey_local_${sessionUuid}`,'1');
+                userStorage.setItem(`kyhyjey_local_${sessionUuid}`,'1');
                 const local=offlineEngine.processLesson(msg,action);
                 tutorResult=local.response;applyTutorState(local.tutor_state);
             } else tutorResult = offlineEngine.processMessage(msg);

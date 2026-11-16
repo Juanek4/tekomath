@@ -18,10 +18,11 @@ class Database {
         $db     = env('DB_NAME', 'kyhyjey_db');
         $user   = env('DB_USER', 'root');
         $pass   = env('DB_PASS', '');
+        $port = (int)env('DB_PORT',3306);
 
         if ($driver === 'mysql') {
             try {
-                $dsn = "mysql:host={$host};dbname={$db};charset=utf8mb4";
+                $dsn = "mysql:host={$host};port={$port};dbname={$db};charset=utf8mb4";
                 $options = [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -32,13 +33,14 @@ class Database {
                 self::$driverUsed = 'mysql';
                 return self::$instance;
             } catch (PDOException $e) {
+                if(teko_production())throw new RuntimeException('La base del tutor no está disponible.',0,$e);
                 try {
-                    $dsnRoot = "mysql:host={$host};charset=utf8mb4";
+                    $dsnRoot = "mysql:host={$host};port={$port};charset=utf8mb4";
                     $tempPdo = new PDO($dsnRoot, $user, $pass);
                     $tempPdo->exec("CREATE DATABASE IF NOT EXISTS `{$db}` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;");
                     $tempPdo = null;
 
-                    self::$instance = new PDO("mysql:host={$host};dbname={$db};charset=utf8mb4", $user, $pass, [
+                    self::$instance = new PDO("mysql:host={$host};port={$port};dbname={$db};charset=utf8mb4", $user, $pass, [
                         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
                     ]);
@@ -55,6 +57,7 @@ class Database {
     }
 
     private static function connectSqlite(): PDO {
+        if(teko_production())throw new RuntimeException('SQLite no está habilitado en producción.');
         $sqlitePath = __DIR__ . '/../database/kyhyjey.sqlite';
         $needsInit = !file_exists($sqlitePath);
         
@@ -115,7 +118,7 @@ class Database {
         $pdo = self::getConnection();
         // Additive migration for new and existing MySQL/SQLite installations.
         if (!self::$stateTableReady) {
-        $pdo->exec('CREATE TABLE IF NOT EXISTS tutor_session_states (
+        teko_schema_exec($pdo,'CREATE TABLE IF NOT EXISTS tutor_session_states (
             session_id INTEGER PRIMARY KEY, state_json TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 1
         )');
         self::$stateTableReady = true;
@@ -230,8 +233,7 @@ class Database {
     }
 
     private static function initSqliteTables(PDO $pdo): void {
-        $pdo->exec("
-            CREATE TABLE IF NOT EXISTS students (
+        teko_schema_exec($pdo," CREATE TABLE IF NOT EXISTS students (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL DEFAULT 'Temimbo''e',
                 email TEXT NULL UNIQUE,

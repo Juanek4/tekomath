@@ -1,18 +1,12 @@
 <?php
+require_once __DIR__.'/../config/api_guard.php';
+tutorApiGuard(['GET', 'POST']);
 // api/sessions.php - Gestor de Múltiples Conversaciones y Sesiones de Chat
-header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
-
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    exit(0);
-}
-
 require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/student_identity.php';
 require_once __DIR__ . '/../services/pedagogy_service.php';
 
-$studentId = (int)($_GET['student_id'] ?? 1);
+$studentId = $authenticatedStudentId;
 $method = $_SERVER['REQUEST_METHOD'];
 
 try {
@@ -69,16 +63,18 @@ try {
 
     // POST: Crear una nueva conversación
     if ($method === 'POST') {
-        $raw = file_get_contents('php://input');
-        $data = json_decode($raw, true) ?? [];
+        $data = tutorApiJson();
         $action = $data['action'] ?? 'create';
-        $studentId = (int)($data['student_id'] ?? $studentId);
+        $studentId = $authenticatedStudentId;
+        if(!in_array($action,['create','delete'],true))tutorApiError(422,'Acción inválida.');
 
         if ($action === 'create') {
             $uuid = $data['session_uuid'] ?? ('sess_' . bin2hex(random_bytes(8)) . '_' . time());
             $topic = $data['topic'] ?? 'trigonometria';
             $lang = $data['language'] ?? 'jopara';
             $subtopic = $data['subtopic'] ?? '';
+            foreach([$uuid,$topic,$lang,$subtopic] as $value)if(!is_string($value))tutorApiError(422,'Datos de conversación inválidos.');
+            if(!in_array($lang,['es','es_py','jopara'],true))tutorApiError(422,'Idioma inválido.');
             if (!CurriculumService::lesson($topic, $subtopic)) throw new InvalidArgumentException('Seleccioná una unidad y un subtema.');
 
             $newId = Database::getOrCreateSession($uuid, $studentId, $lang, $topic);
@@ -110,22 +106,20 @@ try {
         }
 
         if ($action === 'delete') {
-            $sessionId = (int)($data['session_id'] ?? 0);
-            if ($sessionId) {
-                Database::getTutorState($sessionId, $studentId);
-                $pdo->prepare('DELETE FROM tutor_session_states WHERE session_id = ?')->execute([$sessionId]);
-                $del = $pdo->prepare("DELETE FROM learning_sessions WHERE id = ? AND student_id = ?");
-                $del->execute([$sessionId, $studentId]);
-            }
+            $sessionId = $data['session_id']??null;
+            if(!is_int($sessionId)||$sessionId<1)tutorApiError(422,'Conversación inválida.');
+            Database::getSession($sessionId, $studentId);
+            $pdo->beginTransaction();
+            $pdo->prepare('DELETE FROM tutor_session_states WHERE session_id = ?')->execute([$sessionId]);
+            $pdo->prepare('DELETE FROM chat_history WHERE session_id = ? AND student_id = ?')->execute([$sessionId,$studentId]);
+            $pdo->prepare('DELETE FROM learning_sessions WHERE id = ? AND student_id = ?')->execute([$sessionId,$studentId]);
+            $pdo->commit();
             echo json_encode(['success' => true], JSON_UNESCAPED_UNICODE);
             exit;
         }
     }
 
-} catch (Exception $e) {
+} catch (Throwable $e) {
     if (isset($pdo) && $pdo->inTransaction()) $pdo->rollBack();
-    echo json_encode([
-        'success' => false,
-        'error' => $e->getMessage()
-    ]);
+    tutorApiFailure($e);
 }

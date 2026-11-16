@@ -14,7 +14,7 @@ class AIService {
         if($plan)$state['workshop']=$plan+['topic'=>$w['topic']??'unsure','statement'=>$w['statement']];
         return $state;
     }
-    public static function renderLesson(string $message, array $state, array $history, array $draft): array {
+    public static function renderLesson(string $message, array $state, array $history, array $draft): array { if(isset($state['assessment']))return $draft;
         if(isset($state['workshop']))return $draft;
         if(isset($state['numeric_query']))return $draft;
         if(isset($state['scope_query']) || ($draft['scope']??'')==='higher_course')return $draft;

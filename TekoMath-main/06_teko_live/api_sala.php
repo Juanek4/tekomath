@@ -13,6 +13,8 @@ if (file_exists(__DIR__ . '/config/session.php')) {
 }
 
 requireLogin();
+require_once __DIR__.'/../01_sistema_principal_y_registro_offline/config/api_security.php';
+apiMutationGuard();
 
 $user = getUser();
 $db = getDB();
@@ -211,6 +213,8 @@ function generarPinUnico(PDO $db): string {
 }
 
 try {
+    require_once __DIR__.'/access.php';
+    enforceLiveAccess($db,$user,$action);
     // ============================================
     // 1. OBTENER PACKS DISPONIBLES (Predeterminados + Creados por Docente)
     // ============================================
@@ -405,6 +409,7 @@ try {
             $cStmt = $db->prepare("SELECT * FROM packs_quiz WHERE id = :id");
             $cStmt->execute([':id' => $customDbId]);
             $customRow = $cStmt->fetch();
+            if(!$customRow || (int)$customRow['docente_id']!==(int)$user['id'])liveDenied();
 
             if ($customRow) {
                 $titulo = $customRow['titulo'];

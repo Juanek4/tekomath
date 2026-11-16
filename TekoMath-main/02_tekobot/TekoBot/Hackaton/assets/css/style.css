@@ -1,4 +1,4 @@
-﻿/* assets/css/style.css - EstÃ©tica Neo-Brutalista PytyvÃµ Motion (Bordes sÃ³lidos, sombras oscuras, pills y fondo reticular) */
+/* assets/css/style.css - EstÃ©tica Neo-Brutalista PytyvÃµ Motion (Bordes sÃ³lidos, sombras oscuras, pills y fondo reticular) */
 :root {
     --primary: #10B981;            /* Verde esmeralda claro */
     --primary-hover: #059669;      /* Verde esmeralda intenso */
@@ -827,3 +827,7 @@ body {
 .topic-chips-bar.curriculum-selector { max-height: 260px; overflow-y: auto; margin: 0 1.5rem 1rem; padding: 1rem; }
 .lesson-context { padding: .7rem 1rem; background: #f0f6e8; color: #315234; border-bottom: 1px solid #dbe7cf; font-size: .8rem; line-height: 1.5; flex-shrink: 0; }
 @media (max-width: 768px) { .topic-chips-bar.curriculum-selector { margin: .5rem; max-height: 220px; } }
+.diagnostic-topic-selectors { display: grid; gap: .45rem; margin-bottom: 1rem; min-width: 0; }
+.diagnostic-topic-selectors label { font-weight: 700; color: var(--text-main); }
+.diagnostic-topic-selectors select { width: 100%; min-width: 0; max-width: 100%; padding: .7rem; border: 2px solid var(--primary); border-radius: 12px; background: var(--bg-card, #fff); color: var(--text-main); font: inherit; }
+.diagnostic-topic-selectors select:focus-visible { outline: 3px solid var(--primary-hover); outline-offset: 2px; }
